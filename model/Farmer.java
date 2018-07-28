@@ -597,6 +597,18 @@ public class Farmer
 			if (seed instanceof Flower)
 				total = total * 1.05;
 			
+			int flb = 0;
+			if (rank == 0)
+				flb = 0;
+			else if (rank == 1)
+				flb = 2;
+			else if (rank == 2)
+				flb = 3;
+			else 
+				flb = 5;
+			
+			total = total + flb;
+			
 			total = total * seed.productsProduced();
 			
 			coins = coins - seed.getHC() + total;
