@@ -502,7 +502,7 @@ public class Farmer
 	
 	public boolean plow (int pos)
 	{
-		if (farmLot.get(pos).getAvailable() == false)
+		if (farmLot.get(pos).getAvailable() == false && farmLot.get(pos).getWithered() == false)
 			return false;
 		
 		if (farmLot.get(pos).getPlowed() == false)
