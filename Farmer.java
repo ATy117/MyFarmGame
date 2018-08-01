@@ -17,7 +17,7 @@ public class Farmer
 	private ArrayList<Seed> seedBag;
 	private ArrayList<Tile> farmLot;
 
-	public Farmer(String s)
+	public Farmer()
 	{
 		name = s;
 		currentExp = 0;
@@ -638,7 +638,12 @@ public class Farmer
 		return false;
 	}
 
-
+	// Setters
+	public void setName(String s)
+	{
+		name = s;	
+	}
+	
 	// Getters
 
 	public ArrayList<Seed> getSeeds()
