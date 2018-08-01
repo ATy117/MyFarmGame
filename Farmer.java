@@ -19,7 +19,6 @@ public class Farmer
 
 	public Farmer()
 	{
-		name = s;
 		currentExp = 0;
 		maxExp = 50;
 		rank = 0;
