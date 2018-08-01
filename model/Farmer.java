@@ -639,8 +639,6 @@ public class Farmer
 	}
 
 
-
-
 	// Getters
 
 	public ArrayList<Seed> getSeeds()
