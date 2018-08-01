@@ -493,44 +493,7 @@ public class view extends Application
 
   });
 
-  // Watering Can Mouse Click Options
-  wateringcan.setOnMouseClicked( e ->
-  {
-    HBox seedInfoBox = new HBox();
-    seedInfoBox.setPrefWidth(530);
-    seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-        + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
-    seedInfoBox.setSpacing(10);
-
-    Button waterButton = new Button("Water");
-    waterButton.setMinWidth(80);
-    waterButton.setMinHeight(75);
-    waterButton.setOnMouseClicked( new EventHandler<> () {
-      public void handle(MouseEvent e){
-        for (int i = 0; i < 50; i++){
-          ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-          tile.setOnMouseClicked( new EventHandler<> () {
-            public void handle(MouseEvent e){
-              infoui.getChildren().remove(seedInfoBox);
-              resetTileAction();
-            }
-          });
-          }
-      }
-    });
-
-    Button cancelButton = new Button("Cancel");
-    cancelButton.setMinWidth(80);
-    cancelButton.setMinHeight(75);
-
-    cancelButton.setOnMouseClicked( new EventHandler<> () {
-      public void handle(MouseEvent e){
-        infoui.getChildren().remove(seedInfoBox);
-      }
-    });
-    
-    // shovel Mouse Click Options
+  // Shovel Mouse Click Options
   shovel.setOnMouseClicked( e ->
   {
     HBox seedInfoBox = new HBox();
@@ -589,6 +552,67 @@ public class view extends Application
 
   });
 
+// Watering Can Mouse Click Options
+  wateringcan.setOnMouseClicked( e ->
+  {
+    HBox seedInfoBox = new HBox();
+    seedInfoBox.setPrefWidth(530);
+    seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
+        + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
+        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    seedInfoBox.setSpacing(10);
+
+    Button waterButton = new Button("Water");
+    waterButton.setMinWidth(80);
+    waterButton.setMinHeight(75);
+    waterButton.setOnMouseClicked( new EventHandler<> () {
+      public void handle(MouseEvent e){
+        for (int i = 0; i < 50; i++){
+          ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
+          tile.setOnMouseClicked( new EventHandler<> () {
+            public void handle(MouseEvent e){
+              infoui.getChildren().remove(seedInfoBox);
+              resetTileAction();
+            }
+          });
+          }
+      }
+    });
+
+    Button cancelButton = new Button("Cancel");
+    cancelButton.setMinWidth(80);
+    cancelButton.setMinHeight(75);
+
+    cancelButton.setOnMouseClicked( new EventHandler<> () {
+      public void handle(MouseEvent e){
+        infoui.getChildren().remove(seedInfoBox);
+      }
+    });
+    // Buttons
+    VBox buttonBox = new VBox();
+    buttonBox.getChildren().add(waterButton);
+    buttonBox.getChildren().add(cancelButton);
+    seedInfoBox.getChildren().add(buttonBox);
+
+    TextFlow seedInfo = new TextFlow();
+    seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
+        + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
+        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    seedInfo.setPrefWidth(410);
+
+    seedInfoBox.getChildren().add(seedInfo);
+    if (infoui.getChildren().size() > 2){
+      Node n = infoui.getChildren().get(2);
+      infoui.getChildren().remove(n);
+      infoui.getChildren().add(seedInfoBox);
+    }
+    else
+      infoui.getChildren().add(seedInfoBox);
+
+  });
+
+    
+    
   // Pickaxe Mouse Click Options
   pickaxe.setOnMouseClicked( e ->
   {
