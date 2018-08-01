@@ -64,6 +64,7 @@ public class view extends Application
   Image plowtoolimg = new Image("images/plowtool.png");
   Image pickaxeimg = new Image("images/pickaxe.png");
   Image fertilizerbagimg = new Image("images/fertilizerbag.png");
+  Image harvestimg = new Image("images/harvest.png");
   Image infobox = new Image ("images/infobox.png");
   Image unplowedtile = new Image ("images/unplowed_empty_tile.png");
   Image plowedtile = new Image ("images/plowed_empty_tile.png");
@@ -243,6 +244,10 @@ public class view extends Application
     fertilizerbag.setGraphic(new ImageView(fertilizerbagimg));
     toollayout.add(fertilizerbag, 1, 0);
 
+    Button shovel = new Button ();
+    shovel.setGraphic(new ImageView(harvestimg));
+    toollayout.add(shovel, 1, 1);
+    
     infoui.getChildren().add(toollayout);
 
 
@@ -463,6 +468,7 @@ public class view extends Application
         infoui.getChildren().remove(seedInfoBox);
       }
     });
+    
     // Buttons
     VBox buttonBox = new VBox();
     buttonBox.getChildren().add(unplowedButton);
@@ -523,9 +529,46 @@ public class view extends Application
         infoui.getChildren().remove(seedInfoBox);
       }
     });
+    
+    // shovel Mouse Click Options
+  shovel.setOnMouseClicked( e ->
+  {
+    HBox seedInfoBox = new HBox();
+    seedInfoBox.setPrefWidth(530);
+    seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
+        + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
+        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    seedInfoBox.setSpacing(10);
+
+    Button shovelButton = new Button("Harvest");
+    shovelButton.setMinWidth(80);
+    shovelButton.setMinHeight(75);
+    shovelButton.setOnMouseClicked( new EventHandler<> () {
+      public void handle(MouseEvent e){
+        for (int i = 0; i < 50; i++){
+          ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
+          tile.setOnMouseClicked( new EventHandler<> () {
+            public void handle(MouseEvent e){
+              infoui.getChildren().remove(seedInfoBox);
+              resetTileAction();
+            }
+          });
+          }
+      }
+    });
+
+    Button cancelButton = new Button("Cancel");
+    cancelButton.setMinWidth(80);
+    cancelButton.setMinHeight(75);
+
+    cancelButton.setOnMouseClicked( new EventHandler<> () {
+      public void handle(MouseEvent e){
+        infoui.getChildren().remove(seedInfoBox);
+      }
+    });
     // Buttons
     VBox buttonBox = new VBox();
-    buttonBox.getChildren().add(waterButton);
+    buttonBox.getChildren().add(shovelButton);
     buttonBox.getChildren().add(cancelButton);
     seedInfoBox.getChildren().add(buttonBox);
 
