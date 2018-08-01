@@ -38,7 +38,7 @@ public class Tile
 
 		String s = "";
 
-		if (occupant = null)
+		if (occupant == null)
 			s = "NONE";
 		else
 			s = occupant.getName() + " Crop";
