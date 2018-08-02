@@ -1,11 +1,11 @@
 public class Controller
 {
   Farmer model;
-  view View;
+  View view;
 
   public Controller ()
   {
-    
+
   }
 
   public void setModel (Farmer f)
@@ -13,13 +13,9 @@ public class Controller
     model=f;
   }
 
-  public void setView (view v)
+  public void setView (View v)
   {
-    View=v;
+    view=v;
   }
-
-
-
-
 
 }

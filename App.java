@@ -38,16 +38,11 @@ public class App extends Application
   public void start (Stage primaryStage) {
     Farmer mainModel = new Farmer ();
     Controller mainController = new Controller ();
-    view mainView = new view (primaryStage);
-
+    View mainView = new View (primaryStage);
 
     mainView.setController(mainController);
-
     mainController.setModel(mainModel);
     mainController.setView(mainView);
-
-
-
   }
 
   public static void main (String[] args)
