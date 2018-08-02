@@ -419,7 +419,8 @@ public class View
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
-      TextFlow seedInfo = new TextFlow();
+      Text info = new Text (controller.getFertilizerInfo());
+      TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
           + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
@@ -496,7 +497,8 @@ public class View
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
-      TextFlow seedInfo = new TextFlow();
+      Text info =  new Text (controller.getScyteInfo());
+      TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
           + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
@@ -555,7 +557,8 @@ public class View
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
-      TextFlow seedInfo = new TextFlow();
+      Text info = new Text(controller.getWaterInfo());
+      TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
           + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
@@ -573,7 +576,6 @@ public class View
     });
 
     // Harvest tool mouse click Options
-
     harvesttool.setOnMouseClicked( e ->
     {
       HBox seedInfoBox = new HBox();
@@ -615,7 +617,8 @@ public class View
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
-      TextFlow seedInfo = new TextFlow();
+      Text info = new Text(controller.getHarvestInfo());
+      TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
           + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
@@ -641,9 +644,6 @@ public class View
           + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
-
-
-
 
       Button pickaxeButton = new Button("Remove\n  Rock");
       pickaxeButton.setMinWidth(80);
@@ -680,12 +680,12 @@ public class View
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getPickaxeInfo());
-      TextFlow seedInfo = new TextFlow();
+      TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
           + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
-      seedInfo.getChildren().add(info);
+
 
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -718,14 +718,6 @@ public class View
   }
 
 
-
-
-
-  public void setController (Controller c)
-  {
-    controller=c;
-  }
-
   public String getSeedInfo (String crop)
   {
     return ("this is a " + crop.toString());
@@ -734,9 +726,10 @@ public class View
   public void resetTileAction ()
   {
     for (int i=0; i<50; i++) {
+      int num = i;
       tile[i].setOnMouseClicked( new EventHandler<> () {
         public void handle(MouseEvent e){
-          tileinformation.setText("awdwd");
+          tileinformation.setText(controller.getTileInfo(num));
         }
       });
     }

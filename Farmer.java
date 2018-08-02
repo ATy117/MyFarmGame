@@ -82,6 +82,10 @@ public class Farmer
 					t.setAvailable(false);
 					found = true;
 				}
+				else
+				{
+					t.setAvailable(true);
+				}
 			}
 
 			farmLot.add(t);
@@ -368,7 +372,7 @@ public class Farmer
 	*/
 	public String displayPickaxeInfo()
 	{
-		return "This is a Pickaxe. This tool is used to remove rocks littered across the farm.";
+		return "This is a Pickaxe. This tool is used to remove rocks littered across the farm.\n\nPress 'Remove Rock' then select the tile.";
 	}
 
 	/*
@@ -377,7 +381,7 @@ public class Farmer
 	*/
 	public String displayWaterInfo()
 	{
-		return "This is a Watering Can. This tool is used to water a tile with a growing plant on it. \nYou have unlimited uses for this.";
+		return "This is a Watering Can. This tool is used to water a tile with a growing plant on it.\n\nYou have unlimited uses for this.\n\nPress 'Water' then select the tile to water it.";
 	}
 
 	/*
@@ -386,7 +390,7 @@ public class Farmer
 	*/
 	public String displayFertilizerInfo()
 	{
-		return "This is Fertilizer. This tool is used to fertilize a tile with a growing plant on it. \nYou currently have " + fertilizer + " units of fertilizer.";
+		return "This is Fertilizer. This tool is used to fertilize a tile with a growing plant on it. You currently have " + fertilizer + " units of fertilizer.\n\nPress 'Fertilize' then select the tile to fertilize it.\n\nPress 'Buy' to buy one unit for 10 Coins.";
 	}
 
 	/*
@@ -395,7 +399,16 @@ public class Farmer
 	*/
 	public String displayScyteInfo()
 	{
-		return "This is a Scyte. This tool is used to harvest either a fully grown plant or a withered one for a cost.";
+		return "This is the Plow Tool. This tool is used to plow and unplowed tile or remove a withered plant for a cost.\n\nPress 'Plow' then select the tile to plow the tile.\n\nPress 'Remove Withered' then select the tile to remove a withered plant for 10% of the plant's seed cost.";
+	}
+
+	/*
+		This is the displayHarvestInfo.
+		+ This method returns a string describing what the Scyte tool can do.
+	*/
+	public String displayHarvestInfo()
+	{
+		return "This is the Harvest Tool. This tool is used to harvest a grown plant.\n\nPress 'Harvest' then select the tile to harvest the tile.";
 	}
 
 	/*

@@ -19,6 +19,7 @@ public class Tile
 	{
 		occupant = null;
 		this.pos = pos;
+		isAvailable = true;
 	}
 
 	/*
@@ -39,7 +40,16 @@ public class Tile
 		String s = "";
 
 		if (occupant == null)
-			s = "NONE";
+		{
+			if (hasRocks == true)
+			{
+				s = "ROCK";
+			}
+			else
+			{
+				s = "NONE";
+			}
+		}
 		else
 			s = occupant.getName() + " Crop";
 
