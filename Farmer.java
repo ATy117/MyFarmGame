@@ -31,6 +31,32 @@ public class Farmer
 		fertilizer = 5;
 
 		seedBag = new ArrayList<Seed>();
+		Vegetable turnip = new Vegetable("Turnip", 1, 1, 2, 0, 1, 1, 5, 6, 1, 1);
+		seedBag.add(turnip);
+		Vegetable carrot = new Vegetable("Carrot", 1.5, 1, 2, 0, 1, 1, 10, 9, 1, 2);
+		seedBag.add(carrot);
+		Vegetable tomato = new Vegetable("Tomato", 2.5, 3, 4, 1, 2, 1, 20, 15, 1, 3);
+		seedBag.add(tomato);
+		Vegetable potato = new Vegetable("Potato", 5, 4, 5, 2, 3, 1, 25, 13, 1, 6);
+		seedBag.add(potato);
+		Flower rose = new Flower("Rose", 1, 1, 2, 0, 1, 2, 5, 5);
+		seedBag.add(rose);
+		Flower tulip = new Flower("Tulip", 1.5, 2, 3, 0, 1, 2, 7, 7);
+		seedBag.add(tulip);
+		Flower stargazer = new Flower("Stargazer", 2.5, 2, 3, 0, 1, 2, 10, 9);
+		seedBag.add(stargazer);
+		Flower sunflower = new Flower("Sunflower", 3.5, 2, 3, 1, 2, 2, 20, 19);
+		seedBag.add(sunflower);
+		FruitTree mango = new FruitTree("Mango", 7, 7, 7, 4, 4, 3, 50, 4, 5, 10);
+		seedBag.add(mango);
+		FruitTree apple = new FruitTree("Apple", 7, 7, 7, 5, 5, 3, 55, 3.5, 7, 10);
+		seedBag.add(apple);
+		FruitTree banana = new FruitTree("Banana", 8, 8, 8, 5, 5, 3, 60, 3.5, 10, 15);
+		seedBag.add(banana);
+		FruitTree orange = new FruitTree("Orange", 8, 8, 8, 6, 6, 3, 65, 4.5, 13, 15);
+		seedBag.add(orange);
+
+
 		farmLot = new ArrayList<Tile>();
 
 		Random generate = new Random();
@@ -640,9 +666,9 @@ public class Farmer
 	// Setters
 	public void setName(String s)
 	{
-		name = s;	
+		name = s;
 	}
-	
+
 	// Getters
 
 	public ArrayList<Seed> getSeeds()

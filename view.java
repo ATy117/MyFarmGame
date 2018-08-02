@@ -89,11 +89,10 @@ public class View
   Text farmerstats;
   Controller controller;
 
-  public View (Stage primaryStage)
+  public View (Controller c, Stage primaryStage)
   {
-
     //--------------------------- MAIN MENU ------------------------------//
-
+    controller = c;
 
 
     //Window
@@ -643,15 +642,20 @@ public class View
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
+
+
+
       Button pickaxeButton = new Button("Remove\n  Rock");
       pickaxeButton.setMinWidth(80);
       pickaxeButton.setMinHeight(75);
       pickaxeButton.setOnMouseClicked( new EventHandler<> () {
         public void handle(MouseEvent e){
           for (int i = 0; i < 50; i++){
+            int num = i;
             ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
             tile.setOnMouseClicked( new EventHandler<> () {
               public void handle(MouseEvent e){
+                controller.pickRock(num);
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
               }
@@ -675,13 +679,17 @@ public class View
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
+      Text info = new Text(controller.getPickaxeInfo());
       TextFlow seedInfo = new TextFlow();
       seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
           + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
+      seedInfo.getChildren().add(info);
+
 
       seedInfoBox.getChildren().add(seedInfo);
+
       if (infoui.getChildren().size() > 2){
         Node n = infoui.getChildren().get(2);
         infoui.getChildren().remove(n);
@@ -708,9 +716,6 @@ public class View
     window.setResizable(false);
     window.show();
   }
-
-
-
 
 
 
@@ -861,13 +866,6 @@ public class View
   {
     //
   }
-
-
-
-
-
-
-
 
 
 
