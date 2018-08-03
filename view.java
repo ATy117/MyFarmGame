@@ -29,14 +29,13 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-public class View
-{
+public class View {
 
   //ALL IMAGES INITIALIZATIONS
-  Image image = new Image ("images/background.png", 800, 860, false, false);
-  Image image2 = new Image ("images/background.png", 1000, 800, false, false);
+  Image image = new Image("images/background.png", 800, 860, false, false);
+  Image image2 = new Image("images/background.png", 1000, 800, false, false);
   Image logo = new Image("images/logo.jpg");
-  Image inventory = new Image ("images/inventory.jpg");
+  Image inventory = new Image("images/inventory.jpg");
   Image turnipimg = new Image("images/turnip.png");
   Image carrotimg = new Image("images/carrot.png");
   Image tomatoimg = new Image("images/tomato.png");
@@ -50,21 +49,21 @@ public class View
   Image bananaimg = new Image("images/banana.png");
   Image orangeimg = new Image("images/orange.png");
   Image fertilizerimg = new Image("images/fertilizer.png");
-  Image toolimg = new Image ("images/tools.jpg");
+  Image toolimg = new Image("images/tools.jpg");
   Image wateringcanimg = new Image("images/wateringcan.png");
   Image plowtoolimg = new Image("images/plowtool.png");
   Image pickaxeimg = new Image("images/pickaxe.png");
   Image fertilizerbagimg = new Image("images/fertilizerbag.png");
-  Image infobox = new Image ("images/infobox.png");
-  Image unplowedtile = new Image ("images/unplowed_empty_tile.png");
-  Image plowedtile = new Image ("images/plowed_empty_tile.png");
-  Image rocktile = new Image ("images/rock_tile.png");
-  Image witheredfruittile = new Image ("images/withered_tree_tile.png");
+  Image infobox = new Image("images/infobox.png");
+  Image unplowedtile = new Image("images/unplowed_empty_tile.png");
+  Image plowedtile = new Image("images/plowed_empty_tile.png");
+  Image rocktile = new Image("images/rock_tile.png");
+  Image witheredfruittile = new Image("images/withered_tree_tile.png");
   Image witheredveggietile = new Image("images/withered_veggie_tile.png");
-  Image witheredflowertile = new Image ("images/withered_flower_tile.png");
-  Image harvestimg = new Image ("images/harvest.png");
-  Image level0 = new Image ("images/level0.png");
-  Image background = new Image ("images/greenbackground.png");
+  Image witheredflowertile = new Image("images/withered_flower_tile.png");
+  Image harvestimg = new Image("images/harvest.png");
+  Image level0 = new Image("images/level0.png");
+  Image background = new Image("images/greenbackground.png");
   Image grown_tulip_tileimg = new Image("images/grown_tulip_tile.png");
   Image grown_carrot_tileimg = new Image("images/grown_carrot_tile.png");
   Image grown_tomato_tileimg = new Image("images/grown_tomato_tile.png");
@@ -78,8 +77,8 @@ public class View
   Image grown_banana_tileimg = new Image("images/grownbananatile.png");
   Image grown_orange_tileimg = new Image("images/grownorangetile.png");
   Image growing_fruit_tile = new Image("images/growing_tree_tile.png");
-  Image growing_veggie_tile = new Image ("images/growing_veggie_tile.png");
-  Image growing_flower_tile = new Image ("images/growing_flower_tile.png");
+  Image growing_veggie_tile = new Image("images/growing_veggie_tile.png");
+  Image growing_flower_tile = new Image("images/growing_flower_tile.png");
 
   // Declaration of public variables
   Stage window;
@@ -89,11 +88,9 @@ public class View
   Text farmerstats;
   Controller controller;
 
-  public View (Controller c, Stage primaryStage)
-  {
+  public View(Controller c, Stage primaryStage) {
     //--------------------------- MAIN MENU ------------------------------//
     controller = c;
-
 
     //Window
     window = primaryStage;
@@ -111,14 +108,14 @@ public class View
     logodisplay.setPreserveRatio(true);
     logodisplay.setSmooth(true);
     grid.getChildren().add(logodisplay);
-    StackPane.setMargin(logodisplay, new Insets (0, 0, 230, 0));
+    StackPane.setMargin(logodisplay, new Insets(0, 0, 230, 0));
 
     //Name input
     TextField name = new TextField();
     name.setPromptText("Enter Farmer Name");
     name.setMaxWidth(200);
     grid.getChildren().add(name);
-    StackPane.setMargin(name, new Insets (100, 0, 0, 0));
+    StackPane.setMargin(name, new Insets(100, 0, 0, 0));
 
     //Gene1rate Button
     Button generate = new Button("GENERATE FARM");
@@ -128,41 +125,35 @@ public class View
       System.out.println(farmername);
     });
     grid.getChildren().add(generate);
-    StackPane.setMargin(generate, new Insets (200, 0, 0, 0));
+    StackPane.setMargin(generate, new Insets(200, 0, 0, 0));
 
     menu = new Scene(grid, 800, 600);
 
-
-
     //--------------------------- IN GAME ------------------------------//
-
 
     //StackPane is used for images behind the main layout, BorderPane is on top of the StackPane and is the main layout
     StackPane overlap = new StackPane();
     BorderPane maingame = new BorderPane();
-    ImageView backgroundiv = new ImageView (background);
+    ImageView backgroundiv = new ImageView(background);
     overlap.getChildren().add(backgroundiv);
     overlap.getChildren().add(maingame);
-
 
     //////////////////// TOP LAYOUT (FARMER INFO) //////////////////////
 
     HBox farmerinfo = new HBox();
 
     farmerinfo.setSpacing(15);
-    farmerinfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-        + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    farmerinfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     ImageView farmericon = new ImageView(level0);
     farmericon.setFitHeight(136);
     farmericon.setFitWidth(78);
     farmerinfo.getChildren().add(farmericon);
 
-    farmerstats = new Text ();
+    farmerstats = new Text();
     TextFlow farmerstatsbox = new TextFlow(farmerstats);
-    farmerstatsbox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-        + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    farmerstatsbox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     farmerstatsbox.setPrefWidth(900);
     farmerstatsbox.setPrefHeight(158);
     farmerinfo.getChildren().add(farmerstatsbox);
@@ -173,20 +164,19 @@ public class View
 
     maingame.setTop(farmerinfo);
 
-
     /////////////////  MIDDLE LAYOUT (FARMLAND) ////////////////////
 
     // LAYOUT
     TilePane farmlayout = new TilePane();
     farmlayout.setPrefColumns(5);
-    farmlayout.setPadding(new Insets(0, 0, 0 ,5));
+    farmlayout.setPadding(new Insets(0, 0, 0, 5));
     maingame.setCenter(farmlayout);
     farmlayout.setHgap(-10);
     farmlayout.setVgap(-10);
 
     tile = new ImageView[50];
-    for (int i=0; i<50; i++) {
-      tile[i]= new ImageView(unplowedtile);
+    for (int i = 0; i < 50; i++) {
+      tile[i] = new ImageView(unplowedtile);
       tile[i].setFitWidth(85);
       tile[i].setFitHeight(85);
       farmlayout.getChildren().add(tile[i]);
@@ -194,7 +184,6 @@ public class View
     resetTileAction();
 
     ///////////////// BOTTOM PART LAYOUT (INVENTORY, TOOLS, INFOBOX)////////////////
-
 
     HBox infoui = new HBox(); // BOTTOM  LAYOUT
     infoui.setPadding(new Insets(15, 0, 15, 0));
@@ -205,58 +194,57 @@ public class View
     GridPane invlayout = new GridPane();
     invlayout.setHgap(15);
     invlayout.setVgap(15);
-    invlayout.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-        + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    invlayout.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
 
     // Vegetables
-    Button turnip = new Button ();
+    Button turnip = new Button();
     turnip.setGraphic(new ImageView(turnipimg));
     invlayout.add(turnip, 0, 0);
 
-    Button carrot = new Button ();
+    Button carrot = new Button();
     carrot.setGraphic(new ImageView(carrotimg));
     invlayout.add(carrot, 1, 0);
 
-    Button tomato = new Button ();
+    Button tomato = new Button();
     tomato.setGraphic(new ImageView(tomatoimg));
     invlayout.add(tomato, 2, 0);
 
-    Button potato = new Button ();
+    Button potato = new Button();
     potato.setGraphic(new ImageView(potatoimg));
     invlayout.add(potato, 3, 0);
 
     // Flowers
-    Button rose = new Button ();
+    Button rose = new Button();
     rose.setGraphic(new ImageView(roseimg));
     invlayout.add(rose, 0, 1);
 
-    Button tulip = new Button ();
+    Button tulip = new Button();
     tulip.setGraphic(new ImageView(tulipimg));
     invlayout.add(tulip, 1, 1);
 
-    Button stargazer = new Button ();
+    Button stargazer = new Button();
     stargazer.setGraphic(new ImageView(stargazerimg));
     invlayout.add(stargazer, 2, 1);
 
-    Button sunflower = new Button ();
+    Button sunflower = new Button();
     sunflower.setGraphic(new ImageView(sunflowerimg));
     invlayout.add(sunflower, 3, 1);
 
     // Fruits
-    Button mango = new Button ();
+    Button mango = new Button();
     mango.setGraphic(new ImageView(mangoimg));
     invlayout.add(mango, 0, 2);
 
-    Button apple = new Button ();
+    Button apple = new Button();
     apple.setGraphic(new ImageView(appleimg));
     invlayout.add(apple, 1, 2);
 
-    Button banana = new Button ();
+    Button banana = new Button();
     banana.setGraphic(new ImageView(bananaimg));
     invlayout.add(banana, 2, 2);
 
-    Button orange = new Button ();
+    Button orange = new Button();
     orange.setGraphic(new ImageView(orangeimg));
     invlayout.add(orange, 3, 2);
 
@@ -266,69 +254,64 @@ public class View
     GridPane toollayout = new GridPane();
     toollayout.setHgap(15);
     toollayout.setVgap(15);
-    toollayout.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-        + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    toollayout.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
 
-    Button wateringcan = new Button ();
+    Button wateringcan = new Button();
     wateringcan.setGraphic(new ImageView(wateringcanimg));
     toollayout.add(wateringcan, 0, 0);
 
-    Button plowtool = new Button ();
+    Button plowtool = new Button();
     plowtool.setGraphic(new ImageView(plowtoolimg));
     toollayout.add(plowtool, 0, 1);
 
-    Button pickaxe = new Button ();
+    Button pickaxe = new Button();
     pickaxe.setGraphic(new ImageView(pickaxeimg));
     toollayout.add(pickaxe, 0, 2);
 
-    Button fertilizerbag = new Button ();
+    Button fertilizerbag = new Button();
     fertilizerbag.setGraphic(new ImageView(fertilizerbagimg));
     toollayout.add(fertilizerbag, 1, 0);
 
-    Button harvesttool = new Button ();
-    harvesttool.setGraphic (new ImageView(harvestimg));
-    toollayout.add(harvesttool, 1,1);
+    Button harvesttool = new Button();
+    harvesttool.setGraphic(new ImageView(harvestimg));
+    toollayout.add(harvesttool, 1, 1);
 
     infoui.getChildren().add(toollayout);
 
-
     // Stats / Information
-    for (int j =0; j < invlayout.getChildren().size(); j++)
-    {
-      Button butt = (Button)invlayout.getChildren().get(j);
-      butt.setOnMouseClicked( e ->
-      {
+    for (int j = 0; j < invlayout.getChildren().size(); j++) {
+      Button butt = (Button) invlayout.getChildren().get(j);
+      butt.setOnMouseClicked(e -> {
         resetTileAction();
         HBox seedInfoBox = new HBox();
         seedInfoBox.setPrefWidth(530);
-        seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-            + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-            + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+        seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+            + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
         seedInfoBox.setSpacing(10);
 
         Button plantButton = new Button("Plant");
         plantButton.setMinWidth(80);
         plantButton.setMinHeight(50);
-        plantButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-          public void handle(MouseEvent e){
-            for (int i = 0; i < 50; i++){
-              ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-              tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
-                public void handle(MouseEvent e){
+        plantButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+          public void handle(MouseEvent e) {
+            for (int i = 0; i < 50; i++) {
+              ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
+              tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent e) {
                   infoui.getChildren().remove(seedInfoBox);
                   resetTileAction();
                 }
               });
-              }
+            }
           }
         });
 
         Button buyButton = new Button("Buy");
         buyButton.setMinWidth(80);
         buyButton.setMinHeight(50);
-        buyButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-          public void handle(MouseEvent e){
+        buyButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+          public void handle(MouseEvent e) {
             infoui.getChildren().remove(seedInfoBox);
             resetTileAction();
           }
@@ -338,8 +321,8 @@ public class View
         cancelButton.setMinWidth(80);
         cancelButton.setMinHeight(50);
 
-        cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-          public void handle(MouseEvent e){
+        cancelButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+          public void handle(MouseEvent e) {
             infoui.getChildren().remove(seedInfoBox);
             resetTileAction();
           }
@@ -352,18 +335,16 @@ public class View
         seedInfoBox.getChildren().add(buttonBox);
 
         TextFlow seedInfo = new TextFlow();
-        seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-            + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
-            + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+        seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+            + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
         seedInfo.setPrefWidth(410);
 
         seedInfoBox.getChildren().add(seedInfo);
-        if (infoui.getChildren().size() > 2){
+        if (infoui.getChildren().size() > 2) {
           Node n = infoui.getChildren().get(2);
           infoui.getChildren().remove(n);
           infoui.getChildren().add(seedInfoBox);
-        }
-        else
+        } else
           infoui.getChildren().add(seedInfoBox);
 
       });
@@ -371,39 +352,37 @@ public class View
     }
 
     // FertilizeBag Mouse Click Options
-    fertilizerbag.setOnMouseClicked( e ->
-    {
+    fertilizerbag.setOnMouseClicked(e -> {
       resetTileAction();
+
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
       Button fertilizeButton = new Button("Fertilize");
       fertilizeButton.setMinWidth(80);
       fertilizeButton.setMinHeight(50);
-      fertilizeButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
-          for (int i = 0; i < 50; i++){
-            ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
-              public void handle(MouseEvent e){
+      fertilizeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          for (int i = 0; i < 50; i++) {
+            ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
+            tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
+              public void handle(MouseEvent e) {
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
               }
             });
-            }
+          }
         }
       });
-
 
       Button buyButton = new Button("Buy");
       buyButton.setMinWidth(80);
       buyButton.setMinHeight(50);
-      buyButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
+      buyButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
           infoui.getChildren().remove(seedInfoBox);
           resetTileAction();
         }
@@ -413,8 +392,8 @@ public class View
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(50);
 
-      cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
+      cancelButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
           infoui.getChildren().remove(seedInfoBox);
           resetTileAction();
         }
@@ -426,66 +405,62 @@ public class View
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
-      Text info = new Text (controller.getFertilizerInfo());
+      Text info = new Text(controller.getFertilizerInfo());
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-        + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
-        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (infoui.getChildren().size() > 2){
+      if (infoui.getChildren().size() > 2) {
         Node n = infoui.getChildren().get(2);
         infoui.getChildren().remove(n);
         infoui.getChildren().add(seedInfoBox);
-      }
-      else
+      } else
         infoui.getChildren().add(seedInfoBox);
 
     });
 
     // Plowtool Mouse Click Options
-    plowtool.setOnMouseClicked( e ->
-    {
+    plowtool.setOnMouseClicked(e -> {
       resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
       Button unplowedButton = new Button("Plow Tile");
       unplowedButton.setMinWidth(80);
       unplowedButton.setMinHeight(50);
-      unplowedButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
-          for (int i = 0; i < 50; i++){
-            ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
-              public void handle(MouseEvent e){
+      unplowedButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          for (int i = 0; i < 50; i++) {
+            ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
+            tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
+              public void handle(MouseEvent e) {
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
               }
             });
-            }
+          }
         }
       });
 
       Button witheredButton = new Button(" Remove\nWithered");
       witheredButton.setMinWidth(80);
       witheredButton.setMinHeight(50);
-      witheredButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
-          for (int i = 0; i < 50; i++){
-            ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
-              public void handle(MouseEvent e){
+      witheredButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          for (int i = 0; i < 50; i++) {
+            ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
+            tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
+              public void handle(MouseEvent e) {
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
               }
             });
-            }
+          }
         }
       });
 
@@ -493,8 +468,8 @@ public class View
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(50);
 
-      cancelButton.setOnMouseClicked( new EventHandler<> () {
-        public void handle(MouseEvent e){
+      cancelButton.setOnMouseClicked(new EventHandler<>() {
+        public void handle(MouseEvent e) {
           infoui.getChildren().remove(seedInfoBox);
           resetTileAction();
         }
@@ -506,106 +481,40 @@ public class View
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
-      Text info =  new Text (controller.getScyteInfo());
+      Text info = new Text(controller.getScyteInfo());
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (infoui.getChildren().size() > 2){
+      if (infoui.getChildren().size() > 2) {
         Node n = infoui.getChildren().get(2);
         infoui.getChildren().remove(n);
         infoui.getChildren().add(seedInfoBox);
-      }
-      else
+      } else
         infoui.getChildren().add(seedInfoBox);
 
     });
 
     // Watering Can Mouse Click Options
-    wateringcan.setOnMouseClicked( e ->
-    {
+    wateringcan.setOnMouseClicked(e -> {
       resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
       Button waterButton = new Button("Water");
       waterButton.setMinWidth(80);
       waterButton.setMinHeight(75);
-      waterButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
-          for (int i = 0; i < 50; i++){
-            ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
-              public void handle(MouseEvent e){
-                infoui.getChildren().remove(seedInfoBox);
-                resetTileAction();
-              }
-            });
-            }
-        }
-      });
-
-      Button cancelButton = new Button("Cancel");
-      cancelButton.setMinWidth(80);
-      cancelButton.setMinHeight(75);
-
-      cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
-          infoui.getChildren().remove(seedInfoBox);
-          resetTileAction();
-        }
-      });
-      // Buttons
-      VBox buttonBox = new VBox();
-      buttonBox.getChildren().add(waterButton);
-      buttonBox.getChildren().add(cancelButton);
-      seedInfoBox.getChildren().add(buttonBox);
-
-      Text info = new Text(controller.getWaterInfo());
-      TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
-      seedInfo.setPrefWidth(410);
-
-      seedInfoBox.getChildren().add(seedInfo);
-      if (infoui.getChildren().size() > 2){
-        Node n = infoui.getChildren().get(2);
-        infoui.getChildren().remove(n);
-        infoui.getChildren().add(seedInfoBox);
-      }
-      else
-        infoui.getChildren().add(seedInfoBox);
-
-    });
-
-    // Harvest tool mouse click Options
-    harvesttool.setOnMouseClicked( e ->
-    {
-      resetTileAction();
-      HBox seedInfoBox = new HBox();
-      seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
-      seedInfoBox.setSpacing(10);
-
-      Button harvestButton = new Button("Harvest");
-      harvestButton.setMinWidth(80);
-      harvestButton.setMinHeight(75);
-      harvestButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
-          for (int i = 0; i < 50; i++){
-            ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
-              public void handle(MouseEvent e){
+      waterButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          for (int i = 0; i < 50; i++) {
+            ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
+            tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
+              public void handle(MouseEvent e) {
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
               }
@@ -618,8 +527,66 @@ public class View
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(75);
 
-      cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
+      cancelButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          infoui.getChildren().remove(seedInfoBox);
+          resetTileAction();
+        }
+      });
+      // Buttons
+      VBox buttonBox = new VBox();
+      buttonBox.getChildren().add(waterButton);
+      buttonBox.getChildren().add(cancelButton);
+      seedInfoBox.getChildren().add(buttonBox);
+
+      Text info = new Text(controller.getWaterInfo());
+      TextFlow seedInfo = new TextFlow(info);
+      seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setPrefWidth(410);
+
+      seedInfoBox.getChildren().add(seedInfo);
+      if (infoui.getChildren().size() > 2) {
+        Node n = infoui.getChildren().get(2);
+        infoui.getChildren().remove(n);
+        infoui.getChildren().add(seedInfoBox);
+      } else
+        infoui.getChildren().add(seedInfoBox);
+
+    });
+
+    // Harvest tool mouse click Options
+    harvesttool.setOnMouseClicked(e -> {
+      resetTileAction();
+      HBox seedInfoBox = new HBox();
+      seedInfoBox.setPrefWidth(530);
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setSpacing(10);
+
+      Button harvestButton = new Button("Harvest");
+      harvestButton.setMinWidth(80);
+      harvestButton.setMinHeight(75);
+      harvestButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          for (int i = 0; i < 50; i++) {
+            ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
+            tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
+              public void handle(MouseEvent e) {
+                infoui.getChildren().remove(seedInfoBox);
+                resetTileAction();
+              }
+            });
+          }
+        }
+      });
+
+      Button cancelButton = new Button("Cancel");
+      cancelButton.setMinWidth(80);
+      cancelButton.setMinHeight(75);
+
+      cancelButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
           infoui.getChildren().remove(seedInfoBox);
           resetTileAction();
         }
@@ -632,49 +599,45 @@ public class View
 
       Text info = new Text(controller.getHarvestInfo());
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (infoui.getChildren().size() > 2){
+      if (infoui.getChildren().size() > 2) {
         Node n = infoui.getChildren().get(2);
         infoui.getChildren().remove(n);
         infoui.getChildren().add(seedInfoBox);
-      }
-      else
+      } else
         infoui.getChildren().add(seedInfoBox);
 
     });
 
     // Pickaxe Mouse Click Options
-    pickaxe.setOnMouseClicked( e ->
-    {
+    pickaxe.setOnMouseClicked(e -> {
       resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
       Button pickaxeButton = new Button("Remove\n  Rock");
       pickaxeButton.setMinWidth(80);
       pickaxeButton.setMinHeight(75);
-      pickaxeButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
-          for (int i = 0; i < 50; i++){
+      pickaxeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          for (int i = 0; i < 50; i++) {
             int num = i;
-            ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
-              public void handle(MouseEvent e){
+            ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
+            tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
+              public void handle(MouseEvent e) {
                 controller.pickRock(num);
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
               }
             });
-            }
+          }
         }
       });
 
@@ -682,8 +645,8 @@ public class View
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(75);
 
-      cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
+      cancelButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
           infoui.getChildren().remove(seedInfoBox);
           resetTileAction();
         }
@@ -696,34 +659,28 @@ public class View
 
       Text info = new Text(controller.getPickaxeInfo());
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
-
-
 
       seedInfoBox.getChildren().add(seedInfo);
 
-      if (infoui.getChildren().size() > 2){
+      if (infoui.getChildren().size() > 2) {
         Node n = infoui.getChildren().get(2);
         infoui.getChildren().remove(n);
         infoui.getChildren().add(seedInfoBox);
-      }
-      else
+      } else
         infoui.getChildren().add(seedInfoBox);
 
     });
 
-    tileinformation = new Text ("Seed Info");
+    tileinformation = new Text("Seed Info");
     TextFlow tileinfo = new TextFlow(tileinformation);
     tileinfo.setPrefWidth(210);
-    tileinfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-        + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
-        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    tileinfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     tileinfo.setPadding(new Insets(10));
     maingame.setRight(tileinfo);
-
 
     // Sets scene
     ingame = new Scene(overlap, 1000, 800);
@@ -732,151 +689,120 @@ public class View
     window.show();
   }
 
-
-  public String getSeedInfo (String crop)
-  {
+  public String getSeedInfo(String crop) {
     return ("this is a " + crop.toString());
   }
 
-  public void resetTileAction ()
-  {
-    for (int i=0; i<50; i++) {
+  public void resetTileAction() {
+    for (int i = 0; i < 50; i++) {
       int num = i;
-      tile[i].setOnMouseClicked( new EventHandler<MouseEvent> () {
-        public void handle(MouseEvent e){
+      tile[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
           tileinformation.setText(controller.getTileInfo(num));
         }
       });
     }
   }
 
-  public void updateFarmerStats()
-  {
+  public void updateFarmerStats() {
     farmerstats.setText("whatever");
   }
 
   // Growing Crops
-  public void setImageGrowingFruit(int pos)
-  {
+  public void setImageGrowingFruit(int pos) {
     tile[pos].setImage(growing_fruit_tile);
   }
 
-  public void setImageGrowingVegetable(int pos)
-  {
+  public void setImageGrowingVegetable(int pos) {
     tile[pos].setImage(growing_veggie_tile);
   }
 
-  public void setImageGrowingFlower(int pos)
-  {
+  public void setImageGrowingFlower(int pos) {
     tile[pos].setImage(growing_flower_tile);
   }
 
   // Withered Crops
-  public void setImageWitheredFruit(int pos)
-  {
+  public void setImageWitheredFruit(int pos) {
     tile[pos].setImage(witheredfruittile);
   }
 
-  public void setImageWitheredVegetable(int pos)
-  {
+  public void setImageWitheredVegetable(int pos) {
     tile[pos].setImage(witheredveggietile);
   }
 
-  public void setImageWitheredFlower(int pos)
-  {
+  public void setImageWitheredFlower(int pos) {
     tile[pos].setImage(witheredflowertile);
   }
 
   // Tiles
-  public void setImageUnplowedTile(int pos)
-  {
+  public void setImageUnplowedTile(int pos) {
     tile[pos].setImage(unplowedtile);
   }
 
-  public void setImagePlowedTile(int pos)
-  {
+  public void setImagePlowedTile(int pos) {
     tile[pos].setImage(plowedtile);
   }
 
   // Rock
-  public void setImageRock(int pos)
-  {
+  public void setImageRock(int pos) {
     tile[pos].setImage(rocktile);
   }
 
   //All Crops
-  public void setImageTurnip(int pos)
-  {
+  public void setImageTurnip(int pos) {
     tile[pos].setImage(grown_turnip_tileimg);
   }
 
-  public void setImageCarrot(int pos)
-  {
+  public void setImageCarrot(int pos) {
     tile[pos].setImage(grown_carrot_tileimg);
   }
 
-  public void setImageTomato(int pos)
-  {
+  public void setImageTomato(int pos) {
     tile[pos].setImage(grown_tomato_tileimg);
   }
 
-  public void setImagePotato(int pos)
-  {
+  public void setImagePotato(int pos) {
     tile[pos].setImage(grown_potato_tileimg);
   }
 
-  public void setImageRose(int pos)
-  {
+  public void setImageRose(int pos) {
     tile[pos].setImage(grown_rose_tileimg);
   }
 
-  public void setImageTulip(int pos)
-  {
+  public void setImageTulip(int pos) {
     tile[pos].setImage(grown_tulip_tileimg);
   }
 
-  public void setImageStargazer(int pos)
-  {
+  public void setImageStargazer(int pos) {
     tile[pos].setImage(grown_stargazer_tileimg);
   }
 
-  public void setImageSunflower(int pos)
-  {
+  public void setImageSunflower(int pos) {
     tile[pos].setImage(grown_sunflower_tileimg);
   }
 
-  public void setImageMango(int pos)
-  {
+  public void setImageMango(int pos) {
     tile[pos].setImage(grown_mango_tileimg);
   }
 
-  public void setImageApple(int pos)
-  {
+  public void setImageApple(int pos) {
     tile[pos].setImage(grown_apple_tileimg);
   }
 
-  public void setImageBanana(int pos)
-  {
+  public void setImageBanana(int pos) {
     tile[pos].setImage(grown_banana_tileimg);
   }
 
-  public void setImageOrange(int pos)
-  {
+  public void setImageOrange(int pos) {
     tile[pos].setImage(grown_orange_tileimg);
   }
 
-  public void seedButtonPressed (int pos)
-  {
+  public void seedButtonPressed(int pos) {
     //
   }
 
-  public void tileButtonPressed (int pos)
-  {
+  public void tileButtonPressed(int pos) {
     //
   }
-
-
-
-
 
 }
