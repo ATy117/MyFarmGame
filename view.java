@@ -299,6 +299,7 @@ public class View
       Button butt = (Button)invlayout.getChildren().get(j);
       butt.setOnMouseClicked( e ->
       {
+        resetTileAction();
         HBox seedInfoBox = new HBox();
         seedInfoBox.setPrefWidth(530);
         seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
@@ -309,11 +310,11 @@ public class View
         Button plantButton = new Button("Plant");
         plantButton.setMinWidth(80);
         plantButton.setMinHeight(50);
-        plantButton.setOnMouseClicked( new EventHandler<> () {
+        plantButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
           public void handle(MouseEvent e){
             for (int i = 0; i < 50; i++){
               ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-              tile.setOnMouseClicked( new EventHandler<> () {
+              tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
                 public void handle(MouseEvent e){
                   infoui.getChildren().remove(seedInfoBox);
                   resetTileAction();
@@ -326,9 +327,10 @@ public class View
         Button buyButton = new Button("Buy");
         buyButton.setMinWidth(80);
         buyButton.setMinHeight(50);
-        buyButton.setOnMouseClicked( new EventHandler<> () {
+        buyButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
           public void handle(MouseEvent e){
             infoui.getChildren().remove(seedInfoBox);
+            resetTileAction();
           }
         });
 
@@ -336,9 +338,10 @@ public class View
         cancelButton.setMinWidth(80);
         cancelButton.setMinHeight(50);
 
-        cancelButton.setOnMouseClicked( new EventHandler<> () {
+        cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
           public void handle(MouseEvent e){
             infoui.getChildren().remove(seedInfoBox);
+            resetTileAction();
           }
         });
         // Buttons
@@ -370,9 +373,10 @@ public class View
     // FertilizeBag Mouse Click Options
     fertilizerbag.setOnMouseClicked( e ->
     {
+      resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
+      seedInfoBox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
           + "-fx-border-width: 2;" + "-fx-border-insets: 10;"
           + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
@@ -380,11 +384,11 @@ public class View
       Button fertilizeButton = new Button("Fertilize");
       fertilizeButton.setMinWidth(80);
       fertilizeButton.setMinHeight(50);
-      fertilizeButton.setOnMouseClicked( new EventHandler<> () {
+      fertilizeButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           for (int i = 0; i < 50; i++){
             ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<> () {
+            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
               public void handle(MouseEvent e){
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
@@ -394,12 +398,14 @@ public class View
         }
       });
 
+
       Button buyButton = new Button("Buy");
       buyButton.setMinWidth(80);
       buyButton.setMinHeight(50);
-      buyButton.setOnMouseClicked( new EventHandler<> () {
+      buyButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           infoui.getChildren().remove(seedInfoBox);
+          resetTileAction();
         }
       });
 
@@ -407,9 +413,10 @@ public class View
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(50);
 
-      cancelButton.setOnMouseClicked( new EventHandler<> () {
+      cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           infoui.getChildren().remove(seedInfoBox);
+          resetTileAction();
         }
       });
       // Buttons
@@ -422,8 +429,8 @@ public class View
       Text info = new Text (controller.getFertilizerInfo());
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;"
-          + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
-          + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+        + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
+        + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -440,6 +447,7 @@ public class View
     // Plowtool Mouse Click Options
     plowtool.setOnMouseClicked( e ->
     {
+      resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
@@ -450,11 +458,11 @@ public class View
       Button unplowedButton = new Button("Plow Tile");
       unplowedButton.setMinWidth(80);
       unplowedButton.setMinHeight(50);
-      unplowedButton.setOnMouseClicked( new EventHandler<> () {
+      unplowedButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           for (int i = 0; i < 50; i++){
             ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<> () {
+            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
               public void handle(MouseEvent e){
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
@@ -467,11 +475,11 @@ public class View
       Button witheredButton = new Button(" Remove\nWithered");
       witheredButton.setMinWidth(80);
       witheredButton.setMinHeight(50);
-      witheredButton.setOnMouseClicked( new EventHandler<> () {
+      witheredButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           for (int i = 0; i < 50; i++){
             ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<> () {
+            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
               public void handle(MouseEvent e){
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
@@ -488,6 +496,7 @@ public class View
       cancelButton.setOnMouseClicked( new EventHandler<> () {
         public void handle(MouseEvent e){
           infoui.getChildren().remove(seedInfoBox);
+          resetTileAction();
         }
       });
       // Buttons
@@ -518,6 +527,7 @@ public class View
     // Watering Can Mouse Click Options
     wateringcan.setOnMouseClicked( e ->
     {
+      resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
@@ -528,11 +538,11 @@ public class View
       Button waterButton = new Button("Water");
       waterButton.setMinWidth(80);
       waterButton.setMinHeight(75);
-      waterButton.setOnMouseClicked( new EventHandler<> () {
+      waterButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           for (int i = 0; i < 50; i++){
             ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<> () {
+            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
               public void handle(MouseEvent e){
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
@@ -546,9 +556,10 @@ public class View
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(75);
 
-      cancelButton.setOnMouseClicked( new EventHandler<> () {
+      cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           infoui.getChildren().remove(seedInfoBox);
+          resetTileAction();
         }
       });
       // Buttons
@@ -578,6 +589,7 @@ public class View
     // Harvest tool mouse click Options
     harvesttool.setOnMouseClicked( e ->
     {
+      resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
@@ -588,17 +600,17 @@ public class View
       Button harvestButton = new Button("Harvest");
       harvestButton.setMinWidth(80);
       harvestButton.setMinHeight(75);
-      harvestButton.setOnMouseClicked( new EventHandler<> () {
+      harvestButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           for (int i = 0; i < 50; i++){
             ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<> () {
+            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
               public void handle(MouseEvent e){
                 infoui.getChildren().remove(seedInfoBox);
                 resetTileAction();
               }
             });
-            }
+          }
         }
       });
 
@@ -606,9 +618,10 @@ public class View
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(75);
 
-      cancelButton.setOnMouseClicked( new EventHandler<> () {
+      cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           infoui.getChildren().remove(seedInfoBox);
+          resetTileAction();
         }
       });
       // Buttons
@@ -638,6 +651,7 @@ public class View
     // Pickaxe Mouse Click Options
     pickaxe.setOnMouseClicked( e ->
     {
+      resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
@@ -648,12 +662,12 @@ public class View
       Button pickaxeButton = new Button("Remove\n  Rock");
       pickaxeButton.setMinWidth(80);
       pickaxeButton.setMinHeight(75);
-      pickaxeButton.setOnMouseClicked( new EventHandler<> () {
+      pickaxeButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           for (int i = 0; i < 50; i++){
             int num = i;
             ImageView tile = (ImageView)(farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked( new EventHandler<> () {
+            tile.setOnMouseClicked( new EventHandler<MouseEvent> () {
               public void handle(MouseEvent e){
                 controller.pickRock(num);
                 infoui.getChildren().remove(seedInfoBox);
@@ -668,9 +682,10 @@ public class View
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(75);
 
-      cancelButton.setOnMouseClicked( new EventHandler<> () {
+      cancelButton.setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           infoui.getChildren().remove(seedInfoBox);
+          resetTileAction();
         }
       });
       // Buttons
@@ -727,7 +742,7 @@ public class View
   {
     for (int i=0; i<50; i++) {
       int num = i;
-      tile[i].setOnMouseClicked( new EventHandler<> () {
+      tile[i].setOnMouseClicked( new EventHandler<MouseEvent> () {
         public void handle(MouseEvent e){
           tileinformation.setText(controller.getTileInfo(num));
         }

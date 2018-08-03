@@ -32,7 +32,7 @@ public class Tile
 
 		display = display + "Tile Position: " + pos + "\n\n";
 		display = display + "Plowed: " + isPlowed + "\n";
-		display = display + "Ready for Harvesting: " + isReady + "\n";
+		display = display + "Can be Harvested: " + isReady + "\n";
 		display = display + "Withered: " + isWithered + "\n";
 		display = display + "Rock: " + hasRocks + "\n";
 		display = display + "Available: " + isAvailable + "\n";
