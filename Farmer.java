@@ -1,7 +1,6 @@
 import java.util.*;
 
-public class Farmer
-{
+public class Farmer {
 	private String name;
 	private int level;
 	private int currentExp;
@@ -17,16 +16,15 @@ public class Farmer
 	private ArrayList<Seed> seedBag;
 	private ArrayList<Tile> farmLot;
 
-	public Farmer()
-	{
+	public Farmer() {
 		currentExp = 0;
 		maxExp = 50;
 		rank = 0;
-		rankName = "Unregisetered Farmer";
+		rankName = "Unregistered Farmer";
 		level = 1;
 
 		regPrice = 200.0;
-		coins = 100.0;
+		coins = 1000.0;
 
 		fertilizer = 5;
 
@@ -56,7 +54,6 @@ public class Farmer
 		FruitTree orange = new FruitTree("Orange", 8, 8, 8, 6, 6, 3, 65, 4.5, 13, 15);
 		seedBag.add(orange);
 
-
 		farmLot = new ArrayList<Tile>();
 
 		Random generate = new Random();
@@ -68,22 +65,16 @@ public class Farmer
 		for (int i = 0; i < n; i++)
 			p[i] = generate.nextInt(50);
 
-
-		for (int i = 0; i < 50; i++)
-		{
+		for (int i = 0; i < 50; i++) {
 			boolean found = false;
 			Tile t = new Tile(i);
 
-			for (int k = 0; k < n && !found; k++)
-			{
-				if (p[k] == i)
-				{
+			for (int k = 0; k < n && !found; k++) {
+				if (p[k] == i) {
 					t.setRocks(true);
 					t.setAvailable(false);
 					found = true;
-				}
-				else
-				{
+				} else {
 					t.setAvailable(true);
 				}
 			}
@@ -102,41 +93,31 @@ public class Farmer
 		+ This method also makes the user level up and reset its currentExp back to zero when the currentExp becomes equal to the maxExp after adding experience.
 		+ This method also determines whether the farmer can register or not, given the level requirements of registering.
 	*/
-	private void addExp()
-	{
-		currentExp++;
+	private void addExp() {
+		currentExp += 5;
 
-		if (currentExp == maxExp)
-		{
+		if (currentExp == maxExp) {
 			currentExp = 0;
 			level++;
 
-			if (rank == 0)
-			{
+			if (rank == 0) {
 				if (level >= 5)
 					canRegister = true;
 				else
 					canRegister = false;
-			}
-			else if (rank == 1)
-			{
+			} else if (rank == 1) {
 				if (level >= 10)
 					canRegister = true;
 				else
 					canRegister = false;
-			}
-			else if (rank == 2)
-			{
+			} else if (rank == 2) {
 				if (level >= 15)
 					canRegister = true;
 				else
 					canRegister = false;
-			}
-			else
-			{
+			} else {
 				canRegister = false;
 			}
-
 
 		}
 	}
@@ -145,70 +126,62 @@ public class Farmer
 		This is the setRoots method.
 		+ This method sets the surrounding tiles of a given tile in index -pos unavailable for planting.
 	*/
-	private void setRoots(int pos, boolean bool)
-	{
+	private void setRoots(int pos, boolean bool) {
 		// If position is in a corner
-		if ( pos == 0 || pos == 9 || pos == 40 || pos == 49)
-		{
-			switch (pos)
-			{
-				case 0:
-					farmLot.get(pos + 1).setAvailable(bool);
-					farmLot.get(pos + 10).setAvailable(bool);
-					break;
+		if (pos == 0 || pos == 9 || pos == 40 || pos == 49) {
+			switch (pos) {
+			case 0:
+				farmLot.get(pos + 1).setAvailable(bool);
+				farmLot.get(pos + 10).setAvailable(bool);
+				break;
 
-				case 9:
-					farmLot.get(pos - 1).setAvailable(bool);
-					farmLot.get(pos + 10).setAvailable(bool);
-					break;
+			case 9:
+				farmLot.get(pos - 1).setAvailable(bool);
+				farmLot.get(pos + 10).setAvailable(bool);
+				break;
 
-				case 40:
-					farmLot.get(pos + 1).setAvailable(bool);
-					farmLot.get(pos - 10).setAvailable(bool);
-					break;
+			case 40:
+				farmLot.get(pos + 1).setAvailable(bool);
+				farmLot.get(pos - 10).setAvailable(bool);
+				break;
 
-				case 49:
-					farmLot.get(pos - 1).setAvailable(bool);
-					farmLot.get(pos - 10).setAvailable(bool);
-					break;
+			case 49:
+				farmLot.get(pos - 1).setAvailable(bool);
+				farmLot.get(pos - 10).setAvailable(bool);
+				break;
 
 			}
 		}
 		// If position is on left edge
-		else if ( pos%10 == 0 )
-		{
+		else if (pos % 10 == 0) {
 			farmLot.get(pos - 10).setAvailable(bool);
 			farmLot.get(pos + 1).setAvailable(bool);
 			farmLot.get(pos + 10).setAvailable(bool);
 
 		}
 		// If position is on right edge
-		else if ( pos%10 == 9 )
-		{
+		else if (pos % 10 == 9) {
 			farmLot.get(pos - 10).setAvailable(bool);
 			farmLot.get(pos - 1).setAvailable(bool);
 			farmLot.get(pos + 10).setAvailable(bool);
 
 		}
 		// If position is on top edge
-		else if ( pos < 10 )
-		{
+		else if (pos < 10) {
 			farmLot.get(pos - 1).setAvailable(bool);
 			farmLot.get(pos + 10).setAvailable(bool);
 			farmLot.get(pos + 1).setAvailable(bool);
 
 		}
 		// If position is on bottom edge
-		else if ( pos > 39 )
-		{
+		else if (pos > 39) {
 			farmLot.get(pos - 1).setAvailable(bool);
 			farmLot.get(pos - 10).setAvailable(bool);
 			farmLot.get(pos + 1).setAvailable(bool);
 
 		}
 		// If position is within borders
-		else
-		{
+		else {
 			farmLot.get(pos - 1).setAvailable(bool);
 			farmLot.get(pos + 1).setAvailable(bool);
 			farmLot.get(pos + 10).setAvailable(bool);
@@ -221,79 +194,94 @@ public class Farmer
 		+ This method checks the surround tiles of a given tile in index -pos if they are all available for a tree to be planted.
 		+ This method returns true if no unavailable tile is encountered, and false otherwise.
 	*/
-	private boolean isAvailableForTree(int pos)
-	{
+	private boolean isAvailableForTree(int pos) {
 		// If position is in a corner
-		if ( pos == 0 || pos == 9 || pos == 40 || pos == 49)
-		{
-			switch (pos)
-			{
-				case 0:
-					if (!farmLot.get(pos + 1).getAvailable()) return false;
-					if (!farmLot.get(pos + 10).getAvailable()) return false;
-					break;
+		if (pos == 0 || pos == 9 || pos == 40 || pos == 49) {
+			switch (pos) {
+			case 0:
+				if (!farmLot.get(pos + 1).getAvailable())
+					return false;
+				if (!farmLot.get(pos + 10).getAvailable())
+					return false;
+				break;
 
-				case 9:
-					if (!farmLot.get(pos - 1).getAvailable()) return false;
-					if (!farmLot.get(pos + 10).getAvailable()) return false;
-					break;
+			case 9:
+				if (!farmLot.get(pos - 1).getAvailable())
+					return false;
+				if (!farmLot.get(pos + 10).getAvailable())
+					return false;
+				break;
 
-				case 40:
-					if (!farmLot.get(pos + 1).getAvailable()) return false;
-					if (!farmLot.get(pos - 10).getAvailable()) return false;
-					break;
+			case 40:
+				if (!farmLot.get(pos + 1).getAvailable())
+					return false;
+				if (!farmLot.get(pos - 10).getAvailable())
+					return false;
+				break;
 
-				case 49:
-					if (!farmLot.get(pos - 1).getAvailable()) return false;
-					if (!farmLot.get(pos - 10).getAvailable()) return false;
-					break;
+			case 49:
+				if (!farmLot.get(pos - 1).getAvailable())
+					return false;
+				if (!farmLot.get(pos - 10).getAvailable())
+					return false;
+				break;
 
 			}
 		}
 		// If position is on left edge
-		else if ( pos%10 == 0 )
-		{
-			if (!farmLot.get(pos - 10).getAvailable()) return false;
-			if (!farmLot.get(pos + 1).getAvailable()) return false;
-			if (!farmLot.get(pos + 10).getAvailable()) return false;
+		else if (pos % 10 == 0) {
+			if (!farmLot.get(pos - 10).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 1).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 10).getAvailable())
+				return false;
 
 		}
 		// If position is on right edge
-		else if ( pos%10 == 9 )
-		{
-			if (!farmLot.get(pos - 10).getAvailable()) return false;
-			if (!farmLot.get(pos - 1).getAvailable()) return false;
-			if (!farmLot.get(pos + 10).getAvailable()) return false;
+		else if (pos % 10 == 9) {
+			if (!farmLot.get(pos - 10).getAvailable())
+				return false;
+			if (!farmLot.get(pos - 1).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 10).getAvailable())
+				return false;
 
 		}
 		// If position is on top edge
-		else if ( pos < 10 )
-		{
-			if (!farmLot.get(pos - 1).getAvailable()) return false;
-			if (!farmLot.get(pos + 10).getAvailable()) return false;
-			if (!farmLot.get(pos + 1).getAvailable()) return false;
+		else if (pos < 10) {
+			if (!farmLot.get(pos - 1).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 10).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 1).getAvailable())
+				return false;
 
 		}
 		// If position is on bottom edge
-		else if ( pos > 39 )
-		{
-			if (!farmLot.get(pos - 1).getAvailable()) return false;
-			if (!farmLot.get(pos - 10).getAvailable()) return false;
-			if (!farmLot.get(pos + 1).getAvailable()) return false;
+		else if (pos > 39) {
+			if (!farmLot.get(pos - 1).getAvailable())
+				return false;
+			if (!farmLot.get(pos - 10).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 1).getAvailable())
+				return false;
 
 		}
 		// If position is within borders
-		else
-		{
-			if(!farmLot.get(pos - 1).getAvailable()) return false;
-			if(!farmLot.get(pos + 1).getAvailable()) return false;
-			if(!farmLot.get(pos + 10).getAvailable()) return false;
-			if(!farmLot.get(pos - 10).getAvailable()) return false;
+		else {
+			if (!farmLot.get(pos - 1).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 1).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 10).getAvailable())
+				return false;
+			if (!farmLot.get(pos - 10).getAvailable())
+				return false;
 		}
 
 		return true;
 	}
-
 
 	// Public Methods, can be called outside this class.
 
@@ -302,8 +290,7 @@ public class Farmer
 		+ This method returns a string containing a series of text referring to the farmer's stats;
 	*/
 
-	public String displayStats()
-	{
+	public String displayStats() {
 		String display = "";
 		String canReg;
 
@@ -312,11 +299,11 @@ public class Farmer
 		else
 			canReg = "INELIGBLE TO REGISTER YET";
 
-		display  = display + "Farmer Name: " + name + "\n";
-		display  = display + "Farmer Rank : " + rankName + "\n";
-		display  = display + "LEVEL " + level + ": " + currentExp + " / 50\n";
-		display  = display + "Coins: " + coins + "\n";
-		display  = display + "Register Price to next rank: " + coins + " (" + canReg +  ") \n";
+		display = display + "Farmer Name: " + name + "\n";
+		display = display + "Farmer Rank : " + rankName + "\n";
+		display = display + "LEVEL " + level + ": " + currentExp + " / 50\n";
+		display = display + "Coins: " + coins + "\n";
+		display = display + "Register Price to next rank: " + regPrice + " (" + canReg + ") \n";
 
 		return display;
 	}
@@ -326,41 +313,33 @@ public class Farmer
 		+ This method returns a string containing a series of text referring to the farmers bonuses based on rank;
 	*/
 
-	public String displayBonuses()
-	{
+	public String displayBonuses() {
 		String display = "";
 
-		if (rank == 1)
-		{
-			display  = display + rankName + " Bonuses: \n";
-			display  = display + "Buying Discount: - 2 \n";
-			display  = display + "Selling Bonus: + 2 \n";
-			display  = display + "Bonus Water and Fertilizer Limits: + 0\n";
-			display  = display + "Harvest Time Bonus: - 5% \n";
-		}
-		else if (rank == 2)
-		{
-			display  = display + rankName + " Bonuses: \n";
-			display  = display + "Buying Discount: - 3 \n";
-			display  = display + "Selling Bonus: + 3 \n";
-			display  = display + "Bonus Water and Fertilizer Limits: + 1\n";
-			display  = display + "Harvest Time Bonus: - 10% \n";
-		}
-		else if (rank == 3)
-		{
-			display  = display + rankName + " Bonuses: \n";
-			display  = display + "Buying Discount: - 5 \n";
-			display  = display + "Selling Bonus: + 5 \n";
-			display  = display + "Bonus Water and Fertilizer Limits: + 2\n";
-			display  = display + "Harvest Time Bonus: - 15% \n";
-		}
-		else
-		{
-			display  = display + rankName + " Bonuses: \n";
-			display  = display + "Buying Discount: - 0 \n";
-			display  = display + "Selling Bonus: + 0 \n";
-			display  = display + "Bonus Water and Fertilizer Limits: + 0\n";
-			display  = display + "Harvest Time Bonus: - 0% \n";
+		if (rank == 1) {
+			display = display + rankName + " Bonuses: \n\n";
+			display = display + "Buying Discount: - 2 \n";
+			display = display + "Selling Bonus: + 2 \n";
+			display = display + "Bonus Water and Fertilizer Limits: + 0\n";
+			display = display + "Harvest Time Bonus: - 5% \n";
+		} else if (rank == 2) {
+			display = display + rankName + " Bonuses: \n\n";
+			display = display + "Buying Discount: - 3 \n";
+			display = display + "Selling Bonus: + 3 \n";
+			display = display + "Bonus Water and Fertilizer Limits: + 1\n";
+			display = display + "Harvest Time Bonus: - 10% \n";
+		} else if (rank == 3) {
+			display = display + rankName + " Bonuses: \n\n";
+			display = display + "Buying Discount: - 5 \n";
+			display = display + "Selling Bonus: + 5 \n";
+			display = display + "Bonus Water and Fertilizer Limits: + 2\n";
+			display = display + "Harvest Time Bonus: - 15% \n";
+		} else {
+			display = display + rankName + " Bonuses: \n\n";
+			display = display + "Buying Discount: - 0 \n";
+			display = display + "Selling Bonus: + 0 \n";
+			display = display + "Bonus Water and Fertilizer Limits: + 0\n";
+			display = display + "Harvest Time Bonus: - 0% \n";
 		}
 
 		return display;
@@ -370,8 +349,7 @@ public class Farmer
 		This is the displayPickaxeInfo.
 		+ This method returns a string describing what the Pickaxe tool can do.
 	*/
-	public String displayPickaxeInfo()
-	{
+	public String displayPickaxeInfo() {
 		return "This is a Pickaxe. This tool is used to remove rocks littered across the farm.\n\nPress 'Remove Rock' then select the tile.";
 	}
 
@@ -379,8 +357,7 @@ public class Farmer
 		This is the displayWaterInfo.
 		+ This method returns a string describing what the Watering Can tool can do.
 	*/
-	public String displayWaterInfo()
-	{
+	public String displayWaterInfo() {
 		return "This is a Watering Can. This tool is used to water a tile with a growing plant on it.\n\nYou have unlimited uses for this.\n\nPress 'Water' then select the tile to water it.";
 	}
 
@@ -388,17 +365,17 @@ public class Farmer
 		This is the displayFertilizerInfo.
 		+ This method returns a string describing what the Fertilizer tool can do.
 	*/
-	public String displayFertilizerInfo()
-	{
-		return "This is Fertilizer. This tool is used to fertilize a tile with a growing plant on it. You currently have " + fertilizer + " units of fertilizer.\n\nPress 'Fertilize' then select the tile to fertilize it.\n\nPress 'Buy' to buy one unit for 10 Coins.";
+	public String displayFertilizerInfo() {
+		return "This is Fertilizer. This tool is used to fertilize a tile with a growing plant on it. You currently have "
+				+ fertilizer
+				+ " units of fertilizer.\n\nPress 'Fertilize' then select the tile to fertilize it.\n\nPress 'Buy' to buy one unit for 10 Coins.";
 	}
 
 	/*
 		This is the displayScyteInfo.
 		+ This method returns a string describing what the Scyte tool can do.
 	*/
-	public String displayScyteInfo()
-	{
+	public String displayScyteInfo() {
 		return "This is the Plow Tool. This tool is used to plow and unplowed tile or remove a withered plant for a cost.\n\nPress 'Plow' then select the tile to plow the tile.\n\nPress 'Remove Withered' then select the tile to remove a withered plant for 10% of the plant's seed cost.";
 	}
 
@@ -406,8 +383,7 @@ public class Farmer
 		This is the displayHarvestInfo.
 		+ This method returns a string describing what the Scyte tool can do.
 	*/
-	public String displayHarvestInfo()
-	{
+	public String displayHarvestInfo() {
 		return "This is the Harvest Tool. This tool is used to harvest a grown plant.\n\nPress 'Harvest' then select the tile to harvest the tile.";
 	}
 
@@ -417,10 +393,8 @@ public class Farmer
 		+ This method also sets the register price for the next rank, if there is more to gain, and the rank name.
 		+ This method returns true upon successful registration, and returns false otherwise.
 	*/
-	public boolean register()
-	{
-		if (canRegister && coins>= regPrice)
-		{
+	public boolean register() {
+		if (canRegister && coins >= regPrice) {
 			coins = coins - regPrice;
 			rank++;
 
@@ -430,18 +404,13 @@ public class Farmer
 			for (int i = 0; i < farmLot.size(); i++)
 				farmLot.get(i).updateOccupant(rank);
 
-			if (rank == 1)
-			{
+			if (rank == 1) {
 				regPrice = 250;
 				rankName = "Registered Farmer";
-			}
-			else if (rank == 2)
-			{
+			} else if (rank == 2) {
 				regPrice = 350;
 				rankName = "Distinguished Farmer";
-			}
-			else if (rank == 3)
-			{
+			} else if (rank == 3) {
 				regPrice = 0;
 				rankName = "Honorable Farmer";
 			}
@@ -458,10 +427,8 @@ public class Farmer
 		+ This method returns true upon successful purchase, and returns false otherwise.
 	*/
 
-	public boolean buy(int seedPos)
-	{
-		if (coins >= seedBag.get(seedPos).getSC())
-		{
+	public boolean buy(int seedPos) {
+		if (coins >= seedBag.get(seedPos).getSC()) {
 			coins = coins - seedBag.get(seedPos).getSC();
 			seedBag.get(seedPos).addQuantity();
 			return true;
@@ -475,10 +442,8 @@ public class Farmer
 		+ This method returns true upon successful purchase, and returns false otherwise.
 	*/
 
-	public boolean buyFertilizer()
-	{
-		if (coins >= 10)
-		{
+	public boolean buyFertilizer() {
+		if (coins >= 10) {
 			coins -= 10;
 			fertilizer++;
 			return true;
@@ -494,9 +459,9 @@ public class Farmer
 		+ This method returns true upon success, and returns false otherwise.
 	*/
 
-	public boolean fertilize(int pos)
-	{
-		if (farmLot.get(pos).getOccupant()!= null && fertilizer > 0 && farmLot.get(pos).getReady() == false && farmLot.get(pos).getWithered() == false) // NOT EMPTY, NOT READY, NOT WITHERED, WITH UNITS
+	public boolean fertilize(int pos) {
+		if (farmLot.get(pos).getOccupant() != null && fertilizer > 0 && farmLot.get(pos).getReady() == false
+				&& farmLot.get(pos).getWithered() == false) // NOT EMPTY, NOT READY, NOT WITHERED, WITH UNITS
 		{
 			farmLot.get(pos).addFertilizerCount();
 			fertilizer--;
@@ -514,9 +479,9 @@ public class Farmer
 		+ This method returns true upon success, and returns false otherwise.
 	*/
 
-	public boolean water(int pos)
-	{
-		if (farmLot.get(pos).getOccupant()!= null && farmLot.get(pos).getReady() == false && farmLot.get(pos).getWithered() == false) // NOT EMPTY, NOT READY, and NOT WITHERED
+	public boolean water(int pos) {
+		if (farmLot.get(pos).getOccupant() != null && farmLot.get(pos).getReady() == false
+				&& farmLot.get(pos).getWithered() == false) // NOT EMPTY, NOT READY, and NOT WITHERED
 		{
 			farmLot.get(pos).addWaterCount();
 			addExp();
@@ -533,10 +498,8 @@ public class Farmer
 		+ This method returns true upon success, and returns false otherwise.
 	*/
 
-	public boolean removeRock(int pos)
-	{
-		if (farmLot.get(pos).getRocks() == true)
-		{
+	public boolean removeRock(int pos) {
+		if (farmLot.get(pos).getRocks() == true) {
 			farmLot.get(pos).setRocks(false);
 			farmLot.get(pos).setAvailable(true);
 			farmLot.get(pos).setPlow(false);
@@ -555,30 +518,23 @@ public class Farmer
 		+ This method returns true upon success, and returns false otherwise.
 	*/
 
-	public boolean plow (int pos)
-	{
+	public boolean plow(int pos) {
 		if (farmLot.get(pos).getAvailable() == false && farmLot.get(pos).getWithered() == false)
 			return false;
 
-		if (farmLot.get(pos).getPlowed() == false)
-		{
+		if (farmLot.get(pos).getPlowed() == false) {
 			farmLot.get(pos).setPlow(true);
 			farmLot.get(pos).setAvailable(true);
 			addExp();
 			return true;
-		}
-		else if (farmLot.get(pos).getWithered() == true)
-		{
-			if (farmLot.get(pos).isTree())
-			{
+		} else if (farmLot.get(pos).getWithered() == true) {
+			if (farmLot.get(pos).isTree()) {
 				coins = coins - farmLot.get(pos).getOccupant().getWitherCost();
 				addExp();
 				farmLot.get(pos).reset();
 				setRoots(pos, true);
 				return true;
-			}
-			else
-			{
+			} else {
 				coins = coins - farmLot.get(pos).getOccupant().getWitherCost();
 				addExp();
 				farmLot.get(pos).reset();
@@ -593,27 +549,23 @@ public class Farmer
 		+This method puts the seed as the occupant of the designated tile position, if it passes all availability checks.
 		+This method returns true if the occupant of the tile was successfuly set, and false otherwise.
 	*/
-	public boolean plant(int pos, int seedPos)
-	{
-		if (farmLot.get(pos).getAvailable() == true && farmLot.get(pos).getPlowed() == true && seedBag.get(seedPos).ownsQuantity() == true ) // Checks if tile is available and plowed
+	public boolean plant(int pos, int seedPos) {
+		if (farmLot.get(pos).getAvailable() == true && farmLot.get(pos).getPlowed() == true
+				&& seedBag.get(seedPos).ownsQuantity() == true) // Checks if tile is available and plowed
 		{
 			if (seedBag.get(seedPos) instanceof FruitTree) // Checks if the see is a tree
 			{
-				if (isAvailableForTree(pos) == true)      // Checks if the surrounding tiles of the given position is available for planting
+				if (isAvailableForTree(pos) == true) // Checks if the surrounding tiles of the given position is available for planting
 				{
 					farmLot.get(pos).setOccupant(seedBag.get(seedPos));
 					seedBag.get(seedPos).minusQuantity();
-					setRoots(pos, false);				// Sets the surroundings of the tiles unavailable when tile is available for tree.
+					setRoots(pos, false); // Sets the surroundings of the tiles unavailable when tile is available for tree.
 					addExp();
 					return true;
-				}
-				else
-				{
+				} else {
 					return false;
 				}
-			}
-			else
-			{
+			} else {
 				farmLot.get(pos).setOccupant(seedBag.get(seedPos));
 				seedBag.get(seedPos).minusQuantity();
 				addExp();
@@ -632,10 +584,8 @@ public class Farmer
 		+ This method returns true upon success, and returns false otherwise.
 	*/
 
-	public boolean harvest(int pos)
-	{
-		if (farmLot.get(pos).getReady() == true)
-		{
+	public boolean harvest(int pos) {
+		if (farmLot.get(pos).getReady() == true) {
 			int wc = farmLot.get(pos).getWC();
 			int fc = farmLot.get(pos).getFC();
 			double total = 0;
@@ -677,20 +627,17 @@ public class Farmer
 	}
 
 	// Setters
-	public void setName(String s)
-	{
+	public void setName(String s) {
 		name = s;
 	}
 
 	// Getters
 
-	public ArrayList<Seed> getSeeds()
-	{
+	public ArrayList<Seed> getSeeds() {
 		return seedBag;
 	}
 
-	public ArrayList<Tile> getFarm()
-	{
+	public ArrayList<Tile> getFarm() {
 		return farmLot;
 	}
 
