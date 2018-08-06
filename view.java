@@ -721,10 +721,6 @@ public class View {
     EXPbar.setProgress((float) controller.getFarmerEXP() / 50);
   }
 
-  public void resetFarmerEXPbar() {
-    EXPbar.setProgress(0);
-  }
-
   public void updateFarmerStats() {
     farmerstats.setText(controller.getFarmerStats());
     updateFarmerEXPbar();
