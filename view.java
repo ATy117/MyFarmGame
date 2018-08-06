@@ -155,16 +155,16 @@ public class View {
     farmerinfo.getChildren().add(farmericon);
 
     TextFlow farmerstatsbox = new TextFlow(farmerstats);
-    farmerstatsbox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    farmerstatsbox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     farmerstatsbox.setPrefWidth(600);
     farmerstatsbox.setPrefHeight(158);
     farmerinfo.getChildren().add(farmerstatsbox);
 
     farmerbonuses = new Text(controller.getFarmerBonuses());
     TextFlow farmerbonusesbox = new TextFlow(farmerbonuses);
-    farmerbonusesbox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    farmerbonusesbox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     farmerbonusesbox.setPrefWidth((280));
     farmerbonusesbox.setPrefHeight(158);
     farmerinfo.getChildren().add(farmerbonusesbox);
@@ -179,7 +179,7 @@ public class View {
     EXPbar.setMaxWidth(200);
 
     overlap.getChildren().add(EXPbar);
-    StackPane.setMargin(EXPbar, new Insets(0, 600, 470, 0));
+    StackPane.setMargin(EXPbar, new Insets(0, 300, 570, 0));
 
     maingame.setTop(farmerinfo);
 
@@ -187,17 +187,17 @@ public class View {
 
     // LAYOUT
     TilePane farmlayout = new TilePane();
-    farmlayout.setPrefColumns(5);
-    farmlayout.setPadding(new Insets(0, 0, 0, 5));
+    farmlayout.setPrefColumns(10);
+    farmlayout.setPadding(new Insets(0, 0, 0, 0));
     maingame.setCenter(farmlayout);
-    farmlayout.setHgap(-10);
-    farmlayout.setVgap(-10);
+    farmlayout.setHgap(-15);
+    farmlayout.setVgap(-15);
 
     tile = new ImageView[50];
     for (int i = 0; i < 50; i++) {
       tile[i] = new ImageView(unplowedtile);
-      tile[i].setFitWidth(85);
-      tile[i].setFitHeight(85);
+      tile[i].setFitWidth(90);
+      tile[i].setFitHeight(90);
       farmlayout.getChildren().add(tile[i]);
     }
     resetTileAction();
@@ -307,7 +307,7 @@ public class View {
         HBox seedInfoBox = new HBox();
         seedInfoBox.setPrefWidth(530);
         seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-            + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+            + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
         seedInfoBox.setSpacing(10);
 
         Button plantButton = new Button("Plant");
@@ -381,7 +381,7 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
       Button fertilizeButton = new Button("Fertilize");
@@ -435,7 +435,7 @@ public class View {
       Text info = new Text(controller.getFertilizerInfo());
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -455,7 +455,7 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
       Button unplowedButton = new Button("Plow");
@@ -497,7 +497,7 @@ public class View {
       Text info = new Text(controller.getScyteInfo());
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -635,7 +635,7 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
       Button pickaxeButton = new Button("Remove\n  Rock");
@@ -677,7 +677,7 @@ public class View {
       Text info = new Text(controller.getPickaxeInfo());
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfo.setPrefWidth(410);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -695,7 +695,7 @@ public class View {
     TextFlow tileinfo = new TextFlow(tileinformation);
     tileinfo.setPrefWidth(210);
     tileinfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+        + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     tileinfo.setPadding(new Insets(10));
     maingame.setRight(tileinfo);
 
