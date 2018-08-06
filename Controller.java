@@ -33,92 +33,109 @@ public class Controller {
     model.buy(seedPos);
   }
 
-  public void plowTile(int seedPos) {
-    if (model.plow(seedPos))
-      view.setImagePlowedTile(seedPos);
+  public void plowTile(int tilePos) {
+
+    if (model.getFarm().get(tilePos).getPlowed() == false){
+      if (model.plow(tilePos))
+        view.setImagePlowedTile(tilePos);
+    } else if (model.getFarm().get(tilePos).getWithered() == true){
+      if (model.plow(tilePos))
+        view.setImageUnplowedTile(tilePos);
+    }
   }
+
 
   public void buyFertilizer() {
     model.buyFertilizer();
   }
 
-   public void plant(int tilePos, int seedPos)
-  {
-	 if ( model.plant(tilePos, seedPos))
-	 {
-	  view.setImageToGrowing(seedPos, tilePos);
-	  Thread t = new Thread(){
-		public void run(){
-		double grow = model.getFarm().get(tilePos).getTime() * 60 * 1000;
-		double wither = model.getFarm().get(tilePos).getTime() * 2 * 60;
-		double minute = 60;  
-		
-		Thread ownThread = new Thread();
-		try{
-			ownThread.sleep((long)(grow+1000));
-		} catch (InterruptedException e){}
-		
-		if (model.getFarm().get(tilePos).getReady())
-		{
-			view.setImageToGrown(seedPos, tilePos);
-			while (minute != 0 && model.getFarm().get(tilePos).getReady())
-			{
-				try{
-					ownThread.sleep(500);
-					minute -= 0.5;
-				} catch (InterruptedException e){}
-				
-				if (model.getFarm().get(tilePos).getReady() == false)
-				{
-					view.setImageUnplowedTile(tilePos);
-					return;
-				}
-				
-			}
-			
-			view.setImageToWithered(seedPos, tilePos);
-			while (wither > 0 && model.getFarm().get(tilePos).getWithered())
-				{
-					try{
-						ownThread.sleep(500);
-						wither -= 0.5;
-					} catch (InterruptedException e){}
-					
-					
-					if (model.getFarm().get(tilePos).getWithered() == false)
-					{
-						view.setImageUnplowedTile(tilePos);
-						return;
-					}
-				}
-			
-			view.setImageUnplowedTile(tilePos);
-		}
-		else
-		{
-			view.setImageToWithered(seedPos, tilePos);
-			while (wither > 0 && model.getFarm().get(tilePos).getWithered())
-				{
-					try{
-						ownThread.sleep(500);
-						wither -= 0.5;
-					} catch (InterruptedException e){}
-					
-					
-					if (model.getFarm().get(tilePos).getWithered() == false)
-					{
-						view.setImageUnplowedTile(tilePos);
-						return;
-					}
-				}
-			view.setImageUnplowedTile(tilePos);
-		}
-		}
-	  };
-	  t.start();
-	 }
+   public void plant(int tilePos, int seedPos){
+    if (model.plant(tilePos, seedPos)){
+      view.setImageToGrowing(seedPos, tilePos);
+      Thread t = new Thread(){
+          public void run(){
+            double grow = model.getFarm().get(tilePos).getTime() * 60 * 1000;
+            double wither = model.getFarm().get(tilePos).getTime() * 60 * 2;
+            double minute = 60;
+
+            try {
+              Thread.sleep((long)(grow));
+            } catch ( InterruptedException e) {}
+
+            if (model.getFarm().get(tilePos).getReady() == true)
+            {
+              view.setImageToGrown(seedPos, tilePos);
+
+              while (minute != 0){
+                try {
+                  Thread.sleep(1000);
+                } catch (InterruptedException e){}
+
+                if (model.getFarm().get(tilePos).getReady() == false){
+                  view.setImageUnplowedTile(tilePos);
+                  return;
+                }
+                minute--;
+              }
+
+              view.setImageToWithered(seedPos, tilePos);
+
+              while (wither > 0){
+                  try{
+                    Thread.sleep(1000);
+                  } catch (InterruptedException e){}
+
+                  if (model.getFarm().get(tilePos).getWithered() == false)
+                  {
+                    view.setImageUnplowedTile(tilePos);
+                    return;
+                  }
+                  wither--;
+              }
+
+              view.setImageUnplowedTile(tilePos);
+            } else {
+
+              view.setImageToWithered(seedPos, tilePos);
+              while (wither > 0){
+                  try{
+                    Thread.sleep(1000);
+                  } catch (InterruptedException e){}
+
+                  if (model.getFarm().get(tilePos).getWithered() == false)
+                  {
+                    view.setImageUnplowedTile(tilePos);
+                    return;
+                  }
+                  wither--;
+
+              }
+              view.setImageUnplowedTile(tilePos);
+
+            }
+
+          }
+      };
+      t.start();
+    }
+
   }
-  
+
+  public void harvest(int tilePos){
+    if (model.harvest(tilePos))
+      view.setImageUnplowedTile(tilePos);
+
+  }
+
+  public void fertilize (int tilePos){
+    model.fertilize(tilePos);
+  }
+
+  public void water (int tilePos){
+    model.water(tilePos);
+  }
+
+
   public String getPickaxeInfo() {
     String s = model.displayPickaxeInfo();
     return s;

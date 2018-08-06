@@ -19,54 +19,53 @@ public class Tile implements Runnable {
 		this.pos = pos;
 		isAvailable = true;
 	}
-	
+
 	public void run()
 	{
 		double grow = growingTime * 60 * 1000;
 		double wither = growingTime * 2 * 60;
 		double minute = 60;
-		
-		Thread ownThread = new Thread();
+
 		try{
-			ownThread.sleep( (long)(grow));
+			Thread.sleep( (long)(grow));
 		} catch (InterruptedException e){}
-		
+
 		if (waterCount >= occupant.getWN() && fertilizerCount >= occupant.getFN())
 		{
 			isReady = true;
 			while (minute != 0 && isReady)
 			{
 				try{
-					ownThread.sleep(500);
+					Thread.sleep(500);
 					minute -= 0.5;
 				} catch (InterruptedException e){}
-				
-				
+
+
 				if (isReady == false)
 				{
 					reset();
 					return;
 				}
-				
+
 			}
-			
+
 			isWithered = true;
 			isReady = false;
 				while (wither > 0 && isWithered)
 				{
 					try{
-					ownThread.sleep(500);
+					Thread.sleep(500);
 					wither -= 0.5;
 					} catch (InterruptedException e){}
-					
-					
+
+
 					if (isWithered == false)
 					{
 						reset();
 						return;
 					}
 				}
-			
+
 			reset();
 		}
 		else
@@ -75,11 +74,11 @@ public class Tile implements Runnable {
 			while (wither > 0 && isWithered)
 			{
 				try{
-					ownThread.sleep(500);
+					Thread.sleep(500);
 					wither -= 0.5;
 				} catch (InterruptedException e){}
-				
-				
+
+
 				if (isWithered == false)
 				{
 					reset();
@@ -87,9 +86,9 @@ public class Tile implements Runnable {
 				}
 			}
 			reset();
-		} 
-		
-		
+		}
+
+
 	}
 
 	/*
@@ -99,7 +98,7 @@ public class Tile implements Runnable {
 	public String displayStats() {
 		String display = "";
 
-		display = display + "Tile Position: " + pos + "\n\n";
+		display = display + "\n\n\n\nTile Position: " + pos + "\n\n";
 		display = display + "Plowed: " + isPlowed + "\n";
 		display = display + "Can be Harvested: " + isReady + "\n";
 		display = display + "Withered: " + isWithered + "\n";
@@ -140,7 +139,7 @@ public class Tile implements Runnable {
 		This method adds 1 to the fertilizerCount of the tile if it is still not over the max fertilizer needed of the occupying seed.
 	*/
 	public void addFertilizerCount() {
-		if (waterCount < occupant.getFM())
+		if (fertilizerCount < occupant.getFM())
 			fertilizerCount++;
 	}
 
