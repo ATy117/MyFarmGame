@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Group;
@@ -87,6 +88,7 @@ public class View {
   Text tileinformation;
   Text farmerstats, farmerbonuses;
   Controller controller;
+  ProgressBar EXPbar;
 
   public View(Controller c, Stage primaryStage) {
     //--------------------------- MAIN MENU ------------------------------//
@@ -171,6 +173,13 @@ public class View {
     register.setOnAction(e -> controller.register());
     overlap.getChildren().add(register);
     StackPane.setMargin(register, new Insets(0, 870, 470, 0));
+
+    EXPbar = new ProgressBar();
+    EXPbar.setProgress(0);
+    EXPbar.setMaxWidth(200);
+
+    overlap.getChildren().add(EXPbar);
+    StackPane.setMargin(EXPbar, new Insets(0, 600, 470, 0));
 
     maingame.setTop(farmerinfo);
 
@@ -708,8 +717,17 @@ public class View {
     }
   }
 
+  public void updateFarmerEXPbar() {
+    EXPbar.setProgress((float) controller.getFarmerEXP() / 50);
+  }
+
+  public void resetFarmerEXPbar() {
+    EXPbar.setProgress(0);
+  }
+
   public void updateFarmerStats() {
     farmerstats.setText(controller.getFarmerStats());
+    updateFarmerEXPbar();
   }
 
   public void updateFarmerBonuses() {

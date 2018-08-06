@@ -308,6 +308,10 @@ public class Farmer {
 		return display;
 	}
 
+	public int displayEXP() {
+		return currentExp;
+	}
+
 	/*
 		This is the displayBonuses method.
 		+ This method returns a string containing a series of text referring to the farmers bonuses based on rank;

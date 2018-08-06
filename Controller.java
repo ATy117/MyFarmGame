@@ -82,6 +82,10 @@ public class Controller {
     return s;
   }
 
+  public int getFarmerEXP() {
+    return model.displayEXP();
+  }
+
   public String getFarmerStats() {
     String s = model.displayStats();
     return s;
