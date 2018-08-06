@@ -449,9 +449,9 @@ public class View {
           + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(10);
 
-      Button unplowedButton = new Button("Plow Tile");
+      Button unplowedButton = new Button("Plow");
       unplowedButton.setMinWidth(80);
-      unplowedButton.setMinHeight(50);
+      unplowedButton.setMinHeight(75);
       unplowedButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           for (int i = 0; i < 50; i++) {
@@ -469,26 +469,9 @@ public class View {
         }
       });
 
-      Button witheredButton = new Button(" Remove\nWithered");
-      witheredButton.setMinWidth(80);
-      witheredButton.setMinHeight(50);
-      witheredButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-        public void handle(MouseEvent e) {
-          for (int i = 0; i < 50; i++) {
-            ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
-            tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
-              public void handle(MouseEvent e) {
-                infoui.getChildren().remove(seedInfoBox);
-                resetTileAction();
-              }
-            });
-          }
-        }
-      });
-
       Button cancelButton = new Button("Cancel");
       cancelButton.setMinWidth(80);
-      cancelButton.setMinHeight(50);
+      cancelButton.setMinHeight(75);
 
       cancelButton.setOnMouseClicked(new EventHandler<>() {
         public void handle(MouseEvent e) {
@@ -499,7 +482,6 @@ public class View {
       // Buttons
       VBox buttonBox = new VBox();
       buttonBox.getChildren().add(unplowedButton);
-      buttonBox.getChildren().add(witheredButton);
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 

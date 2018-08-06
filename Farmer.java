@@ -376,7 +376,7 @@ public class Farmer {
 		+ This method returns a string describing what the Scyte tool can do.
 	*/
 	public String displayScyteInfo() {
-		return "This is the Plow Tool. This tool is used to plow and unplowed tile or remove a withered plant for a cost.\n\nPress 'Plow' then select the tile to plow the tile.\n\nPress 'Remove Withered' then select the tile to remove a withered plant for 10% of the plant's seed cost.";
+		return "This is the Plow Tool. This tool is used to plow an unplowed tile or remove a withered plant for a cost.\n\nPress 'Plow' then select the tile to plow the tile or remove a withered plant for 10% of the plant's seed cost.";
 	}
 
 	/*

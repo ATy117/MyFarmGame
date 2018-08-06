@@ -1,5 +1,4 @@
-public class Tile
-{
+public class Tile {
 	private boolean isPlowed;
 	private boolean isReady;
 	private boolean isWithered;
@@ -15,8 +14,7 @@ public class Tile
 	private int pos;
 
 	// Constructor
-	public Tile(int pos)
-	{
+	public Tile(int pos) {
 		occupant = null;
 		this.pos = pos;
 		isAvailable = true;
@@ -26,8 +24,7 @@ public class Tile
 		This is the displayStats method
 		This returns a string containing the formatted information regarding the tile for displaying purposes
 	*/
-	public String displayStats()
-	{
+	public String displayStats() {
 		String display = "";
 
 		display = display + "Tile Position: " + pos + "\n\n";
@@ -41,18 +38,13 @@ public class Tile
 
 		String s = "";
 
-		if (occupant == null)
-		{
-			if (hasRocks == true)
-			{
+		if (occupant == null) {
+			if (hasRocks == true) {
 				s = "ROCK";
-			}
-			else
-			{
+			} else {
 				s = "NONE";
 			}
-		}
-		else
+		} else
 			s = occupant.getName() + " Crop";
 
 		display = display + "Occupied by: " + s + "\n\n\n";
@@ -66,21 +58,18 @@ public class Tile
 		This method adds 1 to the waterCount of the tile if it is still not over the max water needed of the occupying seed.
 	*/
 
-	public void addWaterCount()
-	{
-		if ( waterCount < occupant.getWM())
+	public void addWaterCount() {
+		if (waterCount < occupant.getWM())
 			waterCount++;
 	}
-
 
 	/*
 		This is the addFertilizerCount method.
 		This method adds 1 to the fertilizerCount of the tile if it is still not over the max fertilizer needed of the occupying seed.
 	*/
-	public void addFertilizerCount()
-	{
-		if ( waterCount < occupant.getFM())
-		 fertilizerCount++;
+	public void addFertilizerCount() {
+		if (waterCount < occupant.getFM())
+			fertilizerCount++;
 	}
 
 	/*
@@ -88,8 +77,7 @@ public class Tile
 		This method reverts the state of a tile to an unplowed and available tile.
 	*/
 
-	public void reset()
-	{
+	public void reset() {
 		isPlowed = false;
 		isReady = false;
 		isWithered = false;
@@ -107,8 +95,7 @@ public class Tile
 		This is the isTree method.
 		This method returns true if the occupant is an intance of FruitTree of the class Seed.
 	*/
-	public boolean isTree()
-	{
+	public boolean isTree() {
 		if (occupant == null)
 			return false;
 
@@ -119,8 +106,7 @@ public class Tile
 		This is the isVegetable method.
 		This method returns true if the occupant is an intance of Vegetable of the class Seed.
 	*/
-	public boolean isVegetable()
-	{
+	public boolean isVegetable() {
 		if (occupant == null)
 			return false;
 
@@ -131,8 +117,7 @@ public class Tile
 		This is the isFlower method.
 		This method returns true if the occupant is an intance of Flower of the class Seed.
 	*/
-	public boolean isFlower()
-	{
+	public boolean isFlower() {
 		if (occupant == null)
 			return false;
 
@@ -145,8 +130,7 @@ public class Tile
 		This method is only called by the plant method in the Farmer class, under any circumstances.
 	*/
 
-	public void setOccupant( Seed s)
-	{
+	public void setOccupant(Seed s) {
 		occupant = s;
 		isAvailable = false;
 		growingTime = s.getTN();
@@ -157,37 +141,29 @@ public class Tile
 		This method updates the stats of the occupying seed according to the specified rank.
 		This method is only called by the register method in the Farmer class, under any circumstances.
 	*/
-	public void updateOccupant(int rank)
-	{
+	public void updateOccupant(int rank) {
 		if (occupant != null)
 			occupant.updateStats(rank);
 	}
 
-
-
 	// Boolean Setters
-	public void setPlow(boolean bool)
-	{
+	public void setPlow(boolean bool) {
 		isPlowed = bool;
 	}
 
-	public void setReady(boolean bool)
-	{
+	public void setReady(boolean bool) {
 		isReady = bool;
 	}
 
-	public void setWither(boolean bool)
-	{
+	public void setWither(boolean bool) {
 		isWithered = bool;
 	}
 
-	public void setRocks(boolean bool)
-	{
+	public void setRocks(boolean bool) {
 		hasRocks = bool;
 	}
 
-	public void setAvailable(boolean bool)
-	{
+	public void setAvailable(boolean bool) {
 		isAvailable = bool;
 	}
 
@@ -210,55 +186,44 @@ public class Tile
 
 	// Getters
 
-	public boolean getPlowed()
-	{
+	public boolean getPlowed() {
 		return isPlowed;
 	}
 
-	public boolean getReady()
-	{
+	public boolean getReady() {
 		return isReady;
 	}
 
-	public boolean getWithered()
-	{
+	public boolean getWithered() {
 		return isWithered;
 	}
 
-	public boolean getRocks()
-	{
+	public boolean getRocks() {
 		return hasRocks;
 	}
 
-	public boolean getAvailable()
-	{
+	public boolean getAvailable() {
 		return isAvailable;
 	}
 
-	public int getWC()
-	{
+	public int getWC() {
 		return waterCount;
 	}
 
-	public int getFC()
-	{
+	public int getFC() {
 		return fertilizerCount;
 	}
 
-	public double getTime()
-	{
+	public double getTime() {
 		return growingTime;
 	}
 
-	public Seed getOccupant()
-	{
+	public Seed getOccupant() {
 		return occupant;
 	}
 
-	public int getPos()
-	{
+	public int getPos() {
 		return pos;
 	}
 
-
-	}
+}
