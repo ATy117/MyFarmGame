@@ -316,10 +316,13 @@ public class View {
         plantButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
           public void handle(MouseEvent e) {
             for (int i = 0; i < 50; i++) {
+              int tilePos = i;
               ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
               tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent e) {
                   infoui.getChildren().remove(seedInfoBox);
+                  controller.plant(tilePos, seedPos);
+                  updateFarmerStats();
                   resetTileAction();
                 }
               });
@@ -482,7 +485,7 @@ public class View {
       cancelButton.setMinWidth(80);
       cancelButton.setMinHeight(75);
 
-      cancelButton.setOnMouseClicked(new EventHandler<>() {
+      cancelButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           infoui.getChildren().remove(seedInfoBox);
           resetTileAction();

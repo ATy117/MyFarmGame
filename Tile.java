@@ -1,4 +1,4 @@
-public class Tile {
+public class Tile implements Runnable {
 	private boolean isPlowed;
 	private boolean isReady;
 	private boolean isWithered;
@@ -18,6 +18,78 @@ public class Tile {
 		occupant = null;
 		this.pos = pos;
 		isAvailable = true;
+	}
+	
+	public void run()
+	{
+		double grow = growingTime * 60 * 1000;
+		double wither = growingTime * 2 * 60;
+		double minute = 60;
+		
+		Thread ownThread = new Thread();
+		try{
+			ownThread.sleep( (long)(grow));
+		} catch (InterruptedException e){}
+		
+		if (waterCount >= occupant.getWN() && fertilizerCount >= occupant.getFN())
+		{
+			isReady = true;
+			while (minute != 0 && isReady)
+			{
+				try{
+					ownThread.sleep(500);
+					minute -= 0.5;
+				} catch (InterruptedException e){}
+				
+				
+				if (isReady == false)
+				{
+					reset();
+					return;
+				}
+				
+			}
+			
+			isWithered = true;
+			isReady = false;
+				while (wither > 0 && isWithered)
+				{
+					try{
+					ownThread.sleep(500);
+					wither -= 0.5;
+					} catch (InterruptedException e){}
+					
+					
+					if (isWithered == false)
+					{
+						reset();
+						return;
+					}
+				}
+			
+			reset();
+		}
+		else
+		{
+			isWithered = true;
+			while (wither > 0 && isWithered)
+			{
+				try{
+					ownThread.sleep(500);
+					wither -= 0.5;
+				} catch (InterruptedException e){}
+				
+				
+				if (isWithered == false)
+				{
+					reset();
+					return;
+				}
+			}
+			reset();
+		} 
+		
+		
 	}
 
 	/*

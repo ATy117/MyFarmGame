@@ -565,6 +565,8 @@ public class Farmer {
 					seedBag.get(seedPos).minusQuantity();
 					setRoots(pos, false); // Sets the surroundings of the tiles unavailable when tile is available for tree.
 					addExp();
+					Thread plantThread = new Thread(farmLot.get(pos));
+					plantThread.start();
 					return true;
 				} else {
 					return false;
@@ -573,6 +575,8 @@ public class Farmer {
 				farmLot.get(pos).setOccupant(seedBag.get(seedPos));
 				seedBag.get(seedPos).minusQuantity();
 				addExp();
+				Thread plantThread = new Thread(farmLot.get(pos));
+				plantThread.start();
 				return true;
 			}
 		}
