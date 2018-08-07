@@ -146,15 +146,6 @@ public class Tile {
 		growingTime = s.getTN();
 	}
 
-	/*
-		This is the updateOccupant method.
-		This method updates the stats of the occupying seed according to the specified rank.
-		This method is only called by the register method in the Farmer class, under any circumstances.
-	*/
-	public void updateOccupant(int rank) {
-		if (occupant != null)
-			occupant.updateStats(rank);
-	}
 
 	// Boolean Setters
 	public void setPlow(boolean bool) {
