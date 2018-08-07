@@ -405,9 +405,6 @@ public class Farmer {
 			for (int i = 0; i < seedBag.size(); i++)
 				seedBag.get(i).updateStats(rank);
 
-			for (int i = 0; i < farmLot.size(); i++)
-				farmLot.get(i).updateOccupant(rank);
-
 			if (rank == 1) {
 				regPrice = 250;
 				rankName = "Registered Farmer";
@@ -565,8 +562,6 @@ public class Farmer {
 					seedBag.get(seedPos).minusQuantity();
 					setRoots(pos, false); // Sets the surroundings of the tiles unavailable when tile is available for tree.
 					addExp();
-					Thread plantThread = new Thread(farmLot.get(pos));
-					plantThread.start();
 					return true;
 				} else {
 					return false;
@@ -575,8 +570,6 @@ public class Farmer {
 				farmLot.get(pos).setOccupant(seedBag.get(seedPos));
 				seedBag.get(seedPos).minusQuantity();
 				addExp();
-				Thread plantThread = new Thread(farmLot.get(pos));
-				plantThread.start();
 				return true;
 			}
 		}
