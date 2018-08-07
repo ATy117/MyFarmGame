@@ -462,7 +462,7 @@ public class Farmer {
 
 	public boolean fertilize(int pos) {
 		if (farmLot.get(pos).getOccupant() != null && fertilizer > 0 && farmLot.get(pos).getReady() == false
-				&& farmLot.get(pos).getWithered() == false) // NOT EMPTY, NOT READY, NOT WITHERED, WITH UNITS
+				&& farmLot.get(pos).getWithered() == false && farmLot.get(pos).getOccupant().getFM() > farmLot.get(pos).getFC()) // NOT EMPTY, NOT READY, NOT WITHERED, WITH UNITS
 		{
 			farmLot.get(pos).addFertilizerCount();
 			fertilizer--;
@@ -482,7 +482,7 @@ public class Farmer {
 
 	public boolean water(int pos) {
 		if (farmLot.get(pos).getOccupant() != null && farmLot.get(pos).getReady() == false
-				&& farmLot.get(pos).getWithered() == false) // NOT EMPTY, NOT READY, and NOT WITHERED
+				&& farmLot.get(pos).getWithered() == false && farmLot.get(pos).getOccupant().getWM() > farmLot.get(pos).getWC()) // NOT EMPTY, NOT READY, and NOT WITHERED
 		{
 			farmLot.get(pos).addWaterCount();
 			addExp();
@@ -528,7 +528,7 @@ public class Farmer {
 			farmLot.get(pos).setAvailable(true);
 			addExp();
 			return true;
-		} else if (farmLot.get(pos).getWithered() == true) {
+		} else if (farmLot.get(pos).getWithered() == true && coins >= 2.0) {
 			if (farmLot.get(pos).isTree()) {
 				coins = coins - farmLot.get(pos).getOccupant().getWitherCost();
 				addExp();

@@ -30,6 +30,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class View {
 
@@ -122,6 +124,7 @@ public class View {
   Image growing_flower_tile = new Image("images/growing_flower_tile.png");
   Image tileinfobackground = new Image ("images/tileinfo.png");
 
+  //Media backgroundmusic = new Media("file://sounds/backgroundmusic.mp3");
 
   // Declaration of public variables
   Stage window;
@@ -145,6 +148,10 @@ public class View {
     // Background Image (which is white)
     ImageView menubackgroundiv = new ImageView(menubackground);
     grid.getChildren().add(menubackgroundiv);
+
+    // Background music
+    //MediaPlayer backgroundmusicmp = new MediaPlayer(backgroundmusic);
+    //backgroundmusicmp.play();
 
     //Logo
     ImageView logodisplay = new ImageView(logo);
@@ -511,6 +518,7 @@ public class View {
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
               public void handle(MouseEvent e) {
                 controller.fertilize(tilePos);
+                info.setText(controller.getFertilizerInfo());
                 updateFarmerStats();
                 }
               });
@@ -936,16 +944,16 @@ public class View {
     AnchorPane.setTopAnchor(farmland, 210.0);
     AnchorPane.setLeftAnchor(farmland, 550.0);
 
-    AnchorPane.setTopAnchor(farmerstatsbox, 30.0);
+    AnchorPane.setTopAnchor(farmerstatsbox, 35.0);
     AnchorPane.setLeftAnchor(farmerstatsbox, 410.0);
 
-    AnchorPane.setTopAnchor(farmerbonusesbox, 30.0);
+    AnchorPane.setTopAnchor(farmerbonusesbox, 35.0);
     AnchorPane.setRightAnchor(farmerbonusesbox, 200.0);
 
     AnchorPane.setTopAnchor(tileinfo, 203.0);
     AnchorPane.setLeftAnchor(tileinfo, 200.0);
 
-    AnchorPane.setTopAnchor(EXPbar, 80.0);
+    AnchorPane.setTopAnchor(EXPbar, 87.0);
     AnchorPane.setLeftAnchor(EXPbar, 530.0);
 
     AnchorPane.setTopAnchor(register, 50.0);
