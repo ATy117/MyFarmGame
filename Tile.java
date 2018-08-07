@@ -1,4 +1,4 @@
-public class Tile implements Runnable {
+public class Tile {
 	private boolean isPlowed;
 	private boolean isReady;
 	private boolean isWithered;
@@ -18,77 +18,6 @@ public class Tile implements Runnable {
 		occupant = null;
 		this.pos = pos;
 		isAvailable = true;
-	}
-
-	public void run()
-	{
-		double grow = growingTime * 60 * 1000;
-		double wither = growingTime * 2 * 60;
-		double minute = 60;
-
-		try{
-			Thread.sleep( (long)(grow));
-		} catch (InterruptedException e){}
-
-		if (waterCount >= occupant.getWN() && fertilizerCount >= occupant.getFN())
-		{
-			isReady = true;
-			while (minute != 0 && isReady)
-			{
-				try{
-					Thread.sleep(500);
-					minute -= 0.5;
-				} catch (InterruptedException e){}
-
-
-				if (isReady == false)
-				{
-					reset();
-					return;
-				}
-
-			}
-
-			isWithered = true;
-			isReady = false;
-				while (wither > 0 && isWithered)
-				{
-					try{
-					Thread.sleep(500);
-					wither -= 0.5;
-					} catch (InterruptedException e){}
-
-
-					if (isWithered == false)
-					{
-						reset();
-						return;
-					}
-				}
-
-			reset();
-		}
-		else
-		{
-			isWithered = true;
-			while (wither > 0 && isWithered)
-			{
-				try{
-					Thread.sleep(500);
-					wither -= 0.5;
-				} catch (InterruptedException e){}
-
-
-				if (isWithered == false)
-				{
-					reset();
-					return;
-				}
-			}
-			reset();
-		}
-
-
 	}
 
 	/*
@@ -195,6 +124,16 @@ public class Tile implements Runnable {
 		return (occupant instanceof Flower);
 	}
 
+	/*
+		This is the grownProperly method.
+		This method returns true if the seed has received sufficient watering and fertilizing, else returns false.
+	*/
+	public boolean grownProperly() {
+		if (waterCount >= occupant.getWN() && fertilizerCount >= occupant.getFN())
+			return true;
+		
+		return false;
+	}
 	/*
 		This is the setOccupant method.
 		This method sets the occupant of the tile to the specified Seed s.
