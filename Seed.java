@@ -5,6 +5,9 @@
 * @author  Gabriel T. Tan & Adrian Paule D. Ty
 * @version 1.0
 * @since   2018-08-15 
+* @see         Vegetable
+* @see         FruitTree
+* @see         Flower
 */
 public abstract class Seed
 {
