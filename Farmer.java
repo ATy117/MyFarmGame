@@ -295,15 +295,15 @@ public class Farmer {
 		String canReg;
 
 		if (canRegister)
-			canReg = "ELIGBLE TO REGISTER";
+			canReg = "\nELIGBLE TO REGISTER";
 		else
-			canReg = "INELIGBLE TO REGISTER YET";
+			canReg = "\n   INELIGBLE TO REGISTER YET";
 
-		display = display + "Farmer Name: " + name + "\n";
-		display = display + "Farmer Rank : " + rankName + "\n";
-		display = display + "LEVEL " + level + ": " + currentExp + " / 50\n";
-		display = display + "Coins: " + coins + "\n";
-		display = display + "Register Price to next rank: " + regPrice + " (" + canReg + ") \n";
+		display = display + "\n   Farmer Name: " + name + "\n";
+		display = display + "   Farmer Rank : " + rankName + "\n";
+		display = display + "   LEVEL " + level + ": " + currentExp + " / 50\n";
+		display = display + "   Coins: " + coins + "\n";
+		display = display + "   Register Price to next rank: " + regPrice + " (" + canReg + ") \n";
 
 		return display;
 	}
@@ -321,29 +321,29 @@ public class Farmer {
 		String display = "";
 
 		if (rank == 1) {
-			display = display + rankName + " Bonuses: \n\n";
-			display = display + "Buying Discount: - 2 \n";
-			display = display + "Selling Bonus: + 2 \n";
-			display = display + "Bonus Water and Fertilizer Limits: + 0\n";
-			display = display + "Harvest Time Bonus: - 5% \n";
+			display = display + "\n   " +   rankName + "\n\n   Bonuses: \n";
+			display = display + "   Buying Discount: - 2 \n";
+			display = display + "   Selling Bonus: + 2 \n";
+			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
+			display = display + "   Harvest Time Bonus: - 5% \n";
 		} else if (rank == 2) {
-			display = display + rankName + " Bonuses: \n\n";
-			display = display + "Buying Discount: - 3 \n";
-			display = display + "Selling Bonus: + 3 \n";
-			display = display + "Bonus Water and Fertilizer Limits: + 1\n";
-			display = display + "Harvest Time Bonus: - 10% \n";
+			display = display + "\n   " +   rankName + "\n\n   Bonuses: \n";
+			display = display + "   Buying Discount: - 3 \n";
+			display = display + "   Selling Bonus: + 3 \n";
+			display = display + "   Bonus Water and Fertilizer Limits: + 1\n";
+			display = display + "   Harvest Time Bonus: - 10% \n";
 		} else if (rank == 3) {
-			display = display + rankName + " Bonuses: \n\n";
-			display = display + "Buying Discount: - 5 \n";
-			display = display + "Selling Bonus: + 5 \n";
-			display = display + "Bonus Water and Fertilizer Limits: + 2\n";
-			display = display + "Harvest Time Bonus: - 15% \n";
+			display = display + "\n   " +   rankName  + "\n\n   Bonuses: \n";
+			display = display + "   Buying Discount: - 5 \n";
+			display = display + "   Selling Bonus: + 5 \n";
+			display = display + "   Bonus Water and Fertilizer Limits: + 2\n";
+			display = display + "   Harvest Time Bonus: - 15% \n";
 		} else {
-			display = display + rankName + " Bonuses: \n\n";
-			display = display + "Buying Discount: - 0 \n";
-			display = display + "Selling Bonus: + 0 \n";
-			display = display + "Bonus Water and Fertilizer Limits: + 0\n";
-			display = display + "Harvest Time Bonus: - 0% \n";
+			display = display + "\n   " +   rankName + "\n\n   Bonuses: \n";
+			display = display + "   Buying Discount: - 0 \n";
+			display = display + "   Selling Bonus: + 0 \n";
+			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
+			display = display + "   Harvest Time Bonus: - 0% \n";
 		}
 
 		return display;

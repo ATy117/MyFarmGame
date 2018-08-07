@@ -10,6 +10,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -37,24 +38,41 @@ public class View {
   Image image2 = new Image("images/background.png", 1000, 800, false, false);
   Image logo = new Image("images/logo.jpg");
   Image inventory = new Image("images/inventory.jpg");
-  Image turnipimg = new Image("images/turnip.png");
-  Image carrotimg = new Image("images/carrot.png");
-  Image tomatoimg = new Image("images/tomato.png");
-  Image potatoimg = new Image("images/potato.png");
-  Image tulipimg = new Image("images/tulip.png");
-  Image stargazerimg = new Image("images/stargazer.png");
-  Image sunflowerimg = new Image("images/sunflower.png");
-  Image roseimg = new Image("images/rose.png");
-  Image mangoimg = new Image("images/mango.png");
-  Image appleimg = new Image("images/apple.png");
-  Image bananaimg = new Image("images/banana.png");
-  Image orangeimg = new Image("images/orange.png");
-  Image fertilizerimg = new Image("images/fertilizer.png");
-  Image toolimg = new Image("images/tools.jpg");
-  Image wateringcanimg = new Image("images/wateringcan.png");
-  Image plowtoolimg = new Image("images/plowtool.png");
-  Image pickaxeimg = new Image("images/pickaxe.png");
-  Image fertilizerbagimg = new Image("images/fertilizerbag.png");
+  Image unselectedturnipimg = new Image("images/unselectedturnip.png");
+  Image selectedturnipimg = new Image ("images/selectedturnip.png");
+  Image unselectedcarrotimg = new Image ("images/unselectedcarrot.png");
+  Image selectedcarrotimg = new Image ("images/selectedcarrot.png");
+  Image unselectedtomatoimg = new Image("images/unselectedtomato.png");
+  Image selectedtomatoimg = new Image("images/selectedtomato.png");
+  Image unselectedpotatoimg = new Image("images/unselectedpotato.png");
+  Image selectedpotatoimg = new Image ("images/selectedpotato.png");
+  Image unselectedtulipimg = new Image("images/unselectedtulip.png");
+  Image selectedtulipimg = new Image("images/selectedtulip.png");
+  Image unselectedstargazerimg = new Image("images/unselectedstargazer.png");
+  Image selectedstargazerimg = new Image("images/selectedstargazer.png");
+  Image unselectedsunflowerimg = new Image("images/unselectedsunflower.png");
+  Image selectedsunflowerimg = new Image("images/selectedsunflower.png");
+  Image unselectedroseimg = new Image("images/unselectedrose.png");
+  Image selectedroseimg = new Image("images/selectedrose.png");
+  Image unselectedmangoimg = new Image("images/unselectedmango.png");
+  Image selectedmangoimg = new Image("images/selectedmango.png");
+  Image unselectedappleimg = new Image("images/unselectedapple.png");
+  Image selectedappleimg = new Image("images/selectedapple.png");
+  Image unselectedbananaimg = new Image("images/unselectedbanana.png");
+  Image selectedbananaimg = new Image("images/selectedbanana.png");
+  Image unselectedorangeimg = new Image("images/unselectedorange.png");
+  Image selectedorangeimg = new Image("images/selectedorange.png");
+  Image unselectedfertilizerimg = new Image("images/unselectedfertilizer.png");
+  Image selectedfertilizerimg = new Image("images/selectedfertilizer.png");
+  Image unselectedwateringcanimg = new Image("images/unselectedwateringcan.png");
+  Image selectedwateringcanimg = new Image("images/selectedwateringcan.png");
+  Image unselectedplowtoolimg = new Image("images/unselectedplowtool.png");
+  Image selectedplowtoolimg = new Image("images/selectedplowtool.png");
+  Image unselectedpickaxeimg = new Image("images/unselectedpickaxe.png");
+  Image selectedpickaxeimg = new Image("images/selectedpickaxe.png");
+  Image unselectedharvesttoolimg = new Image("images/unselectedharvesttool.png");
+  Image selectedharvesttoolimg = new Image("images/selectedharvesttool.png");
+
   Image infobox = new Image("images/infobox.png");
   Image unplowedtile = new Image("images/unplowed_empty_tile.png");
   Image plowedtile = new Image("images/plowed_empty_tile.png");
@@ -62,9 +80,9 @@ public class View {
   Image witheredfruittile = new Image("images/withered_tree_tile.png");
   Image witheredveggietile = new Image("images/withered_veggie_tile.png");
   Image witheredflowertile = new Image("images/withered_flower_tile.png");
-  Image harvestimg = new Image("images/harvest.png");
-  Image level0 = new Image("images/level0.png");
-  Image background = new Image("images/greenbackground.png");
+
+  Image otis = new Image("images/otis.jpg");
+  Image dirtbackground = new Image("images/dirtbackground.png");
   Image grown_tulip_tileimg = new Image("images/grown_tulip_tile.png");
   Image grown_carrot_tileimg = new Image("images/grown_carrot_tile.png");
   Image grown_tomato_tileimg = new Image("images/grown_tomato_tile.png");
@@ -81,7 +99,7 @@ public class View {
   Image growing_veggie_tile = new Image("images/growing_veggie_tile.png");
   Image growing_flower_tile = new Image("images/growing_flower_tile.png");
   Image tileinfobackground = new Image ("images/tileinfo.png");
-  Image bottominfobox = new Image ("images/bottominfobox.png");
+
 
   // Declaration of public variables
   Stage window;
@@ -135,54 +153,52 @@ public class View {
 
     menu = new Scene(grid, 800, 600);
 
+
+
+
     //--------------------------- IN GAME ------------------------------//
 
     //StackPane is used for images behind the main layout, BorderPane is on top of the StackPane and is the main layout
     StackPane overlap = new StackPane();
-    BorderPane maingame = new BorderPane();
-    ImageView backgroundiv = new ImageView(background);
+    AnchorPane maingame = new AnchorPane();
+    ImageView backgroundiv = new ImageView(dirtbackground);
+
+    maingame.setPadding(new Insets(10));
 
     overlap.getChildren().add(backgroundiv);
-
-    ImageView tileinfobackgroundiv = new ImageView (tileinfobackground);
-    tileinfobackgroundiv.setPreserveRatio(true);
-    tileinfobackgroundiv.setFitWidth(280);
-    overlap.getChildren().add(tileinfobackgroundiv);
-    StackPane.setMargin(tileinfobackgroundiv, new Insets(0, 0, 15 , 800));
-
-    ImageView bottominfoboxiv = new ImageView (bottominfobox);
-    bottominfoboxiv.setPreserveRatio(true);
-    bottominfoboxiv.setFitWidth(500);
-    overlap.getChildren().add(bottominfoboxiv);
-    StackPane.setMargin(bottominfoboxiv, new Insets (600, 0, 0, 470));
-
     overlap.getChildren().add(maingame);
+
+
 
     //////////////////// TOP LAYOUT (FARMER INFO) //////////////////////
 
     HBox farmerinfo = new HBox();
-
-    farmerinfo.setSpacing(5);
+    farmerinfo.setSpacing(20);
     farmerinfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
-    ImageView farmericon = new ImageView(level0);
-    farmericon.setFitHeight(136);
-    farmericon.setFitWidth(78);
-    farmerinfo.getChildren().add(farmericon);
+        + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+
+    Pane picture = new Pane ();
+    picture.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    ImageView farmericon = new ImageView(otis);
+    farmericon.setFitHeight(130);
+    farmericon.setFitWidth(180);
+    picture.getChildren().add(farmericon);
+    farmerinfo.getChildren().add(picture);
 
     TextFlow farmerstatsbox = new TextFlow(farmerstats);
-    farmerstatsbox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
-    farmerstatsbox.setPrefWidth(600);
-    farmerstatsbox.setPrefHeight(158);
+    farmerstatsbox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    farmerstatsbox.setPrefWidth(440);
+    farmerstatsbox.setPrefHeight(148);
     farmerinfo.getChildren().add(farmerstatsbox);
 
     farmerbonuses = new Text(controller.getFarmerBonuses());
     TextFlow farmerbonusesbox = new TextFlow(farmerbonuses);
-    farmerbonusesbox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
-    farmerbonusesbox.setPrefWidth((280));
-    farmerbonusesbox.setPrefHeight(158);
+    farmerbonusesbox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    farmerbonusesbox.setPrefWidth(320);
+    farmerbonusesbox.setPrefHeight(148);
     farmerinfo.getChildren().add(farmerbonusesbox);
 
     Button register = new Button("Register");
@@ -197,121 +213,153 @@ public class View {
     overlap.getChildren().add(EXPbar);
     StackPane.setMargin(EXPbar, new Insets(0, 300, 570, 0));
 
-    maingame.setTop(farmerinfo);
 
     /////////////////  MIDDLE LAYOUT (FARMLAND) ////////////////////
 
     // LAYOUT
+    Pane farmland = new Pane();
+    farmland.setPrefWidth(575);
+    farmland.setPrefHeight(300);
+
+
     TilePane farmlayout = new TilePane();
     farmlayout.setPrefColumns(10);
-    farmlayout.setPadding(new Insets(0, 0, 0, 0));
-    maingame.setCenter(farmlayout);
-    farmlayout.setHgap(-15);
-    farmlayout.setVgap(-15);
-
-
+    farmlayout.setHgap(-25);
+    farmlayout.setVgap(-25);
 
     tile = new ImageView[50];
     for (int i = 0; i < 50; i++) {
       tile[i] = new ImageView(unplowedtile);
-      tile[i].setFitWidth(90);
-      tile[i].setFitHeight(90);
+      tile[i].setFitWidth(85);
+      tile[i].setFitHeight(85);
       farmlayout.getChildren().add(tile[i]);
     }
     resetTileAction();
+
+    farmland.getChildren().add(farmlayout);
+
+
 
     ///////////////// BOTTOM PART LAYOUT (INVENTORY, TOOLS, INFOBOX)////////////////
 
     HBox infoui = new HBox(); // BOTTOM  LAYOUT
     infoui.setPadding(new Insets(15, 0, 15, 0));
-    infoui.setSpacing(10);
-    maingame.setBottom(infoui);
+    infoui.setSpacing(5);
 
     //Inventory
     GridPane invlayout = new GridPane();
-    invlayout.setHgap(15);
-    invlayout.setVgap(15);
-    invlayout.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    invlayout.setHgap(5);
+    invlayout.setVgap(5);
+    invlayout.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
 
     // Vegetables
-    Button turnip = new Button();
-    turnip.setGraphic(new ImageView(turnipimg));
+
+    ImageView turnip = new ImageView (unselectedturnipimg);
+    turnip.setOnMouseEntered(e -> turnip.setImage(selectedturnipimg));
+    turnip.setOnMouseExited( e -> turnip.setImage(unselectedturnipimg));
     invlayout.add(turnip, 0, 0);
 
-    Button carrot = new Button();
-    carrot.setGraphic(new ImageView(carrotimg));
+    ImageView carrot = new ImageView (unselectedcarrotimg);
+    carrot.setOnMouseEntered(e -> carrot.setImage(selectedcarrotimg));
+    carrot.setOnMouseExited( e -> carrot.setImage(unselectedcarrotimg));
     invlayout.add(carrot, 1, 0);
 
-    Button tomato = new Button();
-    tomato.setGraphic(new ImageView(tomatoimg));
+    ImageView tomato = new ImageView (unselectedtomatoimg);
+    tomato.setOnMouseEntered(e -> tomato.setImage(selectedtomatoimg));
+    tomato.setOnMouseExited( e -> tomato.setImage(unselectedtomatoimg));
     invlayout.add(tomato, 2, 0);
 
-    Button potato = new Button();
-    potato.setGraphic(new ImageView(potatoimg));
+    ImageView potato = new ImageView (unselectedpotatoimg);
+    potato.setOnMouseEntered(e -> potato.setImage(selectedpotatoimg));
+    potato.setOnMouseExited( e -> potato.setImage(unselectedpotatoimg));
     invlayout.add(potato, 3, 0);
 
     // Flowers
-    Button rose = new Button();
-    rose.setGraphic(new ImageView(roseimg));
+    ImageView rose = new ImageView (unselectedroseimg);
+    rose.setOnMouseEntered(e -> rose.setImage(selectedroseimg));
+    rose.setOnMouseExited( e -> rose.setImage(unselectedroseimg));
     invlayout.add(rose, 0, 1);
 
-    Button tulip = new Button();
-    tulip.setGraphic(new ImageView(tulipimg));
+    ImageView tulip = new ImageView (unselectedtulipimg);
+    tulip.setOnMouseEntered(e -> tulip.setImage(selectedtulipimg));
+    tulip.setOnMouseExited( e -> tulip.setImage(unselectedtulipimg));
     invlayout.add(tulip, 1, 1);
 
-    Button stargazer = new Button();
-    stargazer.setGraphic(new ImageView(stargazerimg));
+    ImageView stargazer = new ImageView (unselectedstargazerimg);
+    stargazer.setOnMouseEntered(e -> stargazer.setImage(selectedstargazerimg));
+    stargazer.setOnMouseExited( e -> stargazer.setImage(unselectedstargazerimg));
     invlayout.add(stargazer, 2, 1);
 
-    Button sunflower = new Button();
-    sunflower.setGraphic(new ImageView(sunflowerimg));
+    ImageView sunflower = new ImageView (unselectedsunflowerimg);
+    sunflower.setOnMouseEntered(e -> sunflower.setImage(selectedsunflowerimg));
+    sunflower.setOnMouseExited( e -> sunflower.setImage(unselectedsunflowerimg));
     invlayout.add(sunflower, 3, 1);
 
     // Fruits
-    Button mango = new Button();
-    mango.setGraphic(new ImageView(mangoimg));
+    ImageView mango = new ImageView (unselectedmangoimg);
+    mango.setOnMouseEntered(e -> mango.setImage(selectedmangoimg));
+    mango.setOnMouseExited( e -> mango.setImage(unselectedmangoimg));
     invlayout.add(mango, 0, 2);
 
-    Button apple = new Button();
-    apple.setGraphic(new ImageView(appleimg));
+    ImageView apple = new ImageView (unselectedappleimg);
+    apple.setOnMouseEntered(e -> apple.setImage(selectedappleimg));
+    apple.setOnMouseExited( e -> apple.setImage(unselectedappleimg));
     invlayout.add(apple, 1, 2);
 
-    Button banana = new Button();
-    banana.setGraphic(new ImageView(bananaimg));
+    ImageView banana = new ImageView (unselectedbananaimg);
+    banana.setOnMouseEntered(e -> banana.setImage(selectedbananaimg));
+    banana.setOnMouseExited( e -> banana.setImage(unselectedbananaimg));
     invlayout.add(banana, 2, 2);
 
-    Button orange = new Button();
-    orange.setGraphic(new ImageView(orangeimg));
+    ImageView orange = new ImageView (unselectedorangeimg);
+    orange.setOnMouseEntered(e -> orange.setImage(selectedorangeimg));
+    orange.setOnMouseExited( e -> orange.setImage(unselectedorangeimg));
     invlayout.add(orange, 3, 2);
+
 
     infoui.getChildren().add(invlayout);
 
     //Tools
     GridPane toollayout = new GridPane();
-    toollayout.setHgap(15);
-    toollayout.setVgap(15);
-    toollayout.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 10;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    toollayout.setHgap(5);
+    toollayout.setVgap(5);
+    toollayout.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
 
-    Button wateringcan = new Button();
-    wateringcan.setGraphic(new ImageView(wateringcanimg));
+    ImageView wateringcan = new ImageView (unselectedwateringcanimg);
+    wateringcan.setOnMouseEntered(e -> wateringcan.setImage(selectedwateringcanimg));
+    wateringcan.setOnMouseExited( e -> wateringcan.setImage(unselectedwateringcanimg));
+    wateringcan.setPreserveRatio(true);
+    wateringcan.setFitWidth(50);
     toollayout.add(wateringcan, 0, 0);
 
-    Button plowtool = new Button();
-    plowtool.setGraphic(new ImageView(plowtoolimg));
+    ImageView plowtool = new ImageView (unselectedplowtoolimg);
+    plowtool.setOnMouseEntered(e -> plowtool.setImage(selectedplowtoolimg));
+    plowtool.setOnMouseExited( e -> plowtool.setImage(unselectedplowtoolimg));
+    plowtool.setPreserveRatio(true);
+    plowtool.setFitWidth(50);
     toollayout.add(plowtool, 0, 1);
 
-    Button pickaxe = new Button();
-    pickaxe.setGraphic(new ImageView(pickaxeimg));
+    ImageView pickaxe = new ImageView (unselectedpickaxeimg);
+    pickaxe.setOnMouseEntered(e -> pickaxe.setImage(selectedpickaxeimg));
+    pickaxe.setOnMouseExited( e -> pickaxe.setImage(unselectedpickaxeimg));
+    pickaxe.setPreserveRatio(true);
+    pickaxe.setFitWidth(50);
     toollayout.add(pickaxe, 0, 2);
 
-    Button fertilizerbag = new Button();
-    fertilizerbag.setGraphic(new ImageView(fertilizerbagimg));
-    toollayout.add(fertilizerbag, 1, 0);
+    ImageView fertilizer = new ImageView (unselectedfertilizerimg);
+    fertilizer.setOnMouseEntered(e -> fertilizer.setImage(selectedfertilizerimg));
+    fertilizer.setOnMouseExited( e -> fertilizer.setImage(unselectedfertilizerimg));
+    fertilizer.setPreserveRatio(true);
+    fertilizer.setFitWidth(50);
+    toollayout.add(fertilizer, 1, 0);
 
-    Button harvesttool = new Button();
-    harvesttool.setGraphic(new ImageView(harvestimg));
+    ImageView harvesttool = new ImageView (unselectedharvesttoolimg);
+    harvesttool.setOnMouseEntered(e -> harvesttool.setImage(selectedharvesttoolimg));
+    harvesttool.setOnMouseExited( e -> harvesttool.setImage(unselectedharvesttoolimg));
+    harvesttool.setPreserveRatio(true);
+    harvesttool.setFitWidth(50);
     toollayout.add(harvesttool, 1, 1);
 
     infoui.getChildren().add(toollayout);
@@ -319,7 +367,9 @@ public class View {
     // Stats / Information
     for (int j = 0; j < invlayout.getChildren().size(); j++) {
       int seedPos = j;
-      Button butt = (Button) invlayout.getChildren().get(j);
+      ImageView butt = (ImageView) invlayout.getChildren().get(j);
+      butt.setPreserveRatio(true);
+      butt.setFitWidth(50);
       butt.setOnMouseClicked(e -> {
         resetTileAction();
         HBox seedInfoBox = new HBox();
@@ -396,7 +446,7 @@ public class View {
     }
 
     // FertilizeBag Mouse Click Options
-    fertilizerbag.setOnMouseClicked(e -> {
+    fertilizer.setOnMouseClicked(e -> {
       resetTileAction();
 
       HBox seedInfoBox = new HBox();
@@ -543,6 +593,7 @@ public class View {
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
           + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(51);
+
 
       Button waterButton = new Button("Water");
       waterButton.setMinWidth(80);
@@ -725,14 +776,55 @@ public class View {
 
     tileinformation = new Text("");
     TextFlow tileinfo = new TextFlow(tileinformation);
-    tileinfo.setPrefWidth(210);
-    tileinfo.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+    tileinfo.setPrefWidth(275);
+    tileinfo.setPrefHeight(220);
+    //tileinfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
+    //    + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     tileinfo.setPadding(new Insets(10));
-    maingame.setRight(tileinfo);
+
+
+    //---------------------- DIMENSIONS IN GAME------------------------------//
+
+    maingame.getChildren().addAll(farmland, invlayout, toollayout, farmerstatsbox, farmerbonusesbox, tileinfo, picture);
+
+    AnchorPane.setBottomAnchor(invlayout, 13.0);
+    AnchorPane.setLeftAnchor(invlayout, 250.0);
+
+    AnchorPane.setBottomAnchor(toollayout, 13.0);
+    AnchorPane.setLeftAnchor(toollayout, 510.0);
+
+    AnchorPane.setTopAnchor(farmland, 210.0);
+    AnchorPane.setLeftAnchor(farmland, 550.0);
+
+    AnchorPane.setTopAnchor(farmerstatsbox, 30.0);
+    AnchorPane.setLeftAnchor(farmerstatsbox, 410.0);
+
+    AnchorPane.setTopAnchor(farmerbonusesbox, 30.0);
+    AnchorPane.setRightAnchor(farmerbonusesbox, 200.0);
+
+    AnchorPane.setTopAnchor(tileinfo, 200.0);
+    AnchorPane.setLeftAnchor(tileinfo, 200.0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Sets scene
-    ingame = new Scene(overlap, 1000, 800);
+    ingame = new Scene(overlap, 1400, 800);
     window.setScene(menu);
     window.setResizable(false);
     window.show();

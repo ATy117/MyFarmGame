@@ -98,7 +98,7 @@ public class Tile implements Runnable {
 	public String displayStats() {
 		String display = "";
 
-		display = display + "\n\n\n\nTile Position: " + pos + "\n\n";
+		display = display + "\nTile Position: " + pos + "\n\n";
 		display = display + "Plowed: " + isPlowed + "\n";
 		display = display + "Can be Harvested: " + isReady + "\n";
 		display = display + "Withered: " + isWithered + "\n";
@@ -118,7 +118,7 @@ public class Tile implements Runnable {
 		} else
 			s = occupant.getName() + " Crop";
 
-		display = display + "Occupied by: " + s + "\n\n\n";
+		display = display + "Occupied by: " + s + "\n";
 		display = display + "ALWAYS CLICK TILE TO REFRESH STATUS\n";
 
 		return display;
