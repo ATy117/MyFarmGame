@@ -18,13 +18,13 @@ public class Farmer {
 
 	public Farmer() {
 		currentExp = 0;
-		maxExp = 50;
+		maxExp = 75;
 		rank = 0;
 		rankName = "Unregistered Farmer";
 		level = 1;
 
 		regPrice = 200.0;
-		coins = 1000.0;
+		coins = 150.0;
 
 		fertilizer = 5;
 

@@ -67,7 +67,7 @@ public class Tile {
 		display = display + "Can be Harvested: " + isReady + "\n";
 		display = display + "Withered: " + isWithered + "\n";
 		display = display + "Rock: " + hasRocks + "\n";
-		display = display + "Available: " + isAvailable + "\n\n";
+		display = display + "Available: " + isAvailable + "\n";
 		display = display + "Times Watered: " + waterCount + "\n";
 		display = display + "Times Fertilized: " + fertilizerCount + "\n";
 

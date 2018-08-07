@@ -89,6 +89,12 @@ public class View {
   Image unselectedharvestimg = new Image ("images/unselectedharvest.png");
   Image selectedharvestimg = new Image ("images/selectedharvest.png");
 
+  Image unselectedgenerateimg = new Image ("images/unselectedgenerate.png");
+  Image selectedgenerateimg = new Image ("images/selectedgenerate.png");
+
+  Image unselectedregisterimg = new Image ("images/unselectedregister.png");
+  Image selectedregisterimg = new Image ("images/selectedregister.png");
+
   Image infobox = new Image("images/infobox.png");
   Image unplowedtile = new Image("images/unplowed_empty_tile.png");
   Image plowedtile = new Image("images/plowed_empty_tile.png");
@@ -158,8 +164,10 @@ public class View {
     StackPane.setMargin(name, new Insets(100, 0, 0, 0));
 
     //Gene1rate Button
-    Button generate = new Button("GENERATE FARM");
-    generate.setOnAction(e -> {
+    ImageView generate = new ImageView(unselectedgenerateimg);
+    generate.setOnMouseEntered(e -> generate.setImage(selectedgenerateimg));
+    generate.setOnMouseExited(e -> generate.setImage(unselectedgenerateimg));
+    generate.setOnMousePressed(e -> {
       window.setScene(ingame);
       String enteredName = name.getText();
       controller.setFarmerName(enteredName);
@@ -222,8 +230,12 @@ public class View {
     farmerbonusesbox.setPrefHeight(148);
     farmerinfo.getChildren().add(farmerbonusesbox);
 
-    Button register = new Button("Register");
-    register.setOnAction(e -> controller.register());
+    ImageView register = new ImageView(unselectedregisterimg);
+    register.setFitWidth(80);
+    register.setPreserveRatio(true);
+    register.setOnMouseEntered(e -> register.setImage(selectedregisterimg));
+    register.setOnMouseExited(e -> register.setImage(unselectedregisterimg));
+    register.setOnMousePressed(e -> controller.register());
 
     EXPbar = new ProgressBar();
     EXPbar.setProgress(0);
@@ -390,7 +402,11 @@ public class View {
         seedInfoBox.setSpacing(10);
 
         ImageView buyButton = new ImageView(unselectedbuyimg);
+        buyButton.setFitWidth(100);
+        buyButton.setPreserveRatio(true);
         ImageView plantButton = new ImageView(unselectedplantimg);
+        plantButton.setFitWidth(100);
+        plantButton.setPreserveRatio(true);
         plantButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
           public void handle(MouseEvent e) {
             buyButton.setImage(unselectedbuyimg);
@@ -431,6 +447,8 @@ public class View {
         });
 
         ImageView cancelButton = new ImageView(unselectedcancelimg);
+        cancelButton.setFitWidth(100);
+        cancelButton.setPreserveRatio(true);
         cancelButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
           public void handle(MouseEvent e) {
             cancelButton.setImage(selectedcancelimg);
@@ -483,12 +501,15 @@ public class View {
       resetTileAction();
       Text info = new Text(controller.getFertilizerInfo());
       HBox seedInfoBox = new HBox();
+      seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
           + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(20);
 
       ImageView fertilizeButton = new ImageView(unselectedfertilizeimg);
+      fertilizeButton.setFitWidth(100);
+      fertilizeButton.setPreserveRatio(true);
       fertilizeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
         public void handle(MouseEvent e) {
@@ -507,7 +528,8 @@ public class View {
         });
 
         ImageView buyButton = new ImageView(unselectedbuyimg);
-
+        buyButton.setFitWidth(100);
+        buyButton.setPreserveRatio(true);
         buyButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
           public void handle(MouseEvent e) {
             buyButton.setImage(selectedbuyimg);
@@ -530,6 +552,8 @@ public class View {
       });
 
       ImageView cancelButton = new ImageView(unselectedcancelimg);
+      cancelButton.setFitWidth(100);
+      cancelButton.setPreserveRatio(true);
       cancelButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           cancelButton.setImage(selectedcancelimg);
@@ -577,16 +601,20 @@ public class View {
 
     });
 
+
     // Plowtool Mouse Click Options
     plowtool.setOnMouseClicked(e->{
       resetTileAction();
       HBox seedInfoBox = new HBox();
+      seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
           + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(20);
 
       ImageView unplowedButton = new ImageView(unselectedplowimg);
+      unplowedButton.setFitWidth(100);
+      unplowedButton.setPreserveRatio(true);
       unplowedButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           unplowedButton.setImage(selectedplowimg);
@@ -605,6 +633,8 @@ public class View {
 
 
       ImageView cancelButton = new ImageView(unselectedcancelimg);
+      cancelButton.setFitWidth(100);
+      cancelButton.setPreserveRatio(true);
       cancelButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           cancelButton.setImage(selectedcancelimg);
@@ -655,6 +685,7 @@ public class View {
     wateringcan.setOnMouseClicked(e -> {
       resetTileAction();
       HBox seedInfoBox = new HBox();
+      seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
           + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
@@ -662,6 +693,8 @@ public class View {
 
 
       ImageView waterButton = new ImageView(unselectedwaterimg);
+      waterButton.setFitWidth(100);
+      waterButton.setPreserveRatio(true);
       waterButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
       public void handle(MouseEvent e) {
@@ -680,6 +713,8 @@ public class View {
       });
 
       ImageView cancelButton = new ImageView(unselectedcancelimg);
+      cancelButton.setFitWidth(100);
+      cancelButton.setPreserveRatio(true);
       cancelButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           cancelButton.setImage(selectedcancelimg);
@@ -731,12 +766,15 @@ public class View {
     harvesttool.setOnMouseClicked(e -> {
       resetTileAction();
       HBox seedInfoBox = new HBox();
+      seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
           + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(20);
 
       ImageView harvestButton = new ImageView(unselectedharvestimg);
+      harvestButton.setFitWidth(100);
+      harvestButton.setPreserveRatio(true);
       harvestButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           harvestButton.setImage(selectedharvestimg);
@@ -754,6 +792,8 @@ public class View {
       });
 
       ImageView cancelButton = new ImageView(unselectedcancelimg);
+      cancelButton.setFitWidth(100);
+      cancelButton.setPreserveRatio(true);
       cancelButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           cancelButton.setImage(selectedcancelimg);
@@ -805,12 +845,15 @@ public class View {
 
       resetTileAction();
       HBox seedInfoBox = new HBox();
+      seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
       seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
           + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
       seedInfoBox.setSpacing(20);
 
       ImageView pickaxeButton = new ImageView(unselectedmineimg);
+      pickaxeButton.setFitWidth(100);
+      pickaxeButton.setPreserveRatio(true);
       pickaxeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           pickaxeButton.setImage(selectedmineimg);
@@ -828,6 +871,8 @@ public class View {
       });
 
       ImageView cancelButton = new ImageView(unselectedcancelimg);
+      cancelButton.setFitWidth(100);
+      cancelButton.setPreserveRatio(true);
       cancelButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
         public void handle(MouseEvent e) {
           cancelButton.setImage(selectedcancelimg);
@@ -906,7 +951,7 @@ public class View {
     AnchorPane.setTopAnchor(farmerbonusesbox, 30.0);
     AnchorPane.setRightAnchor(farmerbonusesbox, 200.0);
 
-    AnchorPane.setTopAnchor(tileinfo, 200.0);
+    AnchorPane.setTopAnchor(tileinfo, 203.0);
     AnchorPane.setLeftAnchor(tileinfo, 200.0);
 
     AnchorPane.setTopAnchor(EXPbar, 80.0);
@@ -915,7 +960,7 @@ public class View {
     AnchorPane.setTopAnchor(register, 50.0);
     AnchorPane.setRightAnchor(register, 220.0);
 
-    AnchorPane.setTopAnchor(picture, 40.0);
+    AnchorPane.setTopAnchor(picture, 45.0);
     AnchorPane.setLeftAnchor(picture, 255.0);
 
 
