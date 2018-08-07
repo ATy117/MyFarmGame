@@ -1,6 +1,6 @@
 /**
-* public class <b>Flower</B>
-* implements <b>Seed</B>
+* public class <b>Flower</b>
+* implements <b>Seed</b>
 *
 * The class Flower as inherited from the Seed class
 *
