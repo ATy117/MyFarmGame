@@ -301,7 +301,7 @@ public class Farmer {
 
 		display = display + "\n   Farmer Name: " + name + "\n";
 		display = display + "   Farmer Rank : " + rankName + "\n";
-		display = display + "   LEVEL " + level + ": " + currentExp + " / 50\n";
+		display = display + "   LEVEL " + level + ": " + currentExp + " / 75\n";
 		display = display + "   Coins: " + coins + "\n";
 		display = display + "   Register Price to next rank: " + regPrice + canReg + " \n";
 
@@ -321,25 +321,25 @@ public class Farmer {
 		String display = "";
 
 		if (rank == 1) {
-			display = display + "\n   " +   rankName + "\n\n";
+			display = display + "\n\n   " +   rankName + "\n";
 			display = display + "   Buying Discount: - 2 \n";
 			display = display + "   Selling Bonus: + 2 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
 			display = display + "   Harvest Time Bonus: - 5% \n";
 		} else if (rank == 2) {
-			display = display + "\n   " +   rankName + "\n\n";
+			display = display + "\n\n   " +   rankName + "\n";
 			display = display + "   Buying Discount: - 3 \n";
 			display = display + "   Selling Bonus: + 3 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 1\n";
 			display = display + "   Harvest Time Bonus: - 10% \n";
 		} else if (rank == 3) {
-			display = display + "\n   " +   rankName  + "\n\n";
+			display = display + "\n\n   " +   rankName  + "\n";
 			display = display + "   Buying Discount: - 5 \n";
 			display = display + "   Selling Bonus: + 5 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 2\n";
 			display = display + "   Harvest Time Bonus: - 15% \n";
 		} else {
-			display = display + "\n   " +   rankName + "\n\n";
+			display = display + "\n\n   " +   rankName + "\n";
 			display = display + "   Buying Discount: - 0 \n";
 			display = display + "   Selling Bonus: + 0 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";

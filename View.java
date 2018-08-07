@@ -35,7 +35,7 @@ public class View {
 
   //ALL IMAGES INITIALIZATIONS
   Image menubackground = new Image("images/menubackground.png", 1400, 800, false, false);
-  Image logo = new Image("images/logo.jpg");
+  Image logo = new Image("images/logo.png");
   Image inventory = new Image("images/inventory.jpg");
   Image unselectedturnipimg = new Image("images/unselectedturnip.png");
   Image selectedturnipimg = new Image ("images/selectedturnip.png");
@@ -147,14 +147,12 @@ public class View {
     grid.getChildren().add(menubackgroundiv);
 
     //Logo
-    /*ImageView logodisplay = new ImageView(logo);
-    logodisplay.setFitHeight(526);
-    logodisplay.setFitWidth(739);
+    ImageView logodisplay = new ImageView(logo);
+    logodisplay.setFitWidth(439);
     logodisplay.setPreserveRatio(true);
-    logodisplay.setSmooth(true);
     grid.getChildren().add(logodisplay);
     StackPane.setMargin(logodisplay, new Insets(0, 0, 230, 0));
-    */
+
 
     //Name input
     TextField name = new TextField();
@@ -197,10 +195,6 @@ public class View {
 
     //////////////////// TOP LAYOUT (FARMER INFO) //////////////////////
 
-    HBox farmerinfo = new HBox();
-    farmerinfo.setSpacing(20);
-    farmerinfo.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
 
     Pane picture = new Pane ();
     //picture.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
@@ -209,26 +203,23 @@ public class View {
     farmericon.setPreserveRatio(true);
     farmericon.setFitWidth(110);
     picture.getChildren().add(farmericon);
-    farmerinfo.getChildren().add(picture);
 
     TextFlow farmerstatsbox = new TextFlow(farmerstats);
     farmerstats.setFont(Font.font ("Springfield Cartoon", 15));
     farmerstats.setFill(Color.WHITE);
-    farmerstatsbox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    farmerstatsbox.setStyle("-fx-padding: 0;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
     farmerstatsbox.setPrefWidth(440);
     farmerstatsbox.setPrefHeight(148);
-    farmerinfo.getChildren().add(farmerstatsbox);
 
     farmerbonuses = new Text(controller.getFarmerBonuses());
     farmerbonuses.setFont(Font.font ("Springfield Cartoon", 15));
     farmerbonuses.setFill(Color.WHITE);
     TextFlow farmerbonusesbox = new TextFlow(farmerbonuses);
-    farmerbonusesbox.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    farmerbonusesbox.setStyle("-fx-padding: 0;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
     farmerbonusesbox.setPrefWidth(320);
     farmerbonusesbox.setPrefHeight(148);
-    farmerinfo.getChildren().add(farmerbonusesbox);
 
     ImageView register = new ImageView(unselectedregisterimg);
     register.setFitWidth(80);
@@ -273,8 +264,8 @@ public class View {
     GridPane invlayout = new GridPane();
     invlayout.setHgap(5);
     invlayout.setVgap(5);
-    invlayout.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    invlayout.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
 
     // Vegetables
 
@@ -345,8 +336,8 @@ public class View {
     GridPane toollayout = new GridPane();
     toollayout.setHgap(5);
     toollayout.setVgap(5);
-    toollayout.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+    toollayout.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
+        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
 
     ImageView wateringcan = new ImageView (unselectedwateringcanimg);
     wateringcan.setOnMouseEntered(e -> wateringcan.setImage(selectedwateringcanimg));
@@ -397,8 +388,8 @@ public class View {
         info.setFill(Color.WHITE);
         HBox seedInfoBox = new HBox();
         seedInfoBox.setPrefWidth(530);
-        seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-            + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+        seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
+            + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
         seedInfoBox.setSpacing(10);
 
         ImageView buyButton = new ImageView(unselectedbuyimg);
@@ -475,8 +466,8 @@ public class View {
 
 
         TextFlow seedInfo = new TextFlow(info);
-        seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-            + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+        seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
+            + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
         seedInfo.setPrefWidth(410);
 
         seedInfoBox.getChildren().add(seedInfo);
@@ -503,8 +494,8 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
       ImageView fertilizeButton = new ImageView(unselectedfertilizeimg);
@@ -582,8 +573,8 @@ public class View {
       info.setFont(Font.font ("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -608,8 +599,8 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
       ImageView unplowedButton = new ImageView(unselectedplowimg);
@@ -662,8 +653,8 @@ public class View {
       info.setFont(Font.font ("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -687,8 +678,8 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
 
@@ -743,8 +734,8 @@ public class View {
       info.setFont(Font.font ("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -768,8 +759,8 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
       ImageView harvestButton = new ImageView(unselectedharvestimg);
@@ -821,8 +812,8 @@ public class View {
       info.setFont(Font.font ("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -847,8 +838,8 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
       ImageView pickaxeButton = new ImageView(unselectedmineimg);
@@ -900,8 +891,8 @@ public class View {
       info.setFont(Font.font ("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
+          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -1004,7 +995,7 @@ public class View {
   }
 
   public void updateFarmerEXPbar() {
-    EXPbar.setProgress((float) controller.getFarmerEXP() / 50);
+    EXPbar.setProgress((float) controller.getFarmerEXP() / 75);
   }
 
   public void updateFarmerStats() {
