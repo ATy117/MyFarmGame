@@ -1,3 +1,25 @@
+/**
+* public class <b>Tile</b>
+*
+* The class Tile is a component in the <b>Farmer</b> class.
+*
+* <p>
+* The Tile class represents a unit of land in the <b>Farmer</b>'s farmLot. It can be occupied with a <b>Seed</b>.
+* <p>
+* This unit of land contains necessary info about the tile, including:<br>
+* States: <i>isPlowed</i>, <i>isReady</i>, <i>isWithered</i>, <i>hasRocks</i>, <i>isAvailable</i> <br>
+* Seed Information: <i>waterCount</i>, <i>fertilizerCount</i>, <i>growingTime</i>, <i>occupant</i>(<b>Seed</b>), <br>
+* and the <i>pos</i>, which represents the position of the tile in the farmLot.
+* <p>
+* The <i>pos</i> variable is based on an arrayList position, at the same time considering a 10 by 5
+* layout in terms of a grid.
+*
+* @author  Gabriel T. Tan & Adrian Paule D. Ty
+* @version 1.0
+* @since   2018-08-15
+* @see         Seed
+* @see         Farmer
+*/
 public class Tile {
 	private boolean isPlowed;
 	private boolean isReady;
@@ -13,16 +35,29 @@ public class Tile {
 
 	private int pos;
 
-	// Constructor
+	/**
+ 	*  A constructor for objects of Tile class
+	* <p>
+	* This costructor for this Tile is generally useful when instatiating multiple tiles
+	* in a for loop, which prevents repetition of the positions.
+	* <p>
+	* Additionally, this contructor initially sets the occupant of the Tile to <i>null</i>,
+	* and sets it's <i>isAvailable</i> state to true, keeping the rest false.
+	*
+ 	* @param  pos  an integer which represents the position of the tile
+ 	*/
 	public Tile(int pos) {
 		occupant = null;
 		this.pos = pos;
 		isAvailable = true;
 	}
 
-	/*
-		This is the displayStats method
-		This returns a string containing the formatted information regarding the tile for displaying purposes
+	/**
+	* Returns a string of text containing the Tile's information
+	*
+	* <p>
+	* The string is formatted in such a way that it makes displaying information easier in the View class
+	* @return	a string representation of the Tile's information
 	*/
 	public String displayStats() {
 		String display = "";
@@ -53,30 +88,43 @@ public class Tile {
 		return display;
 	}
 
-	/*
-		This is the addWaterCount method.
-		This method adds 1 to the waterCount of the tile if it is still not over the max water needed of the occupying seed.
+	/**
+	* Automatically adds 1 to the <i>waterCount</i>.
+	* <p>
+	* This automatically adds 1 to the waterCount of the tile if the <b>Seed</b> occupant's
+	* waterMax is not reached yet.
+	* This method does nothing otherwise.
+	* This method is mainly called from the <b>Farmer</b> class hence
+	* the checking if there is an occupant for the tile is done on the <b>Farmer</b>.
 	*/
-
 	public void addWaterCount() {
 		if (waterCount < occupant.getWM())
 			waterCount++;
 	}
 
-	/*
-		This is the addFertilizerCount method.
-		This method adds 1 to the fertilizerCount of the tile if it is still not over the max fertilizer needed of the occupying seed.
+	/**
+	* Automatically adds 1 to the <i>fertilizerCount</i>.
+	* <p>
+	* This automatically adds 1 to the fertilizerCount of the tile if the <b>Seed</b> occupant's
+	* fertilizerMax is not reached yet.
+	* This method does nothing otherwise.
+	* This method is mainly called from the <b>Farmer</b> class hence
+	* the checking if there is an occupant for the tile is done on the <b>Farmer</b>.
 	*/
 	public void addFertilizerCount() {
 		if (fertilizerCount < occupant.getFM())
 			fertilizerCount++;
 	}
 
-	/*
-		This is the reset method.
-		This method reverts the state of a tile to an unplowed and available tile.
+	/**
+	* Automatically returns the state of a tile to an unplowed tile.
+	* <p>
+	* An unplowed tile is not plowed, not ready (for harvest), not withered,
+	* no rocks, and available.
+	* The waterCount and fertilizerCount is also set back to 0.
+	* The same goes for the growingTime.
+	* The occupant is also set to <i>null</i>.
 	*/
-
 	public void reset() {
 		isPlowed = false;
 		isReady = false;
@@ -131,7 +179,7 @@ public class Tile {
 	public boolean grownProperly() {
 		if (waterCount >= occupant.getWN() && fertilizerCount >= occupant.getFN())
 			return true;
-		
+
 		return false;
 	}
 	/*
