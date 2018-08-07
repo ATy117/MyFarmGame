@@ -405,9 +405,6 @@ public class Farmer {
 			for (int i = 0; i < seedBag.size(); i++)
 				seedBag.get(i).updateStats(rank);
 
-			for (int i = 0; i < farmLot.size(); i++)
-				farmLot.get(i).updateOccupant(rank);
-
 			if (rank == 1) {
 				regPrice = 250;
 				rankName = "Registered Farmer";
