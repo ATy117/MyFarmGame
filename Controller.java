@@ -49,7 +49,7 @@ public class Controller {
     model.buyFertilizer();
   }
 
-   public void plant(int tilePos, int seedPos){
+    public void plant(int tilePos, int seedPos){
     if (model.plant(tilePos, seedPos)){
       view.setImageToGrowing(seedPos, tilePos);
       Thread t = new Thread(){
@@ -62,9 +62,10 @@ public class Controller {
               Thread.sleep((long)(grow));
             } catch ( InterruptedException e) {}
 
-            if (model.getFarm().get(tilePos).getReady() == true)
+            if (model.getFarm().get(tilePos).grownProperly() == true)
             {
               view.setImageToGrown(seedPos, tilePos);
+			  model.getFarm().get(tilePos).setReady(true);
 
               while (minute != 0){
                 try {
@@ -73,13 +74,15 @@ public class Controller {
 
                 if (model.getFarm().get(tilePos).getReady() == false){
                   view.setImageUnplowedTile(tilePos);
+				  model.getFarm().get(tilePos).reset();
                   return;
                 }
                 minute--;
               }
 
               view.setImageToWithered(seedPos, tilePos);
-
+				model.getFarm().get(tilePos).setReady(false);
+				model.getFarm().get(tilePos).setWither(true);
               while (wither > 0){
                   try{
                     Thread.sleep(1000);
@@ -88,15 +91,19 @@ public class Controller {
                   if (model.getFarm().get(tilePos).getWithered() == false)
                   {
                     view.setImageUnplowedTile(tilePos);
+					model.getFarm().get(tilePos).reset();
                     return;
                   }
                   wither--;
               }
 
               view.setImageUnplowedTile(tilePos);
+			  model.getFarm().get(tilePos).reset();
             } else {
 
               view.setImageToWithered(seedPos, tilePos);
+			  model.getFarm().get(tilePos).setReady(false);
+			  model.getFarm().get(tilePos).setWither(true);
               while (wither > 0){
                   try{
                     Thread.sleep(1000);
@@ -105,12 +112,14 @@ public class Controller {
                   if (model.getFarm().get(tilePos).getWithered() == false)
                   {
                     view.setImageUnplowedTile(tilePos);
+					model.getFarm().get(tilePos).reset();
                     return;
                   }
                   wither--;
-
               }
+
               view.setImageUnplowedTile(tilePos);
+			  model.getFarm().get(tilePos).reset();
 
             }
 
