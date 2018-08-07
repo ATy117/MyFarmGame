@@ -1,4 +1,7 @@
 /**
+* public class <b>Flower</B>
+* implements <b>Seed</B>
+*
 * The class Flower as inherited from the Seed class
 *
 * <p>
