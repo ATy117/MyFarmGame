@@ -32,6 +32,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class View {
 
@@ -197,8 +199,6 @@ public class View {
     //////////////////// TOP LAYOUT (FARMER INFO) //////////////////////
 
     Pane picture = new Pane();
-    //picture.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
-    //    + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     ImageView farmericon = new ImageView(dancinggroot);
     farmericon.setPreserveRatio(true);
     farmericon.setFitWidth(110);
@@ -229,6 +229,7 @@ public class View {
     register.setOnMousePressed(e -> controller.register());
 
     EXPbar = new ProgressBar();
+    EXPbar.setStyle("-fx-accent:rgb(101, 66, 0)");
     EXPbar.setProgress(0);
     EXPbar.setPrefWidth(200);
 
@@ -402,6 +403,7 @@ public class View {
                 public void handle(MouseEvent e) {
                   controller.plant(tilePos, seedPos);
                   info.setText(controller.getSeedInfo(seedPos));
+                  tileinformation.setText(controller.getTileInfo(tilePos));
                   updateFarmerStats();
                 }
               });
@@ -504,6 +506,7 @@ public class View {
               public void handle(MouseEvent e) {
                 controller.fertilize(tilePos);
                 info.setText(controller.getFertilizerInfo());
+                tileinformation.setText(controller.getTileInfo(tilePos));
                 updateFarmerStats();
               }
             });
@@ -605,6 +608,7 @@ public class View {
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
               public void handle(MouseEvent e) {
                 controller.plowTile(tilePos);
+                tileinformation.setText(controller.getTileInfo(tilePos));
                 updateFarmerStats();
               }
             });
@@ -683,6 +687,7 @@ public class View {
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
               public void handle(MouseEvent e) {
                 controller.water(tilePos);
+                tileinformation.setText(controller.getTileInfo(tilePos));
                 updateFarmerStats();
               }
             });
@@ -761,6 +766,7 @@ public class View {
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
               public void handle(MouseEvent e) {
                 controller.harvest(tilePos);
+                tileinformation.setText(controller.getTileInfo(tilePos));
                 updateFarmerStats();
               }
             });
@@ -839,6 +845,7 @@ public class View {
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
               public void handle(MouseEvent e) {
                 controller.pickRock(num);
+                tileinformation.setText(controller.getTileInfo(num));
                 updateFarmerStats();
               }
             });
@@ -928,10 +935,10 @@ public class View {
     AnchorPane.setTopAnchor(tileinfo, 203.0);
     AnchorPane.setLeftAnchor(tileinfo, 200.0);
 
-    AnchorPane.setTopAnchor(EXPbar, 87.0);
+    AnchorPane.setTopAnchor(EXPbar, 86.0);
     AnchorPane.setLeftAnchor(EXPbar, 530.0);
 
-    AnchorPane.setTopAnchor(register, 50.0);
+    AnchorPane.setTopAnchor(register, 55.0);
     AnchorPane.setRightAnchor(register, 220.0);
 
     AnchorPane.setTopAnchor(picture, 45.0);
@@ -1039,6 +1046,58 @@ public class View {
       tile[tilepos].setImage(witheredflowertile);
     else
       tile[tilepos].setImage(witheredfruittile);
+  }
+
+  public void displayAlertBox(String error) {
+    Alert alert = new Alert(AlertType.INFORMATION);
+    alert.setTitle("You cannot do that!");
+
+    if (error == "cannotBuy") {
+      alert.setHeaderText("Not enough money!");
+      alert.setContentText("");
+    }
+
+    else if (error == "cannotFertilize") {
+      alert.setHeaderText("Cannot fertilize!");
+      alert.setContentText("Possible reasons: \n 1. No fertilizer\n 2. Nothing is planted");
+    }
+
+    else if (error == "cannotWater") {
+      alert.setHeaderText("Cannot water!");
+      alert.setContentText("Possible reasons: \n 1. Already reached max water count\n 2. Nothing is planted");
+    }
+
+    else if (error == "cannotPlow") {
+      alert.setHeaderText("Cannot plow!");
+      alert.setContentText(
+          "Possible reasons: \n 1. Already plowed\n 2. Contains rock\n 3. Already Occupied\n 4. Occupied by tree root\n 5. Not a withered plant");
+    }
+
+    else if (error == "cannotHarvest") {
+      alert.setHeaderText("Cannot harvest!");
+      alert.setContentText(
+          "Possible reasons: \n 1. Not yet ready for harvesting\n 2. Nothing is planted\n 3. Cannot afford harvest cost");
+    }
+
+    else if (error == "cannotPlant") {
+      alert.setHeaderText("Cannot plant!");
+      alert.setContentText(
+          "Possible reasons: \n 1. Tile has rock\n 2. Tile not plowed\n 3. No seed in bag\n 4. Already occupied\n 5. Surrounding tiles unavailable for tree");
+    }
+
+    else if (error == "cannotMine") {
+      alert.setHeaderText("Cannot mine!");
+      alert.setContentText("Possible reasons: \n 1. Tile has no rock\n 2. Tile is not a rock");
+    }
+
+    else if (error == "cannotRegister") {
+      alert.setHeaderText("Cannot reigster!");
+      alert.setContentText(
+          "Possible reasons: \n 1. Not enough money\n 2. Level minimum not reached\n 3. Already max rank");
+    }
+
+    alert.showAndWait();
+
   }
 
 }

@@ -36,7 +36,7 @@ public class Tile {
 	private int pos;
 
 	/**
- 	*  A constructor for objects of Tile class
+	*  A constructor for objects of Tile class
 	* <p>
 	* This costructor for this Tile is generally useful when instatiating multiple tiles
 	* in a for loop, which prevents repetition of the positions.
@@ -44,8 +44,8 @@ public class Tile {
 	* Additionally, this contructor initially sets the occupant of the Tile to <i>null</i>,
 	* and sets it's <i>isAvailable</i> state to true, keeping the rest false.
 	*
- 	* @param  pos  an integer which represents the position of the tile
- 	*/
+	* @param  pos  an integer which represents the position of the tile
+	*/
 	public Tile(int pos) {
 		occupant = null;
 		this.pos = pos;
@@ -83,7 +83,6 @@ public class Tile {
 			s = occupant.getName() + " Crop";
 
 		display = display + "Occupied by: " + s + "\n";
-		display = display + "ALWAYS CLICK TILE TO REFRESH STATUS\n";
 
 		return display;
 	}
@@ -112,8 +111,7 @@ public class Tile {
 	* the checking if there is an occupant for the tile is done on the <b>Farmer</b>.
 	*/
 	public void addFertilizerCount() {
-		if (fertilizerCount < occupant.getFM())
-			fertilizerCount++;
+		fertilizerCount++;
 	}
 
 	/**
@@ -193,7 +191,6 @@ public class Tile {
 		isAvailable = false;
 		growingTime = s.getTN();
 	}
-
 
 	// Boolean Setters
 	public void setPlow(boolean bool) {

@@ -22,7 +22,8 @@ public class Controller {
     if (model.getFarm().get(pos).getRocks()) {
       view.setImageUnplowedTile(pos);
       model.removeRock(pos);
-    }
+    } else
+      view.displayAlertBox("cannotMine");
   }
 
   public void setFarmerName(String s) {
@@ -30,120 +31,139 @@ public class Controller {
   }
 
   public void buySeed(int seedPos) {
-    model.buy(seedPos);
+    if (model.buy(seedPos)) {
+
+    } else
+      view.displayAlertBox("cannotBuy");
+
   }
 
   public void plowTile(int tilePos) {
 
-    if (model.getFarm().get(tilePos).getPlowed() == false){
+    if (model.getFarm().get(tilePos).getPlowed() == false) {
       if (model.plow(tilePos))
         view.setImagePlowedTile(tilePos);
-    } else if (model.getFarm().get(tilePos).getWithered() == true){
+      else
+        view.displayAlertBox("cannotPlow");
+    } else if (model.getFarm().get(tilePos).getWithered() == true) {
       if (model.plow(tilePos))
         view.setImageUnplowedTile(tilePos);
-    }
+      else
+        view.displayAlertBox("cannotPlow");
+    } else
+      view.displayAlertBox("cannotPlow");
   }
-
 
   public void buyFertilizer() {
-    model.buyFertilizer();
+    if (model.buyFertilizer()) {
+
+    } else
+      view.displayAlertBox("cannotBuy");
   }
 
-    public void plant(int tilePos, int seedPos){
-    if (model.plant(tilePos, seedPos)){
+  public void plant(int tilePos, int seedPos) {
+    if (model.plant(tilePos, seedPos)) {
       view.setImageToGrowing(seedPos, tilePos);
-      Thread t = new Thread(){
-          public void run(){
-            double grow = model.getFarm().get(tilePos).getTime() * 60 * 1000;
-            double wither = model.getFarm().get(tilePos).getTime() * 60 * 2;
-            double minute = 60;
+      Thread t = new Thread() {
+        public void run() {
+          double grow = model.getFarm().get(tilePos).getTime() * 60 * 1000;
+          double wither = model.getFarm().get(tilePos).getTime() * 60 * 2;
+          double minute = 60;
 
-            try {
-              Thread.sleep((long)(grow));
-            } catch ( InterruptedException e) {}
+          try {
+            Thread.sleep((long) (grow));
+          } catch (InterruptedException e) {
+          }
 
-            if (model.getFarm().get(tilePos).grownProperly() == true)
-            {
-              view.setImageToGrown(seedPos, tilePos);
-			  model.getFarm().get(tilePos).setReady(true);
+          if (model.getFarm().get(tilePos).grownProperly() == true) {
+            view.setImageToGrown(seedPos, tilePos);
+            model.getFarm().get(tilePos).setReady(true);
 
-              while (minute != 0){
-                try {
-                  Thread.sleep(1000);
-                } catch (InterruptedException e){}
-
-                if (model.getFarm().get(tilePos).getReady() == false){
-                  view.setImageUnplowedTile(tilePos);
-				  model.getFarm().get(tilePos).reset();
-                  return;
-                }
-                minute--;
+            while (minute != 0) {
+              try {
+                Thread.sleep(1000);
+              } catch (InterruptedException e) {
               }
 
-              view.setImageToWithered(seedPos, tilePos);
-				model.getFarm().get(tilePos).setReady(false);
-				model.getFarm().get(tilePos).setWither(true);
-              while (wither > 0){
-                  try{
-                    Thread.sleep(1000);
-                  } catch (InterruptedException e){}
-
-                  if (model.getFarm().get(tilePos).getWithered() == false)
-                  {
-                    view.setImageUnplowedTile(tilePos);
-					model.getFarm().get(tilePos).reset();
-                    return;
-                  }
-                  wither--;
+              if (model.getFarm().get(tilePos).getReady() == false) {
+                view.setImageUnplowedTile(tilePos);
+                model.getFarm().get(tilePos).reset();
+                return;
               }
-
-              view.setImageUnplowedTile(tilePos);
-			  model.getFarm().get(tilePos).reset();
-            } else {
-
-              view.setImageToWithered(seedPos, tilePos);
-			  model.getFarm().get(tilePos).setReady(false);
-			  model.getFarm().get(tilePos).setWither(true);
-              while (wither > 0){
-                  try{
-                    Thread.sleep(1000);
-                  } catch (InterruptedException e){}
-
-                  if (model.getFarm().get(tilePos).getWithered() == false)
-                  {
-                    view.setImageUnplowedTile(tilePos);
-					model.getFarm().get(tilePos).reset();
-                    return;
-                  }
-                  wither--;
-              }
-
-              view.setImageUnplowedTile(tilePos);
-			  model.getFarm().get(tilePos).reset();
-
+              minute--;
             }
 
+            view.setImageToWithered(seedPos, tilePos);
+            model.getFarm().get(tilePos).setReady(false);
+            model.getFarm().get(tilePos).setWither(true);
+            while (wither > 0) {
+              try {
+                Thread.sleep(1000);
+              } catch (InterruptedException e) {
+              }
+
+              if (model.getFarm().get(tilePos).getWithered() == false) {
+                view.setImageUnplowedTile(tilePos);
+                model.getFarm().get(tilePos).reset();
+                return;
+              }
+              wither--;
+            }
+
+            view.setImageUnplowedTile(tilePos);
+            model.getFarm().get(tilePos).reset();
+          } else {
+
+            view.setImageToWithered(seedPos, tilePos);
+            model.getFarm().get(tilePos).setReady(false);
+            model.getFarm().get(tilePos).setWither(true);
+            while (wither > 0) {
+              try {
+                Thread.sleep(1000);
+              } catch (InterruptedException e) {
+              }
+
+              if (model.getFarm().get(tilePos).getWithered() == false) {
+                view.setImageUnplowedTile(tilePos);
+                model.getFarm().get(tilePos).reset();
+                return;
+              }
+              wither--;
+            }
+
+            view.setImageUnplowedTile(tilePos);
+            model.getFarm().get(tilePos).reset();
+
           }
+
+        }
       };
       t.start();
-    }
+    } else
+      view.displayAlertBox("cannotPlant");
 
   }
 
-  public void harvest(int tilePos){
+  public void harvest(int tilePos) {
     if (model.harvest(tilePos))
       view.setImageUnplowedTile(tilePos);
-
+    else
+      view.displayAlertBox("cannotHarvest");
   }
 
-  public void fertilize (int tilePos){
-    model.fertilize(tilePos);
+  public void fertilize(int tilePos) {
+    if (model.fertilize(tilePos)) {
+
+    } else
+      view.displayAlertBox("cannotFertilize");
   }
 
-  public void water (int tilePos){
-    model.water(tilePos);
-  }
+  public void water(int tilePos) {
+    if (model.water(tilePos)) {
 
+    } else
+      view.displayAlertBox("cannotWater");
+  }
 
   public String getPickaxeInfo() {
     String s = model.displayPickaxeInfo();
@@ -198,7 +218,9 @@ public class Controller {
     if (model.register() == true) {
       view.updateFarmerStats();
       view.updateFarmerBonuses();
-    } else
+    } else {
       view.updateFarmerStats();
+      view.displayAlertBox("cannotRegister");
+    }
   }
 }

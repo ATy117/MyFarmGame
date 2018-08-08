@@ -299,11 +299,17 @@ public class Farmer {
 		else
 			canReg = "\n   (INELIGBLE TO REGISTER YET)";
 
+		/*
 		display = display + "\n   Farmer Name: " + name + "\n";
 		display = display + "   Farmer Rank : " + rankName + "\n";
 		display = display + "   LEVEL " + level + ": " + currentExp + " / 75\n";
 		display = display + "   Coins: " + coins + "\n";
 		display = display + "   Register Price to next rank: " + regPrice + canReg + " \n";
+		*/
+
+		display = String.format(
+				"\n   Farmer Name: %s \n   Farmer Rank : %s \n   LEVEL %d: %d / 75\n  Coins: %.2f coins \n   Register Price to next rank: %.2f  %s\n",
+				name, rankName, level, currentExp, coins, regPrice, canReg);
 
 		return display;
 	}
@@ -461,8 +467,8 @@ public class Farmer {
 	*/
 
 	public boolean fertilize(int pos) {
-		if (farmLot.get(pos).getOccupant() != null && fertilizer > 0 && farmLot.get(pos).getReady() == false
-				&& farmLot.get(pos).getWithered() == false && farmLot.get(pos).getOccupant().getFM() > farmLot.get(pos).getFC()) // NOT EMPTY, NOT READY, NOT WITHERED, WITH UNITS
+		if (fertilizer > 0 && farmLot.get(pos).getReady() == false && farmLot.get(pos).getWithered() == false
+				&& farmLot.get(pos).getPlowed() == true) // NOT EMPTY, NOT READY, NOT WITHERED, WITH UNITS
 		{
 			farmLot.get(pos).addFertilizerCount();
 			fertilizer--;
@@ -552,7 +558,7 @@ public class Farmer {
 	*/
 	public boolean plant(int pos, int seedPos) {
 		if (farmLot.get(pos).getAvailable() == true && farmLot.get(pos).getPlowed() == true
-				&& seedBag.get(seedPos).ownsQuantity() == true) // Checks if tile is available and plowed
+				&& seedBag.get(seedPos).ownsQuantity() == true && farmLot.get(pos).getFC() > 0) // Checks if tile is available and plowed
 		{
 			if (seedBag.get(seedPos) instanceof FruitTree) // Checks if the see is a tree
 			{
@@ -597,6 +603,9 @@ public class Farmer {
 				return false;
 
 			double bp = seed.getBP();
+
+			if (fc > farmLot.get(pos).getOccupant().getFM())
+				fc = farmLot.get(pos).getOccupant().getFM();
 
 			total = total + (bp * 0.25 * wc) + (bp * 0.5 * fc) + bp;
 
