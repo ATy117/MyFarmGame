@@ -321,25 +321,25 @@ public class Farmer {
 		String display = "";
 
 		if (rank == 1) {
-			display = display + "\n\n   " +   rankName + "\n";
+			display = display + "\n\n   " + rankName + "\n";
 			display = display + "   Buying Discount: - 2 \n";
 			display = display + "   Selling Bonus: + 2 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
 			display = display + "   Harvest Time Bonus: - 5% \n";
 		} else if (rank == 2) {
-			display = display + "\n\n   " +   rankName + "\n";
+			display = display + "\n\n   " + rankName + "\n";
 			display = display + "   Buying Discount: - 3 \n";
 			display = display + "   Selling Bonus: + 3 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 1\n";
 			display = display + "   Harvest Time Bonus: - 10% \n";
 		} else if (rank == 3) {
-			display = display + "\n\n   " +   rankName  + "\n";
+			display = display + "\n\n   " + rankName + "\n";
 			display = display + "   Buying Discount: - 5 \n";
 			display = display + "   Selling Bonus: + 5 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 2\n";
 			display = display + "   Harvest Time Bonus: - 15% \n";
 		} else {
-			display = display + "\n\n   " +   rankName + "\n";
+			display = display + "\n\n   " + rankName + "\n";
 			display = display + "   Buying Discount: - 0 \n";
 			display = display + "   Selling Bonus: + 0 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
@@ -618,6 +618,9 @@ public class Farmer {
 			total = total * seed.productsProduced();
 
 			coins = coins - seed.getHC() + total;
+
+			if (seed instanceof FruitTree)
+				setRoots(pos, true);
 
 			farmLot.get(pos).reset();
 			addExp();

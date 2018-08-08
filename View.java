@@ -40,13 +40,13 @@ public class View {
   Image logo = new Image("images/logo.png");
   Image inventory = new Image("images/inventory.jpg");
   Image unselectedturnipimg = new Image("images/unselectedturnip.png");
-  Image selectedturnipimg = new Image ("images/selectedturnip.png");
-  Image unselectedcarrotimg = new Image ("images/unselectedcarrot.png");
-  Image selectedcarrotimg = new Image ("images/selectedcarrot.png");
+  Image selectedturnipimg = new Image("images/selectedturnip.png");
+  Image unselectedcarrotimg = new Image("images/unselectedcarrot.png");
+  Image selectedcarrotimg = new Image("images/selectedcarrot.png");
   Image unselectedtomatoimg = new Image("images/unselectedtomato.png");
   Image selectedtomatoimg = new Image("images/selectedtomato.png");
   Image unselectedpotatoimg = new Image("images/unselectedpotato.png");
-  Image selectedpotatoimg = new Image ("images/selectedpotato.png");
+  Image selectedpotatoimg = new Image("images/selectedpotato.png");
   Image unselectedtulipimg = new Image("images/unselectedtulip.png");
   Image selectedtulipimg = new Image("images/selectedtulip.png");
   Image unselectedstargazerimg = new Image("images/unselectedstargazer.png");
@@ -74,28 +74,28 @@ public class View {
   Image unselectedharvesttoolimg = new Image("images/unselectedharvesttool.png");
   Image selectedharvesttoolimg = new Image("images/selectedharvesttool.png");
 
-  Image unselectedcancelimg = new Image ("images/unselectedcancel.png");
-  Image selectedcancelimg = new Image ("images/selectedcancel.png");
-  Image unselectedbuyimg = new Image ("images/unselectedbuy.png");
-  Image selectedbuyimg = new Image ("images/selectedbuy.png");
-  Image unselectedplantimg = new Image ("images/unselectedplant.png");
-  Image selectedplantimg = new Image ("images/selectedplant.png");
-  Image unselectedfertilizeimg = new Image ("images/unselectedfertilize.png");
-  Image selectedfertilizeimg = new Image ("images/selectedfertilize.png");
-  Image unselectedwaterimg = new Image ("images/unselectedwater.png");
-  Image selectedwaterimg = new Image ("images/selectedwater.png");
-  Image unselectedmineimg = new Image ("images/unselectedmine.png");
-  Image selectedmineimg = new Image ("images/selectedmine.png");
-  Image unselectedplowimg = new Image ("images/unselectedplow.png");
-  Image selectedplowimg = new Image ("images/selectedplow.png");
-  Image unselectedharvestimg = new Image ("images/unselectedharvest.png");
-  Image selectedharvestimg = new Image ("images/selectedharvest.png");
+  Image unselectedcancelimg = new Image("images/unselectedcancel.png");
+  Image selectedcancelimg = new Image("images/selectedcancel.png");
+  Image unselectedbuyimg = new Image("images/unselectedbuy.png");
+  Image selectedbuyimg = new Image("images/selectedbuy.png");
+  Image unselectedplantimg = new Image("images/unselectedplant.png");
+  Image selectedplantimg = new Image("images/selectedplant.png");
+  Image unselectedfertilizeimg = new Image("images/unselectedfertilize.png");
+  Image selectedfertilizeimg = new Image("images/selectedfertilize.png");
+  Image unselectedwaterimg = new Image("images/unselectedwater.png");
+  Image selectedwaterimg = new Image("images/selectedwater.png");
+  Image unselectedmineimg = new Image("images/unselectedmine.png");
+  Image selectedmineimg = new Image("images/selectedmine.png");
+  Image unselectedplowimg = new Image("images/unselectedplow.png");
+  Image selectedplowimg = new Image("images/selectedplow.png");
+  Image unselectedharvestimg = new Image("images/unselectedharvest.png");
+  Image selectedharvestimg = new Image("images/selectedharvest.png");
 
-  Image unselectedgenerateimg = new Image ("images/unselectedgenerate.png");
-  Image selectedgenerateimg = new Image ("images/selectedgenerate.png");
+  Image unselectedgenerateimg = new Image("images/unselectedgenerate.png");
+  Image selectedgenerateimg = new Image("images/selectedgenerate.png");
 
-  Image unselectedregisterimg = new Image ("images/unselectedregister.png");
-  Image selectedregisterimg = new Image ("images/selectedregister.png");
+  Image unselectedregisterimg = new Image("images/unselectedregister.png");
+  Image selectedregisterimg = new Image("images/selectedregister.png");
 
   Image infobox = new Image("images/infobox.png");
   Image unplowedtile = new Image("images/unplowed_empty_tile.png");
@@ -122,7 +122,7 @@ public class View {
   Image growing_fruit_tile = new Image("images/growing_tree_tile.png");
   Image growing_veggie_tile = new Image("images/growing_veggie_tile.png");
   Image growing_flower_tile = new Image("images/growing_flower_tile.png");
-  Image tileinfobackground = new Image ("images/tileinfo.png");
+  Image tileinfobackground = new Image("images/tileinfo.png");
 
   //Media backgroundmusic = new Media("file://sounds/backgroundmusic.mp3");
 
@@ -160,13 +160,12 @@ public class View {
     grid.getChildren().add(logodisplay);
     StackPane.setMargin(logodisplay, new Insets(0, 0, 230, 0));
 
-
     //Name input
     TextField name = new TextField();
     name.setPromptText("Enter Farmer Name");
     name.setMaxWidth(200);
     grid.getChildren().add(name);
-    StackPane.setMargin(name, new Insets(100, 0, 0, 0));
+    StackPane.setMargin(name, new Insets(50, 0, 0, 0));
 
     //Gene1rate Button
     ImageView generate = new ImageView(unselectedgenerateimg);
@@ -179,12 +178,9 @@ public class View {
       farmerstats.setText(controller.getFarmerStats());
     });
     grid.getChildren().add(generate);
-    StackPane.setMargin(generate, new Insets(200, 0, 0, 0));
+    StackPane.setMargin(generate, new Insets(150, 0, 0, 0));
 
     menu = new Scene(grid, 1400, 800);
-
-
-
 
     //--------------------------- IN GAME ------------------------------//
 
@@ -198,12 +194,9 @@ public class View {
     overlap.getChildren().add(backgroundiv);
     overlap.getChildren().add(maingame);
 
-
-
     //////////////////// TOP LAYOUT (FARMER INFO) //////////////////////
 
-
-    Pane picture = new Pane ();
+    Pane picture = new Pane();
     //picture.setStyle("-fx-padding: 0;" + "-fx-border-style: solid inside;" + "-fx-border-width: 2;"
     //    + "-fx-border-insets: 0;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     ImageView farmericon = new ImageView(dancinggroot);
@@ -212,19 +205,19 @@ public class View {
     picture.getChildren().add(farmericon);
 
     TextFlow farmerstatsbox = new TextFlow(farmerstats);
-    farmerstats.setFont(Font.font ("Springfield Cartoon", 15));
+    farmerstats.setFont(Font.font("Springfield Cartoon", 15));
     farmerstats.setFill(Color.WHITE);
-    farmerstatsbox.setStyle("-fx-padding: 0;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
+    farmerstatsbox
+        .setStyle("-fx-padding: 0;" + "-fx-border-width: 2;" + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
     farmerstatsbox.setPrefWidth(440);
     farmerstatsbox.setPrefHeight(148);
 
     farmerbonuses = new Text(controller.getFarmerBonuses());
-    farmerbonuses.setFont(Font.font ("Springfield Cartoon", 15));
+    farmerbonuses.setFont(Font.font("Springfield Cartoon", 15));
     farmerbonuses.setFill(Color.WHITE);
     TextFlow farmerbonusesbox = new TextFlow(farmerbonuses);
-    farmerbonusesbox.setStyle("-fx-padding: 0;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
+    farmerbonusesbox
+        .setStyle("-fx-padding: 0;" + "-fx-border-width: 2;" + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
     farmerbonusesbox.setPrefWidth(320);
     farmerbonusesbox.setPrefHeight(148);
 
@@ -246,7 +239,6 @@ public class View {
     farmland.setPrefWidth(575);
     farmland.setPrefHeight(300);
 
-
     TilePane farmlayout = new TilePane();
     farmlayout.setPrefColumns(10);
     farmlayout.setHgap(-25);
@@ -263,124 +255,118 @@ public class View {
 
     farmland.getChildren().add(farmlayout);
 
-
-
     ///////////////// BOTTOM PART LAYOUT (INVENTORY, TOOLS, INFOBOX)////////////////
 
     //Inventory
     GridPane invlayout = new GridPane();
     invlayout.setHgap(5);
     invlayout.setVgap(5);
-    invlayout.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
+    invlayout.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
 
     // Vegetables
 
-    ImageView turnip = new ImageView (unselectedturnipimg);
+    ImageView turnip = new ImageView(unselectedturnipimg);
     turnip.setOnMouseEntered(e -> turnip.setImage(selectedturnipimg));
-    turnip.setOnMouseExited( e -> turnip.setImage(unselectedturnipimg));
+    turnip.setOnMouseExited(e -> turnip.setImage(unselectedturnipimg));
     invlayout.add(turnip, 0, 0);
 
-    ImageView carrot = new ImageView (unselectedcarrotimg);
+    ImageView carrot = new ImageView(unselectedcarrotimg);
     carrot.setOnMouseEntered(e -> carrot.setImage(selectedcarrotimg));
-    carrot.setOnMouseExited( e -> carrot.setImage(unselectedcarrotimg));
+    carrot.setOnMouseExited(e -> carrot.setImage(unselectedcarrotimg));
     invlayout.add(carrot, 1, 0);
 
-    ImageView tomato = new ImageView (unselectedtomatoimg);
+    ImageView tomato = new ImageView(unselectedtomatoimg);
     tomato.setOnMouseEntered(e -> tomato.setImage(selectedtomatoimg));
-    tomato.setOnMouseExited( e -> tomato.setImage(unselectedtomatoimg));
+    tomato.setOnMouseExited(e -> tomato.setImage(unselectedtomatoimg));
     invlayout.add(tomato, 2, 0);
 
-    ImageView potato = new ImageView (unselectedpotatoimg);
+    ImageView potato = new ImageView(unselectedpotatoimg);
     potato.setOnMouseEntered(e -> potato.setImage(selectedpotatoimg));
-    potato.setOnMouseExited( e -> potato.setImage(unselectedpotatoimg));
+    potato.setOnMouseExited(e -> potato.setImage(unselectedpotatoimg));
     invlayout.add(potato, 3, 0);
 
     // Flowers
-    ImageView rose = new ImageView (unselectedroseimg);
+    ImageView rose = new ImageView(unselectedroseimg);
     rose.setOnMouseEntered(e -> rose.setImage(selectedroseimg));
-    rose.setOnMouseExited( e -> rose.setImage(unselectedroseimg));
+    rose.setOnMouseExited(e -> rose.setImage(unselectedroseimg));
     invlayout.add(rose, 0, 1);
 
-    ImageView tulip = new ImageView (unselectedtulipimg);
+    ImageView tulip = new ImageView(unselectedtulipimg);
     tulip.setOnMouseEntered(e -> tulip.setImage(selectedtulipimg));
-    tulip.setOnMouseExited( e -> tulip.setImage(unselectedtulipimg));
+    tulip.setOnMouseExited(e -> tulip.setImage(unselectedtulipimg));
     invlayout.add(tulip, 1, 1);
 
-    ImageView stargazer = new ImageView (unselectedstargazerimg);
+    ImageView stargazer = new ImageView(unselectedstargazerimg);
     stargazer.setOnMouseEntered(e -> stargazer.setImage(selectedstargazerimg));
-    stargazer.setOnMouseExited( e -> stargazer.setImage(unselectedstargazerimg));
+    stargazer.setOnMouseExited(e -> stargazer.setImage(unselectedstargazerimg));
     invlayout.add(stargazer, 2, 1);
 
-    ImageView sunflower = new ImageView (unselectedsunflowerimg);
+    ImageView sunflower = new ImageView(unselectedsunflowerimg);
     sunflower.setOnMouseEntered(e -> sunflower.setImage(selectedsunflowerimg));
-    sunflower.setOnMouseExited( e -> sunflower.setImage(unselectedsunflowerimg));
+    sunflower.setOnMouseExited(e -> sunflower.setImage(unselectedsunflowerimg));
     invlayout.add(sunflower, 3, 1);
 
     // Fruits
-    ImageView mango = new ImageView (unselectedmangoimg);
+    ImageView mango = new ImageView(unselectedmangoimg);
     mango.setOnMouseEntered(e -> mango.setImage(selectedmangoimg));
-    mango.setOnMouseExited( e -> mango.setImage(unselectedmangoimg));
+    mango.setOnMouseExited(e -> mango.setImage(unselectedmangoimg));
     invlayout.add(mango, 0, 2);
 
-    ImageView apple = new ImageView (unselectedappleimg);
+    ImageView apple = new ImageView(unselectedappleimg);
     apple.setOnMouseEntered(e -> apple.setImage(selectedappleimg));
-    apple.setOnMouseExited( e -> apple.setImage(unselectedappleimg));
+    apple.setOnMouseExited(e -> apple.setImage(unselectedappleimg));
     invlayout.add(apple, 1, 2);
 
-    ImageView banana = new ImageView (unselectedbananaimg);
+    ImageView banana = new ImageView(unselectedbananaimg);
     banana.setOnMouseEntered(e -> banana.setImage(selectedbananaimg));
-    banana.setOnMouseExited( e -> banana.setImage(unselectedbananaimg));
+    banana.setOnMouseExited(e -> banana.setImage(unselectedbananaimg));
     invlayout.add(banana, 2, 2);
 
-    ImageView orange = new ImageView (unselectedorangeimg);
+    ImageView orange = new ImageView(unselectedorangeimg);
     orange.setOnMouseEntered(e -> orange.setImage(selectedorangeimg));
-    orange.setOnMouseExited( e -> orange.setImage(unselectedorangeimg));
+    orange.setOnMouseExited(e -> orange.setImage(unselectedorangeimg));
     invlayout.add(orange, 3, 2);
-
 
     //Tools
     GridPane toollayout = new GridPane();
     toollayout.setHgap(5);
     toollayout.setVgap(5);
-    toollayout.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
-        + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
+    toollayout.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
 
-    ImageView wateringcan = new ImageView (unselectedwateringcanimg);
+    ImageView wateringcan = new ImageView(unselectedwateringcanimg);
     wateringcan.setOnMouseEntered(e -> wateringcan.setImage(selectedwateringcanimg));
-    wateringcan.setOnMouseExited( e -> wateringcan.setImage(unselectedwateringcanimg));
+    wateringcan.setOnMouseExited(e -> wateringcan.setImage(unselectedwateringcanimg));
     wateringcan.setPreserveRatio(true);
     wateringcan.setFitWidth(50);
     toollayout.add(wateringcan, 0, 0);
 
-    ImageView plowtool = new ImageView (unselectedplowtoolimg);
+    ImageView plowtool = new ImageView(unselectedplowtoolimg);
     plowtool.setOnMouseEntered(e -> plowtool.setImage(selectedplowtoolimg));
-    plowtool.setOnMouseExited( e -> plowtool.setImage(unselectedplowtoolimg));
+    plowtool.setOnMouseExited(e -> plowtool.setImage(unselectedplowtoolimg));
     plowtool.setPreserveRatio(true);
     plowtool.setFitWidth(50);
     toollayout.add(plowtool, 0, 1);
 
-    ImageView pickaxe = new ImageView (unselectedpickaxeimg);
+    ImageView pickaxe = new ImageView(unselectedpickaxeimg);
     pickaxe.setOnMouseEntered(e -> pickaxe.setImage(selectedpickaxeimg));
-    pickaxe.setOnMouseExited( e -> pickaxe.setImage(unselectedpickaxeimg));
+    pickaxe.setOnMouseExited(e -> pickaxe.setImage(unselectedpickaxeimg));
     pickaxe.setPreserveRatio(true);
     pickaxe.setFitWidth(50);
     toollayout.add(pickaxe, 0, 2);
 
-    ImageView fertilizer = new ImageView (unselectedfertilizerimg);
+    ImageView fertilizer = new ImageView(unselectedfertilizerimg);
     fertilizer.setOnMouseEntered(e -> fertilizer.setImage(selectedfertilizerimg));
-    fertilizer.setOnMouseExited( e -> fertilizer.setImage(unselectedfertilizerimg));
+    fertilizer.setOnMouseExited(e -> fertilizer.setImage(unselectedfertilizerimg));
     fertilizer.setPreserveRatio(true);
     fertilizer.setFitWidth(50);
     toollayout.add(fertilizer, 1, 0);
 
-    ImageView harvesttool = new ImageView (unselectedharvesttoolimg);
+    ImageView harvesttool = new ImageView(unselectedharvesttoolimg);
     harvesttool.setOnMouseEntered(e -> harvesttool.setImage(selectedharvesttoolimg));
-    harvesttool.setOnMouseExited( e -> harvesttool.setImage(unselectedharvesttoolimg));
+    harvesttool.setOnMouseExited(e -> harvesttool.setImage(unselectedharvesttoolimg));
     harvesttool.setPreserveRatio(true);
     harvesttool.setFitWidth(50);
     toollayout.add(harvesttool, 1, 1);
-
 
     // Stats / Information
     for (int j = 0; j < invlayout.getChildren().size(); j++) {
@@ -391,12 +377,12 @@ public class View {
       butt.setOnMouseClicked(e -> {
         resetTileAction();
         Text info = new Text(controller.getSeedInfo(seedPos));
-        info.setFont(Font.font ("Springfield Cartoon", 15));
+        info.setFont(Font.font("Springfield Cartoon", 15));
         info.setFill(Color.WHITE);
         HBox seedInfoBox = new HBox();
         seedInfoBox.setPrefWidth(530);
-        seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
-            + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+        seedInfoBox
+            .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
         seedInfoBox.setSpacing(10);
 
         ImageView buyButton = new ImageView(unselectedbuyimg);
@@ -471,10 +457,9 @@ public class View {
         buttonBox.getChildren().add(cancelButton);
         seedInfoBox.getChildren().add(buttonBox);
 
-
         TextFlow seedInfo = new TextFlow(info);
-        seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
-            + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+        seedInfo
+            .setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
         seedInfo.setPrefWidth(410);
 
         seedInfoBox.getChildren().add(seedInfo);
@@ -501,8 +486,8 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfoBox
+          .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
       ImageView fertilizeButton = new ImageView(unselectedfertilizeimg);
@@ -520,29 +505,29 @@ public class View {
                 controller.fertilize(tilePos);
                 info.setText(controller.getFertilizerInfo());
                 updateFarmerStats();
-                }
-              });
-            }
+              }
+            });
           }
-        });
+        }
+      });
 
-        ImageView buyButton = new ImageView(unselectedbuyimg);
-        buyButton.setFitWidth(100);
-        buyButton.setPreserveRatio(true);
-        buyButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
-          public void handle(MouseEvent e) {
-            buyButton.setImage(selectedbuyimg);
-          }
-        });
+      ImageView buyButton = new ImageView(unselectedbuyimg);
+      buyButton.setFitWidth(100);
+      buyButton.setPreserveRatio(true);
+      buyButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          buyButton.setImage(selectedbuyimg);
+        }
+      });
 
-        buyButton.setOnMouseExited(new EventHandler<MouseEvent>() {
-          public void handle(MouseEvent e) {
-            buyButton.setImage(unselectedbuyimg);
-          }
-        });
+      buyButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+        public void handle(MouseEvent e) {
+          buyButton.setImage(unselectedbuyimg);
+        }
+      });
 
       buyButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-      public void handle(MouseEvent e) {
+        public void handle(MouseEvent e) {
           controller.buyFertilizer();
           info.setText(controller.getFertilizerInfo());
           fertilizeButton.setImage(selectedfertilizeimg);
@@ -577,12 +562,10 @@ public class View {
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
-
-      info.setFont(Font.font ("Springfield Cartoon", 15));
+      info.setFont(Font.font("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -600,15 +583,14 @@ public class View {
 
     });
 
-
     // Plowtool Mouse Click Options
-    plowtool.setOnMouseClicked(e->{
+    plowtool.setOnMouseClicked(e -> {
       resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfoBox
+          .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
       ImageView unplowedButton = new ImageView(unselectedplowimg);
@@ -629,7 +611,6 @@ public class View {
           }
         }
       });
-
 
       ImageView cancelButton = new ImageView(unselectedcancelimg);
       cancelButton.setFitWidth(100);
@@ -658,11 +639,10 @@ public class View {
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getScyteInfo());
-      info.setFont(Font.font ("Springfield Cartoon", 15));
+      info.setFont(Font.font("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -686,18 +666,17 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfoBox
+          .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
-
 
       ImageView waterButton = new ImageView(unselectedwaterimg);
       waterButton.setFitWidth(100);
       waterButton.setPreserveRatio(true);
       waterButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
-      public void handle(MouseEvent e) {
-        waterButton.setImage(selectedwaterimg);
+        public void handle(MouseEvent e) {
+          waterButton.setImage(selectedwaterimg);
           for (int i = 0; i < 50; i++) {
             int tilePos = i;
             ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
@@ -739,11 +718,10 @@ public class View {
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getWaterInfo());
-      info.setFont(Font.font ("Springfield Cartoon", 15));
+      info.setFont(Font.font("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -767,8 +745,8 @@ public class View {
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfoBox
+          .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
       ImageView harvestButton = new ImageView(unselectedharvestimg);
@@ -817,11 +795,10 @@ public class View {
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getHarvestInfo());
-      info.setFont(Font.font ("Springfield Cartoon", 15));
+      info.setFont(Font.font("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -840,14 +817,14 @@ public class View {
     });
 
     // Pickaxe Mouse Click Options
-    pickaxe.setOnMouseClicked(e->{
+    pickaxe.setOnMouseClicked(e -> {
 
       resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
-      seedInfoBox.setStyle("-fx-padding: 10;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfoBox
+          .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfoBox.setSpacing(20);
 
       ImageView pickaxeButton = new ImageView(unselectedmineimg);
@@ -896,11 +873,10 @@ public class View {
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getPickaxeInfo());
-      info.setFont(Font.font ("Springfield Cartoon", 15));
+      info.setFont(Font.font("Springfield Cartoon", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
-      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;"
-          + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
+      seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
@@ -919,9 +895,8 @@ public class View {
 
     });
 
-
     tileinformation = new Text("");
-    tileinformation.setFont(Font.font ("Springfield Cartoon", 15));
+    tileinformation.setFont(Font.font("Springfield Cartoon", 15));
     tileinformation.setFill(Color.WHITE);
     TextFlow tileinfo = new TextFlow(tileinformation);
     tileinfo.setPrefWidth(275);
@@ -930,10 +905,10 @@ public class View {
     //    + "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: white;");
     tileinfo.setPadding(new Insets(10));
 
-
     //---------------------- DIMENSIONS IN GAME------------------------------//
 
-    maingame.getChildren().addAll(farmland, invlayout, toollayout, farmerstatsbox, farmerbonusesbox, tileinfo, picture, EXPbar, register);
+    maingame.getChildren().addAll(farmland, invlayout, toollayout, farmerstatsbox, farmerbonusesbox, tileinfo, picture,
+        EXPbar, register);
 
     AnchorPane.setBottomAnchor(invlayout, 13.0);
     AnchorPane.setLeftAnchor(invlayout, 250.0);
@@ -961,28 +936,6 @@ public class View {
 
     AnchorPane.setTopAnchor(picture, 45.0);
     AnchorPane.setLeftAnchor(picture, 255.0);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // Sets scene
     ingame = new Scene(overlap, 1400, 800);
