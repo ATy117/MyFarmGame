@@ -260,8 +260,8 @@ public class View {
 
     //Inventory
     GridPane invlayout = new GridPane();
-    invlayout.setHgap(5);
-    invlayout.setVgap(5);
+    invlayout.setHgap(2);
+    invlayout.setVgap(12);
     invlayout.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
 
     // Vegetables
@@ -330,43 +330,43 @@ public class View {
 
     //Tools
     GridPane toollayout = new GridPane();
-    toollayout.setHgap(5);
-    toollayout.setVgap(5);
+    toollayout.setHgap(2);
+    toollayout.setVgap(12);
     toollayout.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
 
     ImageView wateringcan = new ImageView(unselectedwateringcanimg);
     wateringcan.setOnMouseEntered(e -> wateringcan.setImage(selectedwateringcanimg));
     wateringcan.setOnMouseExited(e -> wateringcan.setImage(unselectedwateringcanimg));
     wateringcan.setPreserveRatio(true);
-    wateringcan.setFitWidth(50);
+    wateringcan.setFitWidth(48);
     toollayout.add(wateringcan, 0, 0);
 
     ImageView plowtool = new ImageView(unselectedplowtoolimg);
     plowtool.setOnMouseEntered(e -> plowtool.setImage(selectedplowtoolimg));
     plowtool.setOnMouseExited(e -> plowtool.setImage(unselectedplowtoolimg));
     plowtool.setPreserveRatio(true);
-    plowtool.setFitWidth(50);
+    plowtool.setFitWidth(48);
     toollayout.add(plowtool, 0, 1);
 
     ImageView pickaxe = new ImageView(unselectedpickaxeimg);
     pickaxe.setOnMouseEntered(e -> pickaxe.setImage(selectedpickaxeimg));
     pickaxe.setOnMouseExited(e -> pickaxe.setImage(unselectedpickaxeimg));
     pickaxe.setPreserveRatio(true);
-    pickaxe.setFitWidth(50);
+    pickaxe.setFitWidth(48);
     toollayout.add(pickaxe, 0, 2);
 
     ImageView fertilizer = new ImageView(unselectedfertilizerimg);
     fertilizer.setOnMouseEntered(e -> fertilizer.setImage(selectedfertilizerimg));
     fertilizer.setOnMouseExited(e -> fertilizer.setImage(unselectedfertilizerimg));
     fertilizer.setPreserveRatio(true);
-    fertilizer.setFitWidth(50);
+    fertilizer.setFitWidth(48);
     toollayout.add(fertilizer, 1, 0);
 
     ImageView harvesttool = new ImageView(unselectedharvesttoolimg);
     harvesttool.setOnMouseEntered(e -> harvesttool.setImage(selectedharvesttoolimg));
     harvesttool.setOnMouseExited(e -> harvesttool.setImage(unselectedharvesttoolimg));
     harvesttool.setPreserveRatio(true);
-    harvesttool.setFitWidth(50);
+    harvesttool.setFitWidth(48);
     toollayout.add(harvesttool, 1, 1);
 
     // Stats / Information
@@ -374,7 +374,7 @@ public class View {
       int seedPos = j;
       ImageView butt = (ImageView) (invlayout.getChildren().get(j));
       butt.setPreserveRatio(true);
-      butt.setFitWidth(50);
+      butt.setFitWidth(48);
       butt.setOnMouseClicked(e -> {
         resetTileAction();
         Text info = new Text(controller.getSeedInfo(seedPos));
@@ -470,11 +470,11 @@ public class View {
           maingame.getChildren().remove(n);
           maingame.getChildren().add(seedInfoBox);
           AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-          AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+          AnchorPane.setRightAnchor(seedInfoBox, 140.0);
         } else {
           maingame.getChildren().add(seedInfoBox);
           AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-          AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+          AnchorPane.setRightAnchor(seedInfoBox, 140.0);
         }
 
       });
@@ -490,7 +490,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(20);
+      seedInfoBox.setSpacing(15);
 
       ImageView fertilizeButton = new ImageView(unselectedfertilizeimg);
       fertilizeButton.setFitWidth(100);
@@ -569,19 +569,19 @@ public class View {
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfo.setPrefWidth(380);
+      seedInfo.setPrefWidth(340);
 
       seedInfoBox.getChildren().add(seedInfo);
       if (maingame.getChildren().size() > 9) {
         Node n = maingame.getChildren().get(9);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       } else {
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       }
 
     });
@@ -594,7 +594,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(20);
+      seedInfoBox.setSpacing(15);
 
       ImageView unplowedButton = new ImageView(unselectedplowimg);
       unplowedButton.setFitWidth(100);
@@ -647,19 +647,19 @@ public class View {
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfo.setPrefWidth(380);
+      seedInfo.setPrefWidth(375);
 
       seedInfoBox.getChildren().add(seedInfo);
       if (maingame.getChildren().size() > 9) {
         Node n = maingame.getChildren().get(9);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       } else {
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       }
 
     });
@@ -672,7 +672,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(20);
+      seedInfoBox.setSpacing(15);
 
       ImageView waterButton = new ImageView(unselectedwaterimg);
       waterButton.setFitWidth(100);
@@ -734,12 +734,12 @@ public class View {
         Node n = maingame.getChildren().get(9);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       } else {
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       }
 
     });
@@ -752,7 +752,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(20);
+      seedInfoBox.setSpacing(15);
 
       ImageView harvestButton = new ImageView(unselectedharvestimg);
       harvestButton.setFitWidth(100);
@@ -812,12 +812,12 @@ public class View {
         Node n = maingame.getChildren().get(9);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       } else {
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       }
 
     });
@@ -831,7 +831,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(20);
+      seedInfoBox.setSpacing(15);
 
       ImageView pickaxeButton = new ImageView(unselectedmineimg);
       pickaxeButton.setFitWidth(100);
@@ -892,12 +892,12 @@ public class View {
         Node n = maingame.getChildren().get(9);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       } else {
         maingame.getChildren().add(seedInfoBox);
-        AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
-        AnchorPane.setRightAnchor(seedInfoBox, 200.0);
+        AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
+        AnchorPane.setRightAnchor(seedInfoBox, 140.0);
       }
 
     });
@@ -917,11 +917,11 @@ public class View {
     maingame.getChildren().addAll(farmland, invlayout, toollayout, farmerstatsbox, farmerbonusesbox, tileinfo, picture,
         EXPbar, register);
 
-    AnchorPane.setBottomAnchor(invlayout, 13.0);
-    AnchorPane.setLeftAnchor(invlayout, 250.0);
+    AnchorPane.setBottomAnchor(invlayout, 17.0);
+    AnchorPane.setLeftAnchor(invlayout, 261.0);
 
-    AnchorPane.setBottomAnchor(toollayout, 13.0);
-    AnchorPane.setLeftAnchor(toollayout, 510.0);
+    AnchorPane.setBottomAnchor(toollayout, 17.0);
+    AnchorPane.setLeftAnchor(toollayout, 581.0);
 
     AnchorPane.setTopAnchor(farmland, 210.0);
     AnchorPane.setLeftAnchor(farmland, 550.0);
