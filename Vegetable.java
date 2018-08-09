@@ -5,7 +5,7 @@
 import java.util.*;
 
 /**
-* public class <b>Vegetable/B>
+* public class <b>Vegetable</B>
 * implements <b>Seed</B>
 *
 * The class Vegetable as inherited from the Seed class
@@ -13,7 +13,7 @@ import java.util.*;
 * <p>
 * This class is used to specifically differentiate a specific type of seed, a Vegetable in this case
 *
-* @author  Gabriel T. Tan & Adrian Paule D. Ty
+* @author  Gabriel T. Tan and Adrian Paule D. Ty
 * @version 1.0
 * @since   2018-08-15
 * @see         Seed

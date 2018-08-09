@@ -2,7 +2,7 @@
 * The abstract class seed implements a class where all
 * subtypes of seed are can be inherited from.
 *
-* @author  Gabriel T. Tan & Adrian Paule D. Ty
+* @author  Gabriel T. Tan and Adrian Paule D. Ty
 * @version 1.0
 * @since   2018-08-15
 * @see         Vegetable

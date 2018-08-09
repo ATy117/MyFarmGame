@@ -7,7 +7,7 @@
 * <p>
 * This class is used to specifically differentiate a specific type of seed, a Flower in this case
 *
-* @author  Gabriel T. Tan & Adrian Paule D. Ty
+* @author  Gabriel T. Tan and Adrian Paule D. Ty
 * @version 1.0
 * @since   2018-08-15 
 * @see         Seed
