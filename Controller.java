@@ -138,6 +138,7 @@ public class Controller {
 
         }
       };
+      t.setDaemon(true);
       t.start();
     } else
       view.displayAlertBox("cannotPlant");

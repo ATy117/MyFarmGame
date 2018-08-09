@@ -34,12 +34,16 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.effect.DropShadow;
 
 public class View {
 
-  //ALL IMAGES INITIALIZATIONS
+  //
   Image menubackground = new Image("images/menubackground.png", 1400, 800, false, false);
   Image logo = new Image("images/logo.png");
+  Image dancinggroot = new Image("images/dancinggroot.gif");
+  Image dirtbackground = new Image("images/dirtbackground.png");
+
   Image unselectedturnipimg = new Image("images/unselectedturnip.png");
   Image selectedturnipimg = new Image("images/selectedturnip.png");
   Image unselectedcarrotimg = new Image("images/unselectedcarrot.png");
@@ -75,6 +79,7 @@ public class View {
   Image unselectedharvesttoolimg = new Image("images/unselectedharvesttool.png");
   Image selectedharvesttoolimg = new Image("images/selectedharvesttool.png");
 
+  //Button images
   Image unselectedcancelimg = new Image("images/unselectedcancel.png");
   Image selectedcancelimg = new Image("images/selectedcancel.png");
   Image unselectedbuyimg = new Image("images/unselectedbuy.png");
@@ -91,22 +96,18 @@ public class View {
   Image selectedplowimg = new Image("images/selectedplow.png");
   Image unselectedharvestimg = new Image("images/unselectedharvest.png");
   Image selectedharvestimg = new Image("images/selectedharvest.png");
-
   Image unselectedgenerateimg = new Image("images/unselectedgenerate.png");
   Image selectedgenerateimg = new Image("images/selectedgenerate.png");
-
   Image unselectedregisterimg = new Image("images/unselectedregister.png");
   Image selectedregisterimg = new Image("images/selectedregister.png");
 
+  //Tile images
   Image unplowedtile = new Image("images/unplowed_empty_tile.png");
   Image plowedtile = new Image("images/plowed_empty_tile.png");
   Image rocktile = new Image("images/rock_tile.png");
   Image witheredfruittile = new Image("images/withered_tree_tile.png");
   Image witheredveggietile = new Image("images/withered_veggie_tile.png");
   Image witheredflowertile = new Image("images/withered_flower_tile.png");
-
-  Image dancinggroot = new Image("images/dancinggroot.gif");
-  Image dirtbackground = new Image("images/dirtbackground.png");
   Image grown_tulip_tileimg = new Image("images/grown_tulip_tile.png");
   Image grown_carrot_tileimg = new Image("images/grown_carrot_tile.png");
   Image grown_tomato_tileimg = new Image("images/grown_tomato_tile.png");
@@ -242,6 +243,12 @@ public class View {
     farmlayout.setHgap(-25);
     farmlayout.setVgap(-25);
 
+    DropShadow tileshadow = new DropShadow();
+    tileshadow.setOffsetY(100);
+    tileshadow.setOffsetX(100);
+    tileshadow.setWidth(100);
+    tileshadow.setHeight(100);
+
     tile = new ImageView[50];
     for (int i = 0; i < 50; i++) {
       tile[i] = new ImageView(unplowedtile);
@@ -249,6 +256,9 @@ public class View {
       tile[i].setFitHeight(85);
       farmlayout.getChildren().add(tile[i]);
     }
+
+    tile[0].setEffect(tileshadow);
+
     resetTileAction();
 
     farmland.getChildren().add(farmlayout);
@@ -404,6 +414,16 @@ public class View {
                   updateFarmerStats();
                 }
               });
+              tile.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent e) {
+                  tile.setEffect(tileshadow);
+                }
+              });
+              tile.setOnMouseExited(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent e) {
+                  tile.setEffect(null);
+                }
+              });
             }
           }
         });
@@ -487,7 +507,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(15);
+      seedInfoBox.setSpacing(12);
 
       ImageView fertilizeButton = new ImageView(unselectedfertilizeimg);
       fertilizeButton.setFitWidth(100);
@@ -499,6 +519,7 @@ public class View {
           for (int i = 0; i < 50; i++) {
             int tilePos = i;
             ImageView tile = (ImageView) (farmlayout.getChildren().get(i));
+
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
               public void handle(MouseEvent e) {
                 controller.fertilize(tilePos);
@@ -515,6 +536,7 @@ public class View {
       buyButton.setFitWidth(100);
       buyButton.setPreserveRatio(true);
       buyButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
         public void handle(MouseEvent e) {
           buyButton.setImage(selectedbuyimg);
         }
@@ -584,14 +606,16 @@ public class View {
     });
 
     // Plowtool Mouse Click Options
-    plowtool.setOnMouseClicked(e -> {
+    plowtool.setOnMouseClicked(e ->
+
+    {
       resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(15);
+      seedInfoBox.setSpacing(12);
 
       ImageView unplowedButton = new ImageView(unselectedplowimg);
       unplowedButton.setFitWidth(100);
@@ -669,7 +693,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(15);
+      seedInfoBox.setSpacing(12);
 
       ImageView waterButton = new ImageView(unselectedwaterimg);
       waterButton.setFitWidth(100);
@@ -749,7 +773,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(15);
+      seedInfoBox.setSpacing(12);
 
       ImageView harvestButton = new ImageView(unselectedharvestimg);
       harvestButton.setFitWidth(100);
@@ -828,7 +852,7 @@ public class View {
       seedInfoBox.setPrefWidth(530);
       seedInfoBox
           .setStyle("-fx-padding: 10;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfoBox.setSpacing(15);
+      seedInfoBox.setSpacing(12);
 
       ImageView pickaxeButton = new ImageView(unselectedmineimg);
       pickaxeButton.setFitWidth(100);
@@ -929,14 +953,14 @@ public class View {
     AnchorPane.setTopAnchor(farmerbonusesbox, 35.0);
     AnchorPane.setRightAnchor(farmerbonusesbox, 200.0);
 
-    AnchorPane.setTopAnchor(tileinfo, 203.0);
+    AnchorPane.setTopAnchor(tileinfo, 213.0);
     AnchorPane.setLeftAnchor(tileinfo, 200.0);
 
     AnchorPane.setTopAnchor(EXPbar, 86.0);
     AnchorPane.setLeftAnchor(EXPbar, 530.0);
 
-    AnchorPane.setTopAnchor(register, 55.0);
-    AnchorPane.setRightAnchor(register, 220.0);
+    AnchorPane.setTopAnchor(register, 60.0);
+    AnchorPane.setRightAnchor(register, 200.0);
 
     AnchorPane.setTopAnchor(picture, 45.0);
     AnchorPane.setLeftAnchor(picture, 255.0);
