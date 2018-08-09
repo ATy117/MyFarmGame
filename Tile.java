@@ -137,9 +137,15 @@ public class Tile {
 		occupant = null;
 	}
 
-	/*
-		This is the isTree method.
-		This method returns true if the occupant is an intance of FruitTree of the class Seed.
+	/**
+	* Checks if the current <b>Seed</b> <i>occupant</i> of the tile is an instance of the class <b>FruitTree</b>
+	* <p>
+	* This method calls the <i>instanceof</i> operator and compares the occupant of the tile to the FruitTree class.
+	* This returns true if the seed is a FruitTree and returns false otherwise.
+	* It automatically returns false when there is no occupant in the tile.
+	* @return	a boolean if the <i>seed</i> occupant of the tile is an instace of <b>FruitTree</b>.
+	* @see		isVegetable()
+	* @see		isFlower()
 	*/
 	public boolean isTree() {
 		if (occupant == null)
@@ -148,9 +154,15 @@ public class Tile {
 		return (occupant instanceof FruitTree);
 	}
 
-	/*
-		This is the isVegetable method.
-		This method returns true if the occupant is an intance of Vegetable of the class Seed.
+	/**
+	* Checks if the current <b>Seed</b> <i>occupant</i> of the tile is an instance of the class <b>Vegetable</b>
+	* <p>
+	* This method calls the <i>instanceof</i> operator and compares the occupant of the tile to the Vegetable class.
+	* This returns true if the seed is a Vegetable and returns false otherwise.
+	* It automatically returns false when there is no occupant in the tile.
+	* @return	a boolean if the <i>seed</i> occupant of the tile is an instace of <b>Vegetable</b>.
+	* @see		isTree()
+	* @see		isFlower()
 	*/
 	public boolean isVegetable() {
 		if (occupant == null)
@@ -159,9 +171,15 @@ public class Tile {
 		return (occupant instanceof Vegetable);
 	}
 
-	/*
-		This is the isFlower method.
-		This method returns true if the occupant is an intance of Flower of the class Seed.
+	/**
+	* Checks if the current <b>Seed</b> <i>occupant</i> of the tile is an instance of the class <b>Flower</b>
+	* <p>
+	* This method calls the <i>instanceof</i> operator and compares the occupant of the tile to the Flower class.
+	* This returns true if the seed is a Flower and returns false otherwise.
+	* It automatically returns false when there is no occupant in the tile.
+	* @return	a boolean if the <i>seed</i> occupant of the tile is an instace of <b>Flower</b>.
+	* @see		isTree()
+	* @see		isVegetable()
 	*/
 	public boolean isFlower() {
 		if (occupant == null)
@@ -170,9 +188,15 @@ public class Tile {
 		return (occupant instanceof Flower);
 	}
 
-	/*
-		This is the grownProperly method.
-		This method returns true if the seed has received sufficient watering and fertilizing, else returns false.
+	/**
+	* Checks if the occupant of the tile has grown successfully
+	* <p>
+	* This method checks the current <i>waterCount</i> and <i>fertilizerCount</i> of the tile.
+	* It then compares the values to the <i>waterNeed</i> and <i>fertilizerNeed</i> of the occupant.
+	* If any one of these values are less than their required amounts,
+	* the seed is said to have not grown properly and hence returns false.
+	* This returns true if both values matched or are greater than their counterparts.
+	* @return	a boolean if the <i>seed</i> occupant of the tile has grown properly
 	*/
 	public boolean grownProperly() {
 		if (waterCount >= occupant.getWN() && fertilizerCount >= occupant.getFN())
@@ -180,94 +204,154 @@ public class Tile {
 
 		return false;
 	}
-	/*
-		This is the setOccupant method.
-		This method sets the occupant of the tile to the specified Seed s.
-		This method is only called by the plant method in the Farmer class, under any circumstances.
+	
+	/**
+	* Sets the <i>occupant</i> of the tile to the specified <i>seed</i>.
+	* <p>
+	* This method sets the <i>occupant</i> of the tile to the specified  <b>Seed</b> s.
+	* This also sets the <i>isAvailable</i> variable of the tile to false, as it is now occupied.
+	* The <i>growingTime</i> of the tile is also set to the <i>timeNeeded</i> of the <b>Seed</b> <i>s</i>.
+	* It retrieves the value by calling the getter getTN() of the <b>Seed</b> class.
+	*
+	* @param  s  a seed which represents the occupant of the tile
 	*/
-
 	public void setOccupant(Seed s) {
 		occupant = s;
 		isAvailable = false;
 		growingTime = s.getTN();
 	}
 
-	// Boolean Setters
+	/**
+	* Sets the <i>isPlowed</i> variable of the tile to the specified <i>boolean</i>.
+	*
+	* @param bool a boolean representing the state of <i>isPlowed</i>
+	*/
 	public void setPlow(boolean bool) {
 		isPlowed = bool;
 	}
 
+	/**
+	* Sets the <i>isReady</i> variable of the tile to the specified <i>boolean</i>.
+	*
+	* @param bool a boolean representing the state of <i>isReady</i>
+	*/
 	public void setReady(boolean bool) {
 		isReady = bool;
 	}
 
+	/**
+	* Sets the <i>isWithered</i> variable of the tile to the specified <i>boolean</i>.
+	*
+	* @param bool a boolean representing the state of <i>isWithered</i>
+	*/
 	public void setWither(boolean bool) {
 		isWithered = bool;
 	}
 
+	/**
+	* Sets the <i>hasRocks</i> variable of the tile to the specified <i>boolean</i>.
+	*
+	* @param bool a boolean representing the state of <i>hasRocks</i>
+	*/
 	public void setRocks(boolean bool) {
 		hasRocks = bool;
 	}
 
+	/**
+	* Sets the <i>isAvailable</i> variable of the tile to the specified <i>boolean</i>.
+	*
+	* @param bool a boolean representing the state of <i>isAvailable</i>
+	*/
 	public void setAvailable(boolean bool) {
 		isAvailable = bool;
 	}
 
-	/* Auxilliary Setters
-	public void setWC(int n)
-	{
-		waterCount = n;
-	}
-
-	public void setFC(int n)
-	{
-		fertilizerCount = n;
-	}
-
-	public void setTime(double d)
-	{
-		growingTime = d;
-	}
-	*/
-
-	// Getters
-
+	/**
+ 	* Returns the <i>isPlowed</i> state of the tile
+	*
+ 	* @return	boolean representing the <i>isPlowed</i> state
+ 	*/
 	public boolean getPlowed() {
 		return isPlowed;
 	}
 
+	/**
+ 	* Returns the <i>isReady</i> state of the tile
+	*
+ 	* @return	boolean representing the <i>isReady</i> state
+ 	*/
 	public boolean getReady() {
 		return isReady;
 	}
 
+	/**
+ 	* Returns the <i>isWithered</i> state of the tile
+	*
+ 	* @return	boolean representing the <i>isWithered</i> state
+ 	*/
 	public boolean getWithered() {
 		return isWithered;
 	}
 
+	/**
+ 	* Returns the <i>hasRocks</i> state of the tile
+	*
+ 	* @return	boolean representing the <i>hasRocks</i> state
+ 	*/
 	public boolean getRocks() {
 		return hasRocks;
 	}
 
+	/**
+ 	* Returns the <i>isAvailable</i> state of the tile
+	*
+ 	* @return	boolean representing the <i>isAvailable</i> state
+ 	*/
 	public boolean getAvailable() {
 		return isAvailable;
 	}
 
+	/**
+ 	* Returns the <i>waterCount</i> of the tile
+	*
+ 	* @return	integer representing the water count
+ 	*/
 	public int getWC() {
 		return waterCount;
 	}
 
+	/**
+ 	* Returns the <i>FertilizerCount</i> of the tile
+	*
+ 	* @return	integer representing the fertilizer count
+ 	*/
 	public int getFC() {
 		return fertilizerCount;
 	}
 
+	/**
+ 	* Returns the <i>growingTime</i> of the tile
+	*
+ 	* @return	double representing the time needed to grow
+ 	*/
 	public double getTime() {
 		return growingTime;
 	}
 
+	/**
+ 	* Returns the <i>occupant</i> of the tile
+	*
+ 	* @return	seed representing the occupant 
+ 	*/
 	public Seed getOccupant() {
 		return occupant;
 	}
 
+	/**
+ 	* Returns the <i>pos</i> of the tile
+	*
+ 	* @return	integer representing the position of the tile
+ 	*/
 	public int getPos() {
 		return pos;
 	}
