@@ -569,7 +569,7 @@ public class View {
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
-      seedInfo.setPrefWidth(340);
+      seedInfo.setPrefWidth(330);
 
       seedInfoBox.getChildren().add(seedInfo);
       if (maingame.getChildren().size() > 9) {
