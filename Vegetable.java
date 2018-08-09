@@ -1,7 +1,7 @@
 /**
 * The class <b>Random</b> is imported to be used for generating a number for product produced.
 */
-import java.util.Random;
+import java.util.*;
 /**
 * public class <b>Vegetable/B>
 * implements <b>Seed</B>
