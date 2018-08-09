@@ -14,7 +14,7 @@
 * The <i>pos</i> variable is based on an arrayList position, at the same time considering a 10 by 5
 * layout in terms of a grid.
 *
-* @author  Gabriel T. Tan & Adrian Paule D. Ty
+* @author  Gabriel T. Tan and Adrian Paule D. Ty
 * @version 1.0
 * @since   2018-08-15
 * @see         Seed
