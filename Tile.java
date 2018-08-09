@@ -144,8 +144,8 @@ public class Tile {
 	* This returns true if the seed is a FruitTree and returns false otherwise.
 	* It automatically returns false when there is no occupant in the tile.
 	* @return	a boolean if the <i>seed</i> occupant of the tile is an instace of <b>FruitTree</b>.
-	* @see		isVegetable()
-	* @see		isFlower()
+	* @see		#isVegetable()
+	* @see		#isFlower()
 	*/
 	public boolean isTree() {
 		if (occupant == null)
@@ -161,8 +161,8 @@ public class Tile {
 	* This returns true if the seed is a Vegetable and returns false otherwise.
 	* It automatically returns false when there is no occupant in the tile.
 	* @return	a boolean if the <i>seed</i> occupant of the tile is an instace of <b>Vegetable</b>.
-	* @see		isTree()
-	* @see		isFlower()
+	* @see		#isTree()
+	* @see		#isFlower()
 	*/
 	public boolean isVegetable() {
 		if (occupant == null)
@@ -178,8 +178,8 @@ public class Tile {
 	* This returns true if the seed is a Flower and returns false otherwise.
 	* It automatically returns false when there is no occupant in the tile.
 	* @return	a boolean if the <i>seed</i> occupant of the tile is an instace of <b>Flower</b>.
-	* @see		isTree()
-	* @see		isVegetable()
+	* @see		#isTree()
+	* @see		#isVegetable()
 	*/
 	public boolean isFlower() {
 		if (occupant == null)
@@ -204,7 +204,7 @@ public class Tile {
 
 		return false;
 	}
-	
+
 	/**
 	* Sets the <i>occupant</i> of the tile to the specified <i>seed</i>.
 	* <p>
@@ -267,91 +267,91 @@ public class Tile {
 	}
 
 	/**
- 	* Returns the <i>isPlowed</i> state of the tile
+	* Returns the <i>isPlowed</i> state of the tile
 	*
- 	* @return	boolean representing the <i>isPlowed</i> state
- 	*/
+	* @return	boolean representing the <i>isPlowed</i> state
+	*/
 	public boolean getPlowed() {
 		return isPlowed;
 	}
 
 	/**
- 	* Returns the <i>isReady</i> state of the tile
+	* Returns the <i>isReady</i> state of the tile
 	*
- 	* @return	boolean representing the <i>isReady</i> state
- 	*/
+	* @return	boolean representing the <i>isReady</i> state
+	*/
 	public boolean getReady() {
 		return isReady;
 	}
 
 	/**
- 	* Returns the <i>isWithered</i> state of the tile
+	* Returns the <i>isWithered</i> state of the tile
 	*
- 	* @return	boolean representing the <i>isWithered</i> state
- 	*/
+	* @return	boolean representing the <i>isWithered</i> state
+	*/
 	public boolean getWithered() {
 		return isWithered;
 	}
 
 	/**
- 	* Returns the <i>hasRocks</i> state of the tile
+	* Returns the <i>hasRocks</i> state of the tile
 	*
- 	* @return	boolean representing the <i>hasRocks</i> state
- 	*/
+	* @return	boolean representing the <i>hasRocks</i> state
+	*/
 	public boolean getRocks() {
 		return hasRocks;
 	}
 
 	/**
- 	* Returns the <i>isAvailable</i> state of the tile
+	* Returns the <i>isAvailable</i> state of the tile
 	*
- 	* @return	boolean representing the <i>isAvailable</i> state
- 	*/
+	* @return	boolean representing the <i>isAvailable</i> state
+	*/
 	public boolean getAvailable() {
 		return isAvailable;
 	}
 
 	/**
- 	* Returns the <i>waterCount</i> of the tile
+	* Returns the <i>waterCount</i> of the tile
 	*
- 	* @return	integer representing the water count
- 	*/
+	* @return	integer representing the water count
+	*/
 	public int getWC() {
 		return waterCount;
 	}
 
 	/**
- 	* Returns the <i>FertilizerCount</i> of the tile
+	* Returns the <i>FertilizerCount</i> of the tile
 	*
- 	* @return	integer representing the fertilizer count
- 	*/
+	* @return	integer representing the fertilizer count
+	*/
 	public int getFC() {
 		return fertilizerCount;
 	}
 
 	/**
- 	* Returns the <i>growingTime</i> of the tile
+	* Returns the <i>growingTime</i> of the tile
 	*
- 	* @return	double representing the time needed to grow
- 	*/
+	* @return	double representing the time needed to grow
+	*/
 	public double getTime() {
 		return growingTime;
 	}
 
 	/**
- 	* Returns the <i>occupant</i> of the tile
+	* Returns the <i>occupant</i> of the tile
 	*
- 	* @return	seed representing the occupant 
- 	*/
+	* @return	seed representing the occupant
+	*/
 	public Seed getOccupant() {
 		return occupant;
 	}
 
 	/**
- 	* Returns the <i>pos</i> of the tile
+	* Returns the <i>pos</i> of the tile
 	*
- 	* @return	integer representing the position of the tile
- 	*/
+	* @return	integer representing the position of the tile
+	*/
 	public int getPos() {
 		return pos;
 	}

@@ -1,10 +1,12 @@
+
 /**
 * The class <b>Random</b> is imported to be used for generating a number the number of rocks, and tile positions containing the rocks.
 */
 import java.util.*;
+
 /**
 * public class <b>Farmer</B>
-* 
+*
 *
 * The class Farmer is the main model file that interacts with the controller or view.
 *
@@ -19,9 +21,9 @@ import java.util.*;
 * A farmer has a <i>seedBag</i> which contains all the seeds possible in-game.
 * The farmer also has a <i>farmLot</i> which contains his array of tiles that he can interact with his seeds and tools.
 *
-* @author  Gabriel T. Tan & Adrian Paule D. Ty
+* @author  Gabriel T. Tan and Adrian Paule D. Ty
 * @version 1.0
-* @since   2018-08-15 
+* @since   2018-08-15
 * @see         Seed
 * @see         Vegetable
 * @see         Flower
