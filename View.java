@@ -40,7 +40,6 @@ public class View {
   //ALL IMAGES INITIALIZATIONS
   Image menubackground = new Image("images/menubackground.png", 1400, 800, false, false);
   Image logo = new Image("images/logo.png");
-  Image inventory = new Image("images/inventory.jpg");
   Image unselectedturnipimg = new Image("images/unselectedturnip.png");
   Image selectedturnipimg = new Image("images/selectedturnip.png");
   Image unselectedcarrotimg = new Image("images/unselectedcarrot.png");
@@ -99,7 +98,6 @@ public class View {
   Image unselectedregisterimg = new Image("images/unselectedregister.png");
   Image selectedregisterimg = new Image("images/selectedregister.png");
 
-  Image infobox = new Image("images/infobox.png");
   Image unplowedtile = new Image("images/unplowed_empty_tile.png");
   Image plowedtile = new Image("images/plowed_empty_tile.png");
   Image rocktile = new Image("images/rock_tile.png");
@@ -124,7 +122,6 @@ public class View {
   Image growing_fruit_tile = new Image("images/growing_tree_tile.png");
   Image growing_veggie_tile = new Image("images/growing_veggie_tile.png");
   Image growing_flower_tile = new Image("images/growing_flower_tile.png");
-  Image tileinfobackground = new Image("images/tileinfo.png");
 
   //Media backgroundmusic = new Media("file://sounds/backgroundmusic.mp3");
 
