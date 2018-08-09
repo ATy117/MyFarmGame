@@ -35,6 +35,12 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
+import java.awt.Toolkit;
+import java.awt.Point;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class View {
 
@@ -123,6 +129,7 @@ public class View {
   Image growing_fruit_tile = new Image("images/growing_tree_tile.png");
   Image growing_veggie_tile = new Image("images/growing_veggie_tile.png");
   Image growing_flower_tile = new Image("images/growing_flower_tile.png");
+  //Image cursor = new Image("url");
 
   //Media backgroundmusic = new Media("file://sounds/backgroundmusic.mp3");
 
@@ -134,6 +141,10 @@ public class View {
   Text farmerstats, farmerbonuses;
   Controller controller;
   ProgressBar EXPbar;
+
+  int timerCount;
+  String timerString;
+  Text time;
 
   public View(Controller c, Stage primaryStage) {
     //--------------------------- MAIN MENU ------------------------------//
@@ -153,6 +164,22 @@ public class View {
     //MediaPlayer backgroundmusicmp = new MediaPlayer(backgroundmusic);
     //backgroundmusicmp.play();
 
+    //Timer
+    timerCount = 0;
+    time = new Text("");
+    TextFlow timerBox = new TextFlow(time);
+    time.setFill(Color.WHITE);
+
+    TimerTask displayTime = new TimerTask() {
+      public void run() {
+        timerString = "TIME " + timerCount;
+        time.setText(timerString);
+        timerCount++;
+      }
+    };
+
+    Timer gameTimer = new Timer(true);
+    gameTimer.scheduleAtFixedRate(displayTime, 0, 1000);
     //Logo
     ImageView logodisplay = new ImageView(logo);
     logodisplay.setFitWidth(439);
@@ -240,24 +267,24 @@ public class View {
 
     TilePane farmlayout = new TilePane();
     farmlayout.setPrefColumns(10);
-    farmlayout.setHgap(-25);
-    farmlayout.setVgap(-25);
+    farmlayout.setHgap(-20);
+    farmlayout.setVgap(-20);
 
     DropShadow tileshadow = new DropShadow();
-    tileshadow.setOffsetY(100);
-    tileshadow.setOffsetX(100);
-    tileshadow.setWidth(100);
-    tileshadow.setHeight(100);
+    tileshadow.setHeight(87);
+    tileshadow.setWidth(87);
+    tileshadow.setColor(Color.WHITE);
 
     tile = new ImageView[50];
     for (int i = 0; i < 50; i++) {
+      int num = i;
       tile[i] = new ImageView(unplowedtile);
       tile[i].setFitWidth(85);
       tile[i].setFitHeight(85);
+      tile[num].setOnMouseEntered(e -> tile[num].setEffect(tileshadow));
+      tile[num].setOnMouseExited(e -> tile[num].setEffect(null));
       farmlayout.getChildren().add(tile[i]);
     }
-
-    tile[0].setEffect(tileshadow);
 
     resetTileAction();
 
@@ -414,16 +441,7 @@ public class View {
                   updateFarmerStats();
                 }
               });
-              tile.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                public void handle(MouseEvent e) {
-                  tile.setEffect(tileshadow);
-                }
-              });
-              tile.setOnMouseExited(new EventHandler<MouseEvent>() {
-                public void handle(MouseEvent e) {
-                  tile.setEffect(null);
-                }
-              });
+
             }
           }
         });
@@ -482,8 +500,8 @@ public class View {
         seedInfo.setPrefWidth(410);
 
         seedInfoBox.getChildren().add(seedInfo);
-        if (maingame.getChildren().size() > 9) {
-          Node n = maingame.getChildren().get(9);
+        if (maingame.getChildren().size() > 10) {
+          Node n = maingame.getChildren().get(10);
           maingame.getChildren().remove(n);
           maingame.getChildren().add(seedInfoBox);
           AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
@@ -591,8 +609,8 @@ public class View {
       seedInfo.setPrefWidth(330);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 9) {
-        Node n = maingame.getChildren().get(9);
+      if (maingame.getChildren().size() > 10) {
+        Node n = maingame.getChildren().get(10);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -606,9 +624,7 @@ public class View {
     });
 
     // Plowtool Mouse Click Options
-    plowtool.setOnMouseClicked(e ->
-
-    {
+    plowtool.setOnMouseClicked(e -> {
       resetTileAction();
       HBox seedInfoBox = new HBox();
       seedInfoBox.setPrefHeight(180);
@@ -671,8 +687,8 @@ public class View {
       seedInfo.setPrefWidth(375);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 9) {
-        Node n = maingame.getChildren().get(9);
+      if (maingame.getChildren().size() > 10) {
+        Node n = maingame.getChildren().get(10);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -751,8 +767,8 @@ public class View {
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 9) {
-        Node n = maingame.getChildren().get(9);
+      if (maingame.getChildren().size() > 10) {
+        Node n = maingame.getChildren().get(10);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -829,8 +845,8 @@ public class View {
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 9) {
-        Node n = maingame.getChildren().get(9);
+      if (maingame.getChildren().size() > 10) {
+        Node n = maingame.getChildren().get(10);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -909,8 +925,8 @@ public class View {
 
       seedInfoBox.getChildren().add(seedInfo);
 
-      if (maingame.getChildren().size() > 9) {
-        Node n = maingame.getChildren().get(9);
+      if (maingame.getChildren().size() > 10) {
+        Node n = maingame.getChildren().get(10);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -936,7 +952,7 @@ public class View {
     //---------------------- DIMENSIONS IN GAME------------------------------//
 
     maingame.getChildren().addAll(farmland, invlayout, toollayout, farmerstatsbox, farmerbonusesbox, tileinfo, picture,
-        EXPbar, register);
+        EXPbar, register, timerBox);
 
     AnchorPane.setBottomAnchor(invlayout, 17.0);
     AnchorPane.setLeftAnchor(invlayout, 261.0);
@@ -957,13 +973,16 @@ public class View {
     AnchorPane.setLeftAnchor(tileinfo, 200.0);
 
     AnchorPane.setTopAnchor(EXPbar, 86.0);
-    AnchorPane.setLeftAnchor(EXPbar, 530.0);
+    AnchorPane.setLeftAnchor(EXPbar, 550.0);
 
     AnchorPane.setTopAnchor(register, 60.0);
     AnchorPane.setRightAnchor(register, 200.0);
 
     AnchorPane.setTopAnchor(picture, 45.0);
     AnchorPane.setLeftAnchor(picture, 255.0);
+
+    AnchorPane.setBottomAnchor(timerBox, 45.0);
+    AnchorPane.setLeftAnchor(timerBox, 100.0);
 
     // Sets scene
     ingame = new Scene(overlap, 1400, 800);
@@ -984,7 +1003,7 @@ public class View {
   }
 
   public void updateFarmerEXPbar() {
-    EXPbar.setProgress((float) controller.getFarmerEXP() / 75);
+    EXPbar.setProgress((float) controller.getFarmerEXP() / 125);
   }
 
   public void updateFarmerStats() {

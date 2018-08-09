@@ -20,6 +20,10 @@ import java.util.*;
 * The farmer basically enacts all funcions that a farmer does with respect to commands initiating action to the tiles.
 * A farmer has a <i>seedBag</i> which contains all the seeds possible in-game.
 * The farmer also has a <i>farmLot</i> which contains his array of tiles that he can interact with his seeds and tools.
+* <p>
+* This farmer also has a feature of registering, which allows the farmer to gain bonuses based on their current rank.
+* The rank, in order, starts from Unregistered, to Registered, to Distinguished, and lastly to Honourable.
+* These ranks can only be accessed at a certain level, from which the farmer has to pay a sum to rank up.
 *
 * @author  Gabriel T. Tan and Adrian Paule D. Ty
 * @version 1.0
@@ -37,6 +41,7 @@ public class Farmer {
 	private int maxExp;
 	private int rank;
 	private String rankName;
+	private int nHarvested;
 
 	private boolean canRegister;
 	private double regPrice;
@@ -46,15 +51,41 @@ public class Farmer {
 	private ArrayList<Seed> seedBag;
 	private ArrayList<Tile> farmLot;
 
+	/**
+	*  A constructor for objects of Farmer class
+	* <p>
+	* This costructor for this class intializes the starting stats of the farmer;
+	* setting the starting level, the base coins, and the number of fertilizer.
+	*
+	* <p>
+	* Additionally, this contructor instantiates the seedBag of the farm which is an <i>ArrayList</i> of <b>Seed</b>.
+	* All kinds of existing seeds are also created in this constructor:
+	* <i>Turnip</i> (<b>Vegetable</b> class),
+	* <i>Carrot</i> (<b>Vegetable</b> class),
+	* <i>Tomato</i> (<b>Vegetable</b> class),
+	* <i>Potato</i> (<b>Vegetable</b> class),
+	* <i>Rose</i> (<b>Flower</b> class),
+	* <i>Tulip</i> (<b>Flower</b> class),
+	* <i>Stargazer</i> (<b>Flower</b> class),
+	* <i>Sunflower</i> (<b>Flower</b> class),
+	* <i>Mango</i> (<b>FruitTree</b> class),
+	* <i>Apple</i> (<b>FruitTree</b> class),
+	* <i>Banana</i> (<b>FruitTree</b> class),
+	* <i>Orange</i> (<b>FruitTree</b> class).
+	* <p>
+	* Also, farmLot of this Farmer is also instantiated. The count is set to 50 tiles.
+	* A random number generator generates both the number of tiles with rocks and
+	* the position of the tiles which have rocks.
+	*/
 	public Farmer() {
 		currentExp = 0;
-		maxExp = 75;
+		maxExp = 125;
 		rank = 0;
 		rankName = "Unregistered Farmer";
-		level = 1;
-
+		level = 0;
+		nHarvested = 0;
 		regPrice = 200.0;
-		coins = 150.0;
+		coins = 200.0;
 
 		fertilizer = 5;
 
@@ -113,15 +144,17 @@ public class Farmer {
 		}
 	}
 
-	// Methods
-
-	// Private Methods, only to be called within this class.
-
-	/*
-		This is the addExp method.
-		+ This method interacts specifically with methods that calls for increasing the experience of the farmer.
-		+ This method also makes the user level up and reset its currentExp back to zero when the currentExp becomes equal to the maxExp after adding experience.
-		+ This method also determines whether the farmer can register or not, given the level requirements of registering.
+	/**
+	* Automatically increments the <i>currentExp</i> of the farmer.
+	* <p>
+	* This private method automatically adds 5 to the farmer's experience points, the standard gain per action.
+	* Other methods/actions which calls for an experience gain calls this method to do it for them.
+	* <p>
+	* Additionally, this also checks if the <i>currentExp</i> matches the <i>maxExp</i>,
+	* which will trigger the player to level up, adding 1 to the current level.
+	* <p>
+	* One feature to note is that this also checks the eligibility of the farmer to register, specified by <i>canRegister</i>;
+	* @see #register()
 	*/
 	private void addExp() {
 		currentExp += 5;
@@ -129,6 +162,11 @@ public class Farmer {
 		if (currentExp == maxExp) {
 			currentExp = 0;
 			level++;
+
+			if (rank == 3) {
+				canRegister = false;
+				return;
+			}
 
 			if (rank == 0) {
 				if (level >= 5)
@@ -145,16 +183,21 @@ public class Farmer {
 					canRegister = true;
 				else
 					canRegister = false;
-			} else {
-				canRegister = false;
 			}
-
 		}
 	}
 
-	/*
-		This is the setRoots method.
-		+ This method sets the surrounding tiles of a given tile in index -pos unavailable for planting.
+	/**
+	*  Sets the availability of the surrounding tiles of the given position
+	* <p>
+	* This method is generally used for seeds of <b>FruitTree</b> instance.
+	* Whevever the seed is planted, it sets the availability of the tiles around it in the four basic directions
+	* to the given boolean value.
+	* <p>
+	*
+	*
+	* @param  pos  an integer which represents the position of the tile
+	* @param  bool  a boolean value to set the tiles' availability to
 	*/
 	private void setRoots(int pos, boolean bool) {
 		// If position is in a corner
@@ -338,8 +381,8 @@ public class Farmer {
 		*/
 
 		display = String.format(
-				"\n   Farmer Name: %s \n   Farmer Rank : %s \n   LEVEL %d: %d / 75\n  Coins: %.2f coins \n   Register Price to next rank: %.2f  %s\n",
-				name, rankName, level, currentExp, coins, regPrice, canReg);
+				"\n   Farmer Name: %s \n   Farmer Rank : %s \n   LEVEL %d: %d / %d\n  Coins: %.2f coins \n   Register Price to next rank: %.2f  %s\n",
+				name, rankName, level, currentExp, maxExp, coins, regPrice, canReg);
 
 		return display;
 	}
@@ -450,6 +493,7 @@ public class Farmer {
 			} else if (rank == 3) {
 				regPrice = 0;
 				rankName = "Honorable Farmer";
+				canRegister = false;
 			}
 
 			return true;
@@ -589,7 +633,7 @@ public class Farmer {
 	*/
 	public boolean plant(int pos, int seedPos) {
 		if (farmLot.get(pos).getAvailable() == true && farmLot.get(pos).getPlowed() == true
-				&& seedBag.get(seedPos).ownsQuantity() == true && farmLot.get(pos).getFC() > 0) // Checks if tile is available and plowed
+				&& seedBag.get(seedPos).ownsQuantity() == true) // Checks if tile is available and plowed
 		{
 			if (seedBag.get(seedPos) instanceof FruitTree) // Checks if the see is a tree
 			{
@@ -664,6 +708,7 @@ public class Farmer {
 
 			farmLot.get(pos).reset();
 			addExp();
+			nHarvested++;
 			return true;
 		}
 
@@ -685,4 +730,11 @@ public class Farmer {
 		return farmLot;
 	}
 
+	public float calculateScore() {
+		return (level * 125 + currentExp) * 5 + rank * 300 + nHarvested * 20;
+	}
+
+	public String getRankName() {
+		return rankName;
+	}
 }
