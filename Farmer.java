@@ -468,7 +468,8 @@ public class Farmer {
 
 	public boolean fertilize(int pos) {
 		if (fertilizer > 0 && farmLot.get(pos).getReady() == false && farmLot.get(pos).getWithered() == false
-				&& farmLot.get(pos).getPlowed() == true) // NOT EMPTY, NOT READY, NOT WITHERED, WITH UNITS
+				&& farmLot.get(pos).getPlowed() == true && farmLot.get(pos).getOccupant() == null
+				&& farmLot.get(pos).getAvailable() == true)// NOT EMPTY, NOT READY, NOT WITHERED, WITH UNITS
 		{
 			farmLot.get(pos).addFertilizerCount();
 			fertilizer--;
