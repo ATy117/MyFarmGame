@@ -41,6 +41,10 @@ import java.awt.Toolkit;
 import java.awt.Point;
 import java.util.Timer;
 import java.util.TimerTask;
+import javafx.stage.WindowEvent;
+import java.util.Optional;
+import javafx.scene.control.ButtonType;
+import java.util.Date;
 
 public class View {
 
@@ -169,6 +173,7 @@ public class View {
     time = new Text("");
     TextFlow timerBox = new TextFlow(time);
     time.setFill(Color.WHITE);
+    time.setFont(Font.font("Arial Black", 30));
 
     TimerTask displayTime = new TimerTask() {
       public void run() {
@@ -251,7 +256,14 @@ public class View {
     register.setPreserveRatio(true);
     register.setOnMouseEntered(e -> register.setImage(selectedregisterimg));
     register.setOnMouseExited(e -> register.setImage(unselectedregisterimg));
-    register.setOnMousePressed(e -> controller.register());
+    register.setOnMousePressed(e -> {
+      Date date = new Date();
+      Alert hello = new Alert(AlertType.INFORMATION);
+      hello.setTitle("LEADERBOARD");
+      hello.setHeaderText("LEADERBOARD as of\n" + date);
+      hello.setContentText(controller.readFile());
+      hello.showAndWait();
+    });
 
     EXPbar = new ProgressBar();
     EXPbar.setStyle("-fx-accent:rgb(101, 66, 0)");
@@ -981,14 +993,33 @@ public class View {
     AnchorPane.setTopAnchor(picture, 45.0);
     AnchorPane.setLeftAnchor(picture, 255.0);
 
-    AnchorPane.setBottomAnchor(timerBox, 45.0);
-    AnchorPane.setLeftAnchor(timerBox, 100.0);
+    AnchorPane.setBottomAnchor(timerBox, 270.0);
+    AnchorPane.setLeftAnchor(timerBox, 340.0);
 
     // Sets scene
     ingame = new Scene(overlap, 1400, 800);
     window.setScene(menu);
     window.setResizable(false);
+
     window.show();
+    window.setOnCloseRequest(new EventHandler<WindowEvent>() {
+
+      public void handle(WindowEvent we) {
+        if (window.getScene() == ingame) {
+          Alert alert = new Alert(AlertType.CONFIRMATION);
+          alert.setTitle("Save stats to leaderboard");
+          alert.setHeaderText("Do you want to save your stats to leaderboard?");
+          Optional<ButtonType> result = alert.showAndWait();
+          if (result.get() == ButtonType.OK) {
+            controller.saveFile();
+          } else {
+
+          }
+        }
+      }
+
+    });
+
   }
 
   public void resetTileAction() {

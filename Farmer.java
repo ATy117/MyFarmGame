@@ -734,7 +734,16 @@ public class Farmer {
 		return (level * 125 + currentExp) * 5 + rank * 300 + nHarvested * 20;
 	}
 
-	public String getRankName() {
-		return rankName;
+	public String displayHighScore() {
+		String display = "";
+
+		display = display + "Username: " + name + "\n";
+		display = display + "Rank: " + rankName + "\n";
+		display = display + "Level: " + level + "(" + currentExp + "/ 125)\n";
+		display = display + "Money: " + coins + "\n";
+		display = display + "Successful Harvests: " + nHarvested + "\n";
+		display = display + "Score: " + calculateScore() + "\n\n";
+
+		return display;
 	}
 }

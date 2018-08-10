@@ -1,4 +1,11 @@
 import javafx.stage.Stage;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
+import javafx.stage.FileChooser;
 
 public class Controller {
   Farmer model;
@@ -8,6 +15,7 @@ public class Controller {
     model = f;
     view = new View(this, primaryStage);
     setRocks();
+
   }
 
   public void setRocks() {
@@ -224,4 +232,45 @@ public class Controller {
       view.displayAlertBox("cannotRegister");
     }
   }
+
+  public void saveFile() {
+    BufferedWriter bw = null;
+    try {
+      File leaderboard = new File("leaderboard.txt");
+
+      if (!leaderboard.exists()) {
+        leaderboard.createNewFile();
+      }
+
+      FileWriter fw = new FileWriter(leaderboard, true);
+      bw = new BufferedWriter(fw);
+      bw.write(model.displayHighScore());
+      System.out.println("File written Successfully");
+    } catch (IOException ioe) {
+      ioe.printStackTrace();
+    } finally {
+      try {
+        if (bw != null)
+          bw.close();
+      } catch (Exception ex) {
+        System.out.println("Error in closing the BufferedWriter" + ex);
+      }
+    }
+  }
+
+  public String readFile () {
+    String display = "";
+    try (BufferedReader reader = new BufferedReader(new FileReader(new File("leaderboard.txt")))) {
+
+        String line;
+        while ((line = reader.readLine()) != null)
+            display = display + line + "\n";
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
+    return display;
+  }
+
 }
