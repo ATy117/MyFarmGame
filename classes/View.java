@@ -50,12 +50,12 @@ import javafx.scene.layout.Region;
 public class View {
 
   //
-  Image menubackground = new Image("images/menubackground.png", 1400, 800, false, false);
+  Image menubackground = new Image("/images/menubackground.png");
   Image logo = new Image("images/logo.png");
   Image dancinggroot = new Image("images/dancinggroot.gif");
   Image dirtbackground = new Image("images/dirtbackground.png");
 
-  Image unselectedturnipimg = new Image("images/unselectedturnip.png");
+  Image unselectedturnipimg = new Image("/images/unselectedturnip.png");
   Image selectedturnipimg = new Image("images/selectedturnip.png");
   Image unselectedcarrotimg = new Image("images/unselectedcarrot.png");
   Image selectedcarrotimg = new Image("images/selectedcarrot.png");

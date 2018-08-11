@@ -236,7 +236,7 @@ public class Controller {
   public void saveFile() {
     BufferedWriter bw = null;
     try {
-      File leaderboard = new File("leaderboard.txt");
+      File leaderboard = new File("leaderboard/leaderboard.txt");
 
       if (!leaderboard.exists()) {
         leaderboard.createNewFile();
@@ -260,7 +260,7 @@ public class Controller {
 
   public String readFile () {
     String display = "";
-    try (BufferedReader reader = new BufferedReader(new FileReader(new File("leaderboard.txt")))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(new File("leaderboard/leaderboard.txt")))) {
 
         String line;
         while ((line = reader.readLine()) != null)

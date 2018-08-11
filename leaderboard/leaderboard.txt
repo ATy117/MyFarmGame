@@ -5,3 +5,10 @@ Money: 285.18749999999994
 Successful Harvests: 6
 Score: 2870.0
 
+Username: 
+Rank: Unregistered Farmer
+Level: 0(5/ 125)
+Money: 200.0
+Successful Harvests: 0
+Score: 25.0
+
