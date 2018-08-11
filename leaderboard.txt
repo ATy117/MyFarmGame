@@ -1,42 +1,7 @@
-Username: 
+Username: gab is gay
 Rank: Unregistered Farmer
-Level: 0(0/ 125
-Money: 200.0
-Successful Harvests: 0
-Score: 0.0
-
-Username: 
-Rank: Unregistered Farmer
-Level: 1(0/ 125
-Money: 200.0
-Successful Harvests: 0
-Score: 625.0
-
-Username: dawdawda
-Rank: Unregistered Farmer
-Level: 1(0/ 125
-Money: 200.0
-Successful Harvests: 0
-Score: 625.0
-
-Username: gab
-Rank: Unregistered Farmer
-Level: 1(0/ 125
-Money: 200.0
-Successful Harvests: 0
-Score: 625.0
-
-Username: 
-Rank: Unregistered Farmer
-Level: 1(0/ 125
-Money: 200.0
-Successful Harvests: 0
-Score: 625.0
-
-Username: 
-Rank: Unregistered Farmer
-Level: 0(0/ 125)
-Money: 200.0
-Successful Harvests: 0
-Score: 0.0
+Level: 4(50/ 125)
+Money: 285.18749999999994
+Successful Harvests: 6
+Score: 2870.0
 

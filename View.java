@@ -45,6 +45,7 @@ import javafx.stage.WindowEvent;
 import java.util.Optional;
 import javafx.scene.control.ButtonType;
 import java.util.Date;
+import javafx.scene.layout.Region;
 
 public class View {
 
@@ -110,6 +111,8 @@ public class View {
   Image selectedgenerateimg = new Image("images/selectedgenerate.png");
   Image unselectedregisterimg = new Image("images/unselectedregister.png");
   Image selectedregisterimg = new Image("images/selectedregister.png");
+  Image unselectedleaderboardimg = new Image("images/unselectedleaderboard.png");
+  Image selectedleaderboardimg = new Image("images/selectedleaderboard.png");
 
   //Tile images
   Image unplowedtile = new Image("images/unplowed_empty_tile.png");
@@ -185,6 +188,7 @@ public class View {
 
     Timer gameTimer = new Timer(true);
     gameTimer.scheduleAtFixedRate(displayTime, 0, 1000);
+
     //Logo
     ImageView logodisplay = new ImageView(logo);
     logodisplay.setFitWidth(439);
@@ -257,12 +261,22 @@ public class View {
     register.setOnMouseEntered(e -> register.setImage(selectedregisterimg));
     register.setOnMouseExited(e -> register.setImage(unselectedregisterimg));
     register.setOnMousePressed(e -> {
+      controller.register();
+    });
+
+    ImageView leaderboard = new ImageView(unselectedleaderboardimg);
+    leaderboard.setFitWidth(80);
+    leaderboard.setPreserveRatio(true);
+    leaderboard.setOnMouseEntered(e -> leaderboard.setImage(selectedleaderboardimg));
+    leaderboard.setOnMouseExited(e -> leaderboard.setImage(unselectedleaderboardimg));
+    leaderboard.setOnMousePressed(e -> {
       Date date = new Date();
-      Alert hello = new Alert(AlertType.INFORMATION);
-      hello.setTitle("LEADERBOARD");
-      hello.setHeaderText("LEADERBOARD as of\n" + date);
-      hello.setContentText(controller.readFile());
-      hello.showAndWait();
+      Alert scoreboard = new Alert(AlertType.INFORMATION);
+      scoreboard.setTitle("LEADERBOARD");
+      scoreboard.setHeaderText("LEADERBOARD as of\n" + date);
+      scoreboard.setContentText(controller.readFile());
+      scoreboard.setResizable(true);
+      scoreboard.showAndWait();
     });
 
     EXPbar = new ProgressBar();
@@ -964,7 +978,7 @@ public class View {
     //---------------------- DIMENSIONS IN GAME------------------------------//
 
     maingame.getChildren().addAll(farmland, invlayout, toollayout, farmerstatsbox, farmerbonusesbox, tileinfo, picture,
-        EXPbar, register, timerBox);
+        EXPbar, register, timerBox, leaderboard);
 
     AnchorPane.setBottomAnchor(invlayout, 17.0);
     AnchorPane.setLeftAnchor(invlayout, 261.0);
@@ -993,8 +1007,11 @@ public class View {
     AnchorPane.setTopAnchor(picture, 45.0);
     AnchorPane.setLeftAnchor(picture, 255.0);
 
-    AnchorPane.setBottomAnchor(timerBox, 270.0);
-    AnchorPane.setLeftAnchor(timerBox, 340.0);
+    AnchorPane.setBottomAnchor(timerBox, 266.0);
+    AnchorPane.setLeftAnchor(timerBox, 280.0);
+
+    AnchorPane.setTopAnchor(leaderboard, 90.0);
+    AnchorPane.setRightAnchor(leaderboard, 200.0);
 
     // Sets scene
     ingame = new Scene(overlap, 1400, 800);
