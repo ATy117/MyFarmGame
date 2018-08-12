@@ -233,6 +233,12 @@ public class Controller {
     String s = model.displayStats();
     return s;
   }
+	
+  public String getCoins() {
+    String s = model.getCoins();
+    return s;
+  }
+  
 
   public void register() {
     if (model.register() == true) {
