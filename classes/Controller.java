@@ -154,8 +154,19 @@ public class Controller {
   }
 
   public void harvest(int tilePos) {
-    if (model.harvest(tilePos))
+    if (model.getFarm().get(tilePos).getOccupant() == null){
+		 view.displayAlertBox("cannotHarvest");
+		 return;
+	  }
+     int productsProduced = model.getFarm().get(tilePos).getOccupant().productsProduced();
+	  double harvestCost = model.getFarm().get(tilePos).getOccupant().getHC();
+	  double total = model.harvest(tilePos);
+	  double credits = (total * productsProduced) - harvestCost;
+    if (total > 0){
+      model.creditCoins(credits);
+		  view.displayAlertBox(credits, productsProduced, total, harvestCost);
       view.setImageUnplowedTile(tilePos);
+    }
     else
       view.displayAlertBox("cannotHarvest");
   }
