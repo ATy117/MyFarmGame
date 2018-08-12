@@ -268,7 +268,7 @@ public class Farmer {
 	* <p>
 	* This method is generally used for seeds of <b>FruitTree</b> instance.
 	* Whevever the seed is planted, this checks the availability of the tiles around it in the four basic directions.
-	* This method returns true if all tiles around it are available ( <i>isAvailable</i> == <b>true</b> ), 
+	* This method returns true if all tiles around it are available ( <i>isAvailable</i> == <b>true</b> ),
 	* else it returns false.
 	* @param  pos  an integer which represents the position of the tile
 	* @return  a boolean value which represents if the tile is available for a <b>FruitTree</b>
@@ -374,14 +374,18 @@ public class Farmer {
 		String display = "";
 		String canReg;
 
-		if (canRegister)
-			canReg = "\n   (ELIGBLE TO REGISTER)";
-		else
-			canReg = "\n   (INELIGBLE TO REGISTER YET)";
+		if (canRegister == true && rank < 3) {
+			canReg = "\n   Rank Up Requirements: Level - " + ((rank + 1) * 5) + " | Coins - " + regPrice;
+			canReg = canReg + "\n   (ELIGBLE TO REGISTER)";
+		} else if (canRegister == false & rank < 3) {
+			canReg = "\n   Rank Up Requirements: Level - " + ((rank + 1) * 5) + " | Coins - " + regPrice;
+			canReg = canReg + "\n   (INELIGBLE TO REGISTER YET)";
+		} else {
+			canReg = "\n   (MAX LEVEL REACHED)";
+		}
 
-		display = String.format(
-				"\n   Farmer Name: %s \n   Farmer Rank : %s \n   LEVEL %d: %d / %d\n   Register Price to next rank: %.2f  %s\n",
-				name, rankName, level, currentExp, maxExp, regPrice, canReg);
+		display = String.format("\n   Farmer Name: %s \n   Farmer Rank : %s \n   LEVEL %d: %d / %d   %s\n", name, rankName,
+				level, currentExp, maxExp, canReg);
 
 		return display;
 	}
@@ -406,26 +410,22 @@ public class Farmer {
 		String display = "";
 
 		if (rank == 1) {
-			display = display + "\n\n   " + rankName + "\n";
-			display = display + "   Buying Discount: - 2 \n";
+			display = display + "\n\n   Buying Discount: - 2 \n";
 			display = display + "   Selling Bonus: + 2 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
 			display = display + "   Harvest Time Bonus: - 5% \n";
 		} else if (rank == 2) {
-			display = display + "\n\n   " + rankName + "\n";
-			display = display + "   Buying Discount: - 3 \n";
+			display = display + "\n\n   Buying Discount: - 3 \n";
 			display = display + "   Selling Bonus: + 3 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 1\n";
 			display = display + "   Harvest Time Bonus: - 10% \n";
 		} else if (rank == 3) {
-			display = display + "\n\n   " + rankName + "\n";
-			display = display + "   Buying Discount: - 5 \n";
+			display = display + "\n\n   Buying Discount: - 5 \n";
 			display = display + "   Selling Bonus: + 5 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 2\n";
 			display = display + "   Harvest Time Bonus: - 15% \n";
 		} else {
-			display = display + "\n\n   " + rankName + "\n";
-			display = display + "   Buying Discount: - 0 \n";
+			display = display + "\n\n   Buying Discount: - 0 \n";
 			display = display + "   Selling Bonus: + 0 \n";
 			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
 			display = display + "   Harvest Time Bonus: - 0% \n";
@@ -501,7 +501,7 @@ public class Farmer {
 	* Registers the farmer to the next <i>Rank</i>, and returns a boolean if successful
 	*
 	* <p>
-	* This method allows the farmer to rank up, changing his <i>rank</i> and <i>rankName</i>. This method also calls the 
+	* This method allows the farmer to rank up, changing his <i>rank</i> and <i>rankName</i>. This method also calls the
 	* updateStats() of the <b>Seed</b> class, making changes according to the rank. If the farmer does not have enough coins,
 	* or can not register yet (based on level restrictions), this method will return false, and true otherwise.
 	* @return	a boolean value if the Farmer successfully registered to the next rank
@@ -539,12 +539,11 @@ public class Farmer {
 		return false;
 	}
 
-	
 	/**
 	* Allows the farmer to the buy a quantity of a <b>Seed</b>
 	*
 	* <p>
-	* This method allows the farmer to buy a seed from the existing seeds in his <i>seedBag</i>. 
+	* This method allows the farmer to buy a seed from the existing seeds in his <i>seedBag</i>.
 	* This method subtracts coins to the farmer's <i>coins</i> and adds one to the <i>qty</i> variable of the <b>Seed</b>.
 	* This method returns true on success, if the farmer has enough coins, and false otherwise.
 	* @param seedPos the position of the seed in the <i>seedBag</i> which the farmer will buy
@@ -652,12 +651,12 @@ public class Farmer {
 	* <p>
 	* This method allows the farmer to plow an unplowed tile or remove a withered plant.
 	* This method first checks if the tile is unplowed, and is available (not occupied by a root or a rock).
-	* An unplowed tile is a state of which seeds cannot be planted. At this check, this method returns true if the tile was 
+	* An unplowed tile is a state of which seeds cannot be planted. At this check, this method returns true if the tile was
 	* successfully plowed.
 	* <p>
 	* Else, if the tile contains a witherd plant instead. This resets the tile to its original unplowed available state
 	* while also debiting the farmer some coins equal to the wither cost, or the cost to remove a withered plant.
-	* 
+	*
 	* <p>
 	* This action adds experience to the farmer upon success.
 	* @param pos the position of the tile in the <i>farmLot</i> which the farmer will plow
@@ -698,9 +697,9 @@ public class Farmer {
 	* After that, it also checks if the seed specified in <i>seedPos</i> has a quantity freater than 0 left.
 	* If it fails this first check, the method returns false.
 	* <p>
-	* If it passes the first check, it will now check on the seed's instance of the <b>Seed</b> class. 
+	* If it passes the first check, it will now check on the seed's instance of the <b>Seed</b> class.
 	* If it is an instance of a <b>FruitTree</b>, it will check if the tiles around it are available. If at least 1 tile
-	* is unavailable, this method returns false, else it will be planted on the tile and will return true. If it is not a 
+	* is unavailable, this method returns false, else it will be planted on the tile and will return true. If it is not a
 	* <b>FruitTree</b>, the seed already gets planted, and will also return true.
 	* <p>
 	* This action adds experience to the farmer upon success.
@@ -801,11 +800,10 @@ public class Farmer {
 	* Automatically credits the given amount of <i>coins</i> to the farmer.
 	* @param value a double value which will be credited to the Farmer's coins
 	*/
-	public void creditCoins(double value)
-	{
+	public void creditCoins(double value) {
 		coins = coins + value;
 	}
-	
+
 	/**
 	* Sets the <i>name</i> variable of the Farmer to the specified <i>String</i>.
 	*
@@ -823,7 +821,7 @@ public class Farmer {
 	public ArrayList<Seed> getSeeds() {
 		return seedBag;
 	}
-	
+
 	/**
 	* Returns the <i>farmLot</i> of the Farmer
 	*
@@ -832,7 +830,7 @@ public class Farmer {
 	public ArrayList<Tile> getFarm() {
 		return farmLot;
 	}
-	
+
 	/**
 	* Returns the <i>coins</i> of the Farmer in String
 	*

@@ -66,13 +66,10 @@ public class Tile {
 		if (occupant != null) {
 			FM = occupant.getFM();
 			WM = occupant.getWM();
-		}
-		else  {
+		} else {
 			FM = 0;
 			WM = 0;
 		}
-
-
 
 		display = display + "\nTile Position: " + pos + "\n\n";
 		display = display + "Plowed: " + isPlowed + "\n";
@@ -80,8 +77,8 @@ public class Tile {
 		display = display + "Withered: " + isWithered + "\n";
 		display = display + "Rock: " + hasRocks + "\n";
 		display = display + "Available: " + isAvailable + "\n";
-		display = display + "Times Watered: " + waterCount + "/" + FM + "\n";
-		display = display + "Times Fertilized: " + fertilizerCount + "/" + WM + "\n";
+		display = display + "Times Watered: " + waterCount + "/" + WM + "\n";
+		display = display + "Times Fertilized: " + fertilizerCount + "/" + FM + "\n";
 
 		String s = "";
 

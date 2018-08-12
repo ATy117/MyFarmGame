@@ -34,7 +34,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Shadow;
+import javafx.scene.effect.Bloom;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 import java.awt.Toolkit;
@@ -311,10 +312,8 @@ public class View {
     farmlayout.setHgap(-20);
     farmlayout.setVgap(-20);
 
-    DropShadow tileshadow = new DropShadow();
-    tileshadow.setHeight(87);
-    tileshadow.setWidth(87);
-    tileshadow.setColor(Color.WHITE);
+    Bloom tilebloom = new Bloom();
+    tilebloom.setThreshold(0.4);
 
     tile = new ImageView[50];
     for (int i = 0; i < 50; i++) {
@@ -322,7 +321,7 @@ public class View {
       tile[i] = new ImageView(unplowedtile);
       tile[i].setFitWidth(85);
       tile[i].setFitHeight(85);
-      tile[num].setOnMouseEntered(e -> tile[num].setEffect(tileshadow));
+      tile[num].setOnMouseEntered(e -> tile[num].setEffect(tilebloom));
       tile[num].setOnMouseExited(e -> tile[num].setEffect(null));
       farmlayout.getChildren().add(tile[i]);
     }
@@ -1155,18 +1154,20 @@ public class View {
       tile[tilepos].setImage(witheredfruittile);
   }
 
-  public void displayAlertBox(double credits, int productsProduced, double total, double harvestCost){
-	  Alert alert = new Alert(AlertType.INFORMATION);
+  public void displayAlertBox(double credits, int productsProduced, double total, double harvestCost) {
+    Alert alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("Successful Harvest");
 
-	  String display1 = "";
-	  display1 = String.format("You have made a profit of %.2f coins!", credits);
-	  alert.setHeaderText(display1);
+    String display1 = "";
+    display1 = String.format("You have made a profit of %.2f coins!", credits);
+    alert.setHeaderText(display1);
 
-	  String display2 = "";
-	  display2 = String.format("The harvest produced %d products. Each product sold for %.2f coins. The harvest costed %.2f coins.", productsProduced, total, harvestCost);
-	  alert.setContentText(display2);
-	  alert.showAndWait();
+    String display2 = "";
+    display2 = String.format(
+        "The harvest produced %d products. Each product sold for %.2f coins. The harvest costed %.2f coins.",
+        productsProduced, total, harvestCost);
+    alert.setContentText(display2);
+    alert.showAndWait();
   }
 
   public void displayAlertBox(String error) {
@@ -1185,7 +1186,8 @@ public class View {
 
     else if (error == "cannotWater") {
       alert.setHeaderText("Cannot water!");
-      alert.setContentText("Possible reasons: \n 1. Already reached max water count\n 2. Cannot fertilize if already planted");
+      alert.setContentText(
+          "Possible reasons: \n 1. Already reached max water count\n 2. Cannot fertilize if already planted");
     }
 
     else if (error == "cannotPlow") {
