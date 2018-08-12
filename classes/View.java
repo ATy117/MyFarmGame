@@ -1136,6 +1136,20 @@ public class View {
       tile[tilepos].setImage(witheredfruittile);
   }
 
+  public void displayAlertBox(double credits, int productsProduced, double total, double harvestCost){
+	  Alert alert = new Alert(AlertType.INFORMATION);
+    alert.setTitle("Successful Harvest");
+    
+	  String display1 = "";
+	  display1 = String.format("You have made a profit of %.2f coins!", credits);
+	  alert.setHeaderText(display1);
+    
+	  String display2 = "";
+	  display2 = String.format("The harvest produced %d products. Each product sold for %.2f coins. The harvest costed %.2f coins.", productsProduced, total, harvestCost);
+	  alert.setContentText(display2);
+	  alert.showAndWait();
+  }
+  
   public void displayAlertBox(String error) {
     Alert alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("You cannot do that!");
