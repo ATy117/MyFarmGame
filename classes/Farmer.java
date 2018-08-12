@@ -170,17 +170,17 @@ public class Farmer {
 			}
 
 			if (rank == 0) {
-				if (level >= 5)
+				if (level <= 5)
 					canRegister = true;
 				else
 					canRegister = false;
 			} else if (rank == 1) {
-				if (level >= 10)
+				if (level <= 10)
 					canRegister = true;
 				else
 					canRegister = false;
 			} else if (rank == 2) {
-				if (level >= 15)
+				if (level <= 15)
 					canRegister = true;
 				else
 					canRegister = false;
@@ -379,17 +379,9 @@ public class Farmer {
 		else
 			canReg = "\n   (INELIGBLE TO REGISTER YET)";
 
-		/*
-		display = display + "\n   Farmer Name: " + name + "\n";
-		display = display + "   Farmer Rank : " + rankName + "\n";
-		display = display + "   LEVEL " + level + ": " + currentExp + " / 75\n";
-		display = display + "   Coins: " + coins + "\n";
-		display = display + "   Register Price to next rank: " + regPrice + canReg + " \n";
-		*/
-
 		display = String.format(
-				"\n   Farmer Name: %s \n   Farmer Rank : %s \n   LEVEL %d: %d / %d\n  Coins: %.2f coins \n   Register Price to next rank: %.2f  %s\n",
-				name, rankName, level, currentExp, maxExp, coins, regPrice, canReg);
+				"\n   Farmer Name: %s \n   Farmer Rank : %s \n   LEVEL %d: %d / %d\n   Register Price to next rank: %.2f  %s\n",
+				name, rankName, level, currentExp, maxExp, regPrice, canReg);
 
 		return display;
 	}
@@ -839,6 +831,17 @@ public class Farmer {
 	*/
 	public ArrayList<Tile> getFarm() {
 		return farmLot;
+	}
+	
+	/**
+	* Returns the <i>coins</i> of the Farmer in String
+	*
+	* @return	a string representation of the Farmer's coins
+	*/
+	public String getCoins() {
+		String coinString = "";
+		coinString = String.format("%.2f", coins);
+		return coinString;
 	}
 
 	/**
