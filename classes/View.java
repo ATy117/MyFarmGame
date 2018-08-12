@@ -152,6 +152,7 @@ public class View {
   int timerCount;
   String timerString;
   Text time;
+  Text coins;
 
   public View(Controller c, Stage primaryStage) {
     //--------------------------- MAIN MENU ------------------------------//
@@ -189,6 +190,20 @@ public class View {
     Timer gameTimer = new Timer(true);
     gameTimer.scheduleAtFixedRate(displayTime, 0, 1000);
 
+    //Coins
+    coins = new Text(controller.getCoins());
+    coins.setFill(Color.WHITE);
+    coins.setFont(Font.font("Arial Black", 20));
+    TextFlow figureBox = new TextFlow(coins);
+	
+    Text coinString = new Text("COINS");
+    coinString.setFill(Color.WHITE);
+    TextFlow stringBox = new TextFlow(coinString);
+	
+    VBox coinsBox = new VBox();
+    coinsBox.getChildren().add(figureBox);
+    coinsBox.getChildren().add(stringBox);
+	  
     //Logo
     ImageView logodisplay = new ImageView(logo);
     logodisplay.setFitWidth(439);
@@ -526,8 +541,8 @@ public class View {
         seedInfo.setPrefWidth(410);
 
         seedInfoBox.getChildren().add(seedInfo);
-        if (maingame.getChildren().size() > 10) {
-          Node n = maingame.getChildren().get(10);
+        if (maingame.getChildren().size() > 12) {
+          Node n = maingame.getChildren().get(12);
           maingame.getChildren().remove(n);
           maingame.getChildren().add(seedInfoBox);
           AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
@@ -635,8 +650,8 @@ public class View {
       seedInfo.setPrefWidth(330);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 10) {
-        Node n = maingame.getChildren().get(10);
+      if (maingame.getChildren().size() > 12) {
+        Node n = maingame.getChildren().get(12);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -713,8 +728,8 @@ public class View {
       seedInfo.setPrefWidth(375);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 10) {
-        Node n = maingame.getChildren().get(10);
+      if (maingame.getChildren().size() > 12) {
+        Node n = maingame.getChildren().get(12);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -793,8 +808,8 @@ public class View {
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 10) {
-        Node n = maingame.getChildren().get(10);
+      if (maingame.getChildren().size() > 12) {
+        Node n = maingame.getChildren().get(12);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -871,8 +886,8 @@ public class View {
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 10) {
-        Node n = maingame.getChildren().get(10);
+      if (maingame.getChildren().size() > 12) {
+        Node n = maingame.getChildren().get(12);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -951,8 +966,8 @@ public class View {
 
       seedInfoBox.getChildren().add(seedInfo);
 
-      if (maingame.getChildren().size() > 10) {
-        Node n = maingame.getChildren().get(10);
+      if (maingame.getChildren().size() > 12) {
+        Node n = maingame.getChildren().get(12);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -978,7 +993,7 @@ public class View {
     //---------------------- DIMENSIONS IN GAME------------------------------//
 
     maingame.getChildren().addAll(farmland, invlayout, toollayout, farmerstatsbox, farmerbonusesbox, tileinfo, picture,
-        EXPbar, register, timerBox, leaderboard);
+        EXPbar, register, timerBox, leaderboard, coinsBox);
 
     AnchorPane.setBottomAnchor(invlayout, 17.0);
     AnchorPane.setLeftAnchor(invlayout, 261.0);
@@ -1012,6 +1027,9 @@ public class View {
 
     AnchorPane.setTopAnchor(leaderboard, 90.0);
     AnchorPane.setRightAnchor(leaderboard, 200.0);
+	  
+    AnchorPane.setTopAnchor(coinsBox, 115.0);
+    AnchorPane.setLeftAnchor(coinsBox, 680.0);
 
     // Sets scene
     ingame = new Scene(overlap, 1400, 800);
@@ -1056,6 +1074,7 @@ public class View {
 
   public void updateFarmerStats() {
     farmerstats.setText(controller.getFarmerStats());
+    coins.setText(controller.getCoins());
     updateFarmerEXPbar();
   }
 
