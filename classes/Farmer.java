@@ -170,17 +170,17 @@ public class Farmer {
 			}
 
 			if (rank == 0) {
-				if (level <= 5)
+				if (level >= 5)
 					canRegister = true;
 				else
 					canRegister = false;
 			} else if (rank == 1) {
-				if (level <= 10)
+				if (level >= 10)
 					canRegister = true;
 				else
 					canRegister = false;
 			} else if (rank == 2) {
-				if (level <= 15)
+				if (level >= 15)
 					canRegister = true;
 				else
 					canRegister = false;
@@ -517,14 +517,14 @@ public class Farmer {
 			if (rank == 1) {
 				regPrice = 250;
 				rankName = "Registered Farmer";
-				if (level > 10)
+				if (level < 10)
 					canRegister = false;
 				else
 					canRegister = true;
 			} else if (rank == 2) {
 				regPrice = 350;
 				rankName = "Distinguished Farmer";
-				if (level > 15)
+				if (level < 15)
 					canRegister = false;
 				else
 					canRegister = true;
