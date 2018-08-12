@@ -195,15 +195,15 @@ public class View {
     coins.setFill(Color.WHITE);
     coins.setFont(Font.font("Arial Black", 20));
     TextFlow figureBox = new TextFlow(coins);
-	
+
     Text coinString = new Text("COINS");
     coinString.setFill(Color.WHITE);
     TextFlow stringBox = new TextFlow(coinString);
-	
+
     VBox coinsBox = new VBox();
     coinsBox.getChildren().add(figureBox);
     coinsBox.getChildren().add(stringBox);
-	  
+
     //Logo
     ImageView logodisplay = new ImageView(logo);
     logodisplay.setFitWidth(439);
@@ -1027,7 +1027,7 @@ public class View {
 
     AnchorPane.setTopAnchor(leaderboard, 90.0);
     AnchorPane.setRightAnchor(leaderboard, 200.0);
-	  
+
     AnchorPane.setTopAnchor(coinsBox, 115.0);
     AnchorPane.setLeftAnchor(coinsBox, 680.0);
 
@@ -1158,17 +1158,17 @@ public class View {
   public void displayAlertBox(double credits, int productsProduced, double total, double harvestCost){
 	  Alert alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("Successful Harvest");
-    
+
 	  String display1 = "";
 	  display1 = String.format("You have made a profit of %.2f coins!", credits);
 	  alert.setHeaderText(display1);
-    
+
 	  String display2 = "";
 	  display2 = String.format("The harvest produced %d products. Each product sold for %.2f coins. The harvest costed %.2f coins.", productsProduced, total, harvestCost);
 	  alert.setContentText(display2);
 	  alert.showAndWait();
   }
-  
+
   public void displayAlertBox(String error) {
     Alert alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("You cannot do that!");
@@ -1185,7 +1185,7 @@ public class View {
 
     else if (error == "cannotWater") {
       alert.setHeaderText("Cannot water!");
-      alert.setContentText("Possible reasons: \n 1. Already reached max water count\n 2. Nothing is planted");
+      alert.setContentText("Possible reasons: \n 1. Already reached max water count\n 2. Cannot fertilize if already planted");
     }
 
     else if (error == "cannotPlow") {
