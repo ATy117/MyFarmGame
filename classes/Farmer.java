@@ -525,9 +525,17 @@ public class Farmer {
 			if (rank == 1) {
 				regPrice = 250;
 				rankName = "Registered Farmer";
+				if (level > 10)
+					canRegister = false;
+				else
+					canRegister = true;
 			} else if (rank == 2) {
 				regPrice = 350;
 				rankName = "Distinguished Farmer";
+				if (level > 15)
+					canRegister = false;
+				else
+					canRegister = true;
 			} else if (rank == 3) {
 				regPrice = 0;
 				rankName = "Honorable Farmer";
