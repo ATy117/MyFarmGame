@@ -375,10 +375,10 @@ public class Farmer {
 		String canReg;
 
 		if (canRegister == true && rank < 3) {
-			canReg = "\n   Rank Up Requirements: Level - " + ((rank + 1) * 5) + " | Coins - " + regPrice;
+			canReg = "\n   Rank Up Requirements:\n   Level - " + ((rank + 1) * 5) + " / Coins - " + regPrice;
 			canReg = canReg + "\n   (ELIGBLE TO REGISTER)";
 		} else if (canRegister == false & rank < 3) {
-			canReg = "\n   Rank Up Requirements: Level - " + ((rank + 1) * 5) + " | Coins - " + regPrice;
+			canReg = "\n   Rank Up Requirements:\n   Level - " + ((rank + 1) * 5) + " / Coins - " + regPrice;
 			canReg = canReg + "\n   (INELIGBLE TO REGISTER YET)";
 		} else {
 			canReg = "\n   (MAX LEVEL REACHED)";
@@ -412,22 +412,22 @@ public class Farmer {
 		if (rank == 1) {
 			display = display + "\n\n   Buying Discount: - 2 \n";
 			display = display + "   Selling Bonus: + 2 \n";
-			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
+			display = display + "   Bonus Water / Fertilizer Limits: + 0\n";
 			display = display + "   Harvest Time Bonus: - 5% \n";
 		} else if (rank == 2) {
 			display = display + "\n\n   Buying Discount: - 3 \n";
 			display = display + "   Selling Bonus: + 3 \n";
-			display = display + "   Bonus Water and Fertilizer Limits: + 1\n";
+			display = display + "   Bonus Water / Fertilizer Limits: + 1\n";
 			display = display + "   Harvest Time Bonus: - 10% \n";
 		} else if (rank == 3) {
 			display = display + "\n\n   Buying Discount: - 5 \n";
 			display = display + "   Selling Bonus: + 5 \n";
-			display = display + "   Bonus Water and Fertilizer Limits: + 2\n";
+			display = display + "   Bonus Water / Fertilizer Limits: + 2\n";
 			display = display + "   Harvest Time Bonus: - 15% \n";
 		} else {
 			display = display + "\n\n   Buying Discount: - 0 \n";
 			display = display + "   Selling Bonus: + 0 \n";
-			display = display + "   Bonus Water and Fertilizer Limits: + 0\n";
+			display = display + "   Bonus Water / Fertilizer Limits: + 0\n";
 			display = display + "   Harvest Time Bonus: - 0% \n";
 		}
 

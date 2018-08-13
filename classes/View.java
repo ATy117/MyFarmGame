@@ -255,7 +255,7 @@ public class View {
     picture.getChildren().add(farmericon);
 
     TextFlow farmerstatsbox = new TextFlow(farmerstats);
-    farmerstats.setFont(Font.font("Springfield Cartoon", 15));
+    farmerstats.setFont(Font.font("Yoster Island", 15));
     farmerstats.setFill(Color.WHITE);
     farmerstatsbox
         .setStyle("-fx-padding: 0;" + "-fx-border-width: 2;" + "-fx-border-insets: 0;" + "-fx-border-radius: 5;");
@@ -263,7 +263,7 @@ public class View {
     farmerstatsbox.setPrefHeight(148);
 
     farmerbonuses = new Text(controller.getFarmerBonuses());
-    farmerbonuses.setFont(Font.font("Springfield Cartoon", 15));
+    farmerbonuses.setFont(Font.font("Yoster Island", 15));
     farmerbonuses.setFill(Color.WHITE);
     TextFlow farmerbonusesbox = new TextFlow(farmerbonuses);
     farmerbonusesbox
@@ -452,7 +452,7 @@ public class View {
       butt.setOnMouseClicked(e -> {
         resetTileAction();
         Text info = new Text(controller.getSeedInfo(seedPos));
-        info.setFont(Font.font("Springfield Cartoon", 15));
+        info.setFont(Font.font("Yoster Island", 15));
         info.setFill(Color.WHITE);
         HBox seedInfoBox = new HBox();
         seedInfoBox.setPrefWidth(530);
@@ -642,7 +642,7 @@ public class View {
       buttonBox.getChildren().add(cancelButton);
       seedInfoBox.getChildren().add(buttonBox);
 
-      info.setFont(Font.font("Springfield Cartoon", 15));
+      info.setFont(Font.font("Yoster Island", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
@@ -720,7 +720,7 @@ public class View {
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getScyteInfo());
-      info.setFont(Font.font("Springfield Cartoon", 15));
+      info.setFont(Font.font("Yoster Island", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
@@ -800,7 +800,7 @@ public class View {
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getWaterInfo());
-      info.setFont(Font.font("Springfield Cartoon", 15));
+      info.setFont(Font.font("Yoster Island", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
@@ -878,7 +878,7 @@ public class View {
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getHarvestInfo());
-      info.setFont(Font.font("Springfield Cartoon", 15));
+      info.setFont(Font.font("Yoster Island", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
@@ -957,7 +957,7 @@ public class View {
       seedInfoBox.getChildren().add(buttonBox);
 
       Text info = new Text(controller.getPickaxeInfo());
-      info.setFont(Font.font("Springfield Cartoon", 15));
+      info.setFont(Font.font("Yoster Island", 15));
       info.setFill(Color.WHITE);
       TextFlow seedInfo = new TextFlow(info);
       seedInfo.setStyle("-fx-padding: 5;" + "-fx-border-width: 2;" + "-fx-border-insets: 5;" + "-fx-border-radius: 5;");
@@ -980,7 +980,7 @@ public class View {
     });
 
     tileinformation = new Text("");
-    tileinformation.setFont(Font.font("Springfield Cartoon", 15));
+    tileinformation.setFont(Font.font("Yoster Island", 15));
     tileinformation.setFill(Color.WHITE);
     TextFlow tileinfo = new TextFlow(tileinformation);
     tileinfo.setPrefWidth(275);
@@ -1003,32 +1003,32 @@ public class View {
     AnchorPane.setTopAnchor(farmland, 210.0);
     AnchorPane.setLeftAnchor(farmland, 550.0);
 
-    AnchorPane.setTopAnchor(farmerstatsbox, 35.0);
-    AnchorPane.setLeftAnchor(farmerstatsbox, 410.0);
+    AnchorPane.setTopAnchor(farmerstatsbox, 40.0);
+    AnchorPane.setLeftAnchor(farmerstatsbox, 405.0);
 
-    AnchorPane.setTopAnchor(farmerbonusesbox, 35.0);
-    AnchorPane.setRightAnchor(farmerbonusesbox, 200.0);
+    AnchorPane.setTopAnchor(farmerbonusesbox, 40.0);
+    AnchorPane.setRightAnchor(farmerbonusesbox, 235.0);
 
     AnchorPane.setTopAnchor(tileinfo, 213.0);
     AnchorPane.setLeftAnchor(tileinfo, 200.0);
 
     AnchorPane.setTopAnchor(EXPbar, 86.0);
-    AnchorPane.setLeftAnchor(EXPbar, 550.0);
+    AnchorPane.setLeftAnchor(EXPbar, 587.0);
 
-    AnchorPane.setTopAnchor(register, 60.0);
-    AnchorPane.setRightAnchor(register, 200.0);
+    AnchorPane.setTopAnchor(register, 35.0);
+    AnchorPane.setRightAnchor(register, 185.0);
 
     AnchorPane.setTopAnchor(picture, 45.0);
     AnchorPane.setLeftAnchor(picture, 255.0);
 
-    AnchorPane.setBottomAnchor(timerBox, 266.0);
-    AnchorPane.setLeftAnchor(timerBox, 280.0);
+    AnchorPane.setBottomAnchor(timerBox, 264.0);
+    AnchorPane.setLeftAnchor(timerBox, 274.0);
 
-    AnchorPane.setTopAnchor(leaderboard, 90.0);
-    AnchorPane.setRightAnchor(leaderboard, 200.0);
+    AnchorPane.setTopAnchor(leaderboard, 65.0);
+    AnchorPane.setRightAnchor(leaderboard, 185.0);
 
-    AnchorPane.setTopAnchor(coinsBox, 115.0);
-    AnchorPane.setLeftAnchor(coinsBox, 680.0);
+    AnchorPane.setTopAnchor(coinsBox, 120.0);
+    AnchorPane.setLeftAnchor(coinsBox, 720.0);
 
     // Sets scene
     ingame = new Scene(overlap, 1400, 800);
