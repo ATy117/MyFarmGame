@@ -1022,13 +1022,13 @@ public class View {
     AnchorPane.setLeftAnchor(picture, 255.0);
 
     AnchorPane.setBottomAnchor(timerBox, 264.0);
-    AnchorPane.setLeftAnchor(timerBox, 274.0);
+    AnchorPane.setLeftAnchor(timerBox, 272.0);
 
     AnchorPane.setTopAnchor(leaderboard, 65.0);
     AnchorPane.setRightAnchor(leaderboard, 185.0);
 
     AnchorPane.setTopAnchor(coinsBox, 120.0);
-    AnchorPane.setLeftAnchor(coinsBox, 720.0);
+    AnchorPane.setLeftAnchor(coinsBox, 713.0);
 
     // Sets scene
     ingame = new Scene(overlap, 1400, 800);
