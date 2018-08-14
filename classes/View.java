@@ -47,6 +47,10 @@ import java.util.Optional;
 import javafx.scene.control.ButtonType;
 import java.util.Date;
 import javafx.scene.layout.Region;
+import java.io.File;
+import java.net.URI;
+import java.net.URL;
+import javafx.util.Duration;
 
 public class View {
 
@@ -137,9 +141,6 @@ public class View {
   Image growing_fruit_tile = new Image("images/growing_tree_tile.png");
   Image growing_veggie_tile = new Image("images/growing_veggie_tile.png");
   Image growing_flower_tile = new Image("images/growing_flower_tile.png");
-  //Image cursor = new Image("url");
-
-  //Media backgroundmusic = new Media("file://sounds/backgroundmusic.mp3");
 
   // Declaration of public variables
   Stage window;
@@ -170,8 +171,16 @@ public class View {
     grid.getChildren().add(menubackgroundiv);
 
     // Background music
-    //MediaPlayer backgroundmusicmp = new MediaPlayer(backgroundmusic);
-    //backgroundmusicmp.play();
+    File file = new File("sounds/backgroundmusic.mp3");
+    Media audio = new Media(file.toURI().toString());
+    MediaPlayer backgroundmusicmp = new MediaPlayer(audio);
+    backgroundmusicmp.setVolume(0.5);
+    backgroundmusicmp.setOnEndOfMedia(new Runnable() {
+      public void run() {
+        backgroundmusicmp.seek(Duration.ZERO);
+      }
+    });
+    backgroundmusicmp.play();
 
     //Timer
     timerCount = 0;

@@ -154,20 +154,19 @@ public class Controller {
   }
 
   public void harvest(int tilePos) {
-    if (model.getFarm().get(tilePos).getOccupant() == null){
-		 view.displayAlertBox("cannotHarvest");
-		 return;
-	  }
-     int productsProduced = model.getFarm().get(tilePos).getOccupant().productsProduced();
-	  double harvestCost = model.getFarm().get(tilePos).getOccupant().getHC();
-	  double total = model.harvest(tilePos);
-	  double credits = (total * productsProduced) - harvestCost;
-    if (total > 0){
-      model.creditCoins(credits);
-		  view.displayAlertBox(credits, productsProduced, total, harvestCost);
-      view.setImageUnplowedTile(tilePos);
+    if (model.getFarm().get(tilePos).getOccupant() == null) {
+      view.displayAlertBox("cannotHarvest");
+      return;
     }
-    else
+    int productsProduced = model.getFarm().get(tilePos).getOccupant().productsProduced();
+    double harvestCost = model.getFarm().get(tilePos).getOccupant().getHC();
+    double total = model.harvest(tilePos);
+    double credits = (total * productsProduced) - harvestCost;
+    if (total > 0) {
+      model.creditCoins(credits);
+      view.displayAlertBox(credits, productsProduced, total, harvestCost);
+      view.setImageUnplowedTile(tilePos);
+    } else
       view.displayAlertBox("cannotHarvest");
   }
 
@@ -233,12 +232,11 @@ public class Controller {
     String s = model.displayStats();
     return s;
   }
-	
+
   public String getCoins() {
     String s = model.getCoins();
     return s;
   }
-  
 
   public void register() {
     if (model.register() == true) {
@@ -262,7 +260,6 @@ public class Controller {
       FileWriter fw = new FileWriter(leaderboard, true);
       bw = new BufferedWriter(fw);
       bw.write(model.displayHighScore());
-      System.out.println("File written Successfully");
     } catch (IOException ioe) {
       ioe.printStackTrace();
     } finally {
@@ -275,16 +272,16 @@ public class Controller {
     }
   }
 
-  public String readFile () {
+  public String readFile() {
     String display = "";
     try (BufferedReader reader = new BufferedReader(new FileReader(new File("leaderboard/leaderboard.txt")))) {
 
-        String line;
-        while ((line = reader.readLine()) != null)
-            display = display + line + "\n";
+      String line;
+      while ((line = reader.readLine()) != null)
+        display = display + line + "\n";
 
     } catch (IOException e) {
-        e.printStackTrace();
+      e.printStackTrace();
     }
 
     return display;

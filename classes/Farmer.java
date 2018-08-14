@@ -207,21 +207,25 @@ public class Farmer {
 			case 0:
 				farmLot.get(pos + 1).setAvailable(bool);
 				farmLot.get(pos + 10).setAvailable(bool);
+				farmLot.get(pos + 11).setAvailable(bool);
 				break;
 
 			case 9:
 				farmLot.get(pos - 1).setAvailable(bool);
 				farmLot.get(pos + 10).setAvailable(bool);
+				farmLot.get(pos + 9).setAvailable(bool);
 				break;
 
 			case 40:
 				farmLot.get(pos + 1).setAvailable(bool);
 				farmLot.get(pos - 10).setAvailable(bool);
+				farmLot.get(pos - 9).setAvailable(bool);
 				break;
 
 			case 49:
 				farmLot.get(pos - 1).setAvailable(bool);
 				farmLot.get(pos - 10).setAvailable(bool);
+				farmLot.get(pos - 11).setAvailable(bool);
 				break;
 
 			}
@@ -231,6 +235,8 @@ public class Farmer {
 			farmLot.get(pos - 10).setAvailable(bool);
 			farmLot.get(pos + 1).setAvailable(bool);
 			farmLot.get(pos + 10).setAvailable(bool);
+			farmLot.get(pos - 9).setAvailable(bool);
+			farmLot.get(pos + 11).setAvailable(bool);
 
 		}
 		// If position is on right edge
@@ -238,6 +244,8 @@ public class Farmer {
 			farmLot.get(pos - 10).setAvailable(bool);
 			farmLot.get(pos - 1).setAvailable(bool);
 			farmLot.get(pos + 10).setAvailable(bool);
+			farmLot.get(pos - 9).setAvailable(bool);
+			farmLot.get(pos + 9).setAvailable(bool);
 
 		}
 		// If position is on top edge
@@ -245,6 +253,8 @@ public class Farmer {
 			farmLot.get(pos - 1).setAvailable(bool);
 			farmLot.get(pos + 10).setAvailable(bool);
 			farmLot.get(pos + 1).setAvailable(bool);
+			farmLot.get(pos + 9).setAvailable(bool);
+			farmLot.get(pos + 11).setAvailable(bool);
 
 		}
 		// If position is on bottom edge
@@ -252,6 +262,8 @@ public class Farmer {
 			farmLot.get(pos - 1).setAvailable(bool);
 			farmLot.get(pos - 10).setAvailable(bool);
 			farmLot.get(pos + 1).setAvailable(bool);
+			farmLot.get(pos - 9).setAvailable(bool);
+			farmLot.get(pos - 11).setAvailable(bool);
 
 		}
 		// If position is within borders
@@ -260,6 +272,10 @@ public class Farmer {
 			farmLot.get(pos + 1).setAvailable(bool);
 			farmLot.get(pos + 10).setAvailable(bool);
 			farmLot.get(pos - 10).setAvailable(bool);
+			farmLot.get(pos - 9).setAvailable(bool);
+			farmLot.get(pos + 9).setAvailable(bool);
+			farmLot.get(pos + 11).setAvailable(bool);
+			farmLot.get(pos - 11).setAvailable(bool);
 		}
 	}
 
@@ -283,12 +299,16 @@ public class Farmer {
 					return false;
 				if (!farmLot.get(pos + 10).getAvailable())
 					return false;
+				if (!farmLot.get(pos + 11).getAvailable())
+					return false;
 				break;
 
 			case 9:
 				if (!farmLot.get(pos - 1).getAvailable())
 					return false;
 				if (!farmLot.get(pos + 10).getAvailable())
+					return false;
+				if (!farmLot.get(pos + 9).getAvailable())
 					return false;
 				break;
 
@@ -297,12 +317,16 @@ public class Farmer {
 					return false;
 				if (!farmLot.get(pos - 10).getAvailable())
 					return false;
+				if (!farmLot.get(pos - 9).getAvailable())
+					return false;
 				break;
 
 			case 49:
 				if (!farmLot.get(pos - 1).getAvailable())
 					return false;
 				if (!farmLot.get(pos - 10).getAvailable())
+					return false;
+				if (!farmLot.get(pos - 11).getAvailable())
 					return false;
 				break;
 
@@ -316,6 +340,10 @@ public class Farmer {
 				return false;
 			if (!farmLot.get(pos + 10).getAvailable())
 				return false;
+			if (!farmLot.get(pos - 9).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 11).getAvailable())
+				return false;
 
 		}
 		// If position is on right edge
@@ -325,6 +353,10 @@ public class Farmer {
 			if (!farmLot.get(pos - 1).getAvailable())
 				return false;
 			if (!farmLot.get(pos + 10).getAvailable())
+				return false;
+			if (!farmLot.get(pos - 9).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 9).getAvailable())
 				return false;
 
 		}
@@ -336,6 +368,10 @@ public class Farmer {
 				return false;
 			if (!farmLot.get(pos + 1).getAvailable())
 				return false;
+			if (!farmLot.get(pos + 9).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 11).getAvailable())
+				return false;
 
 		}
 		// If position is on bottom edge
@@ -345,6 +381,10 @@ public class Farmer {
 			if (!farmLot.get(pos - 10).getAvailable())
 				return false;
 			if (!farmLot.get(pos + 1).getAvailable())
+				return false;
+			if (!farmLot.get(pos - 9).getAvailable())
+				return false;
+			if (!farmLot.get(pos - 11).getAvailable())
 				return false;
 
 		}
@@ -357,6 +397,14 @@ public class Farmer {
 			if (!farmLot.get(pos + 10).getAvailable())
 				return false;
 			if (!farmLot.get(pos - 10).getAvailable())
+				return false;
+			if (!farmLot.get(pos - 9).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 11).getAvailable())
+				return false;
+			if (!farmLot.get(pos + 9).getAvailable())
+				return false;
+			if (!farmLot.get(pos - 11).getAvailable())
 				return false;
 		}
 
@@ -440,7 +488,6 @@ public class Farmer {
 	* <p>
 	* The string is formatted in such a way that it makes displaying information easier in the View class
 	* @return	a string representation of the information about the Pickaxe Tool
-	* @see #removeRock()
 	*/
 	public String displayPickaxeInfo() {
 		return "This is a Pickaxe. This tool is used to remove rocks littered across the farm.\n\nPress 'Remove Rock' then select the tile.";
@@ -452,7 +499,6 @@ public class Farmer {
 	* <p>
 	* The string is formatted in such a way that it makes displaying information easier in the View class
 	* @return	a string representation of the information about the Watering Can Tool
-	* @see #water()
 	*/
 	public String displayWaterInfo() {
 		return "This is a Watering Can. This tool is used to water a tile with a growing plant on it.\n\nYou have unlimited uses for this.\n\nPress 'Water' then select the tile to water it.";
@@ -464,8 +510,6 @@ public class Farmer {
 	* <p>
 	* The string is formatted in such a way that it makes displaying information easier in the View class
 	* @return	a string representation of the information about the Fertilizer
-	* @see #fertilize()
-	* @see #buyFertilizer()
 	*/
 	public String displayFertilizerInfo() {
 		return "This is Fertilizer. This tool is used to fertilize a tile with a growing plant on it. You currently have "
@@ -479,7 +523,6 @@ public class Farmer {
 	* <p>
 	* The string is formatted in such a way that it makes displaying information easier in the View class
 	* @return	a string representation of the information about the Scyte Tool
-	* @see #plow()
 	*/
 	public String displayScyteInfo() {
 		return "This is the Plow Tool. This tool is used to plow an unplowed tile or remove a withered plant for a cost.\n\nPress 'Plow' then select the tile to plow the tile or remove a withered plant for 10% of the plant's seed cost.";
@@ -491,7 +534,6 @@ public class Farmer {
 	* <p>
 	* The string is formatted in such a way that it makes displaying information easier in the View class
 	* @return	a string representation of the information about the Harvest Tool
-	* @see #harvest()
 	*/
 	public String displayHarvestInfo() {
 		return "This is the Harvest Tool. This tool is used to harvest a grown plant.\n\nPress 'Harvest' then select the tile to harvest the tile.";
