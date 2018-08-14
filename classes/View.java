@@ -141,15 +141,19 @@ public class View {
   Image growing_fruit_tile = new Image("images/growing_tree_tile.png");
   Image growing_veggie_tile = new Image("images/growing_veggie_tile.png");
   Image growing_flower_tile = new Image("images/growing_flower_tile.png");
+  Image mutedbuttonimg = new Image("images/mutedbutton.png");
+  Image unmutedbuttonimg = new Image("images/unmutedbutton.png");
 
   // Declaration of public variables
   Stage window;
   Scene menu, ingame;
   ImageView[] tile;
+  ImageView mute;
   Text tileinformation;
   Text farmerstats, farmerbonuses;
   Controller controller;
   ProgressBar EXPbar;
+  MediaPlayer backgroundmusicmp;
 
   int timerCount;
   String timerString;
@@ -173,7 +177,7 @@ public class View {
     // Background music
     File file = new File("sounds/backgroundmusic.mp3");
     Media audio = new Media(file.toURI().toString());
-    MediaPlayer backgroundmusicmp = new MediaPlayer(audio);
+    backgroundmusicmp = new MediaPlayer(audio);
     backgroundmusicmp.setVolume(0.5);
     backgroundmusicmp.setOnEndOfMedia(new Runnable() {
       public void run() {
@@ -181,6 +185,12 @@ public class View {
       }
     });
     backgroundmusicmp.play();
+
+    //Mute button
+    mute = new ImageView(unmutedbuttonimg);
+    mute.setFitWidth(32);
+    mute.setPreserveRatio(true);
+    mute.setOnMousePressed(e -> mute());
 
     //Timer
     timerCount = 0;
@@ -549,8 +559,8 @@ public class View {
         seedInfo.setPrefWidth(410);
 
         seedInfoBox.getChildren().add(seedInfo);
-        if (maingame.getChildren().size() > 12) {
-          Node n = maingame.getChildren().get(12);
+        if (maingame.getChildren().size() > 13) {
+          Node n = maingame.getChildren().get(13);
           maingame.getChildren().remove(n);
           maingame.getChildren().add(seedInfoBox);
           AnchorPane.setBottomAnchor(seedInfoBox, 13.0);
@@ -658,8 +668,8 @@ public class View {
       seedInfo.setPrefWidth(330);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 12) {
-        Node n = maingame.getChildren().get(12);
+      if (maingame.getChildren().size() > 13) {
+        Node n = maingame.getChildren().get(13);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -736,8 +746,8 @@ public class View {
       seedInfo.setPrefWidth(375);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 12) {
-        Node n = maingame.getChildren().get(12);
+      if (maingame.getChildren().size() > 13) {
+        Node n = maingame.getChildren().get(13);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -816,8 +826,8 @@ public class View {
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 12) {
-        Node n = maingame.getChildren().get(12);
+      if (maingame.getChildren().size() > 13) {
+        Node n = maingame.getChildren().get(13);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -894,8 +904,8 @@ public class View {
       seedInfo.setPrefWidth(380);
 
       seedInfoBox.getChildren().add(seedInfo);
-      if (maingame.getChildren().size() > 12) {
-        Node n = maingame.getChildren().get(12);
+      if (maingame.getChildren().size() > 13) {
+        Node n = maingame.getChildren().get(13);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -974,8 +984,8 @@ public class View {
 
       seedInfoBox.getChildren().add(seedInfo);
 
-      if (maingame.getChildren().size() > 12) {
-        Node n = maingame.getChildren().get(12);
+      if (maingame.getChildren().size() > 13) {
+        Node n = maingame.getChildren().get(13);
         maingame.getChildren().remove(n);
         maingame.getChildren().add(seedInfoBox);
         AnchorPane.setBottomAnchor(seedInfoBox, 0.0);
@@ -1001,7 +1011,7 @@ public class View {
     //---------------------- DIMENSIONS IN GAME------------------------------//
 
     maingame.getChildren().addAll(farmland, invlayout, toollayout, farmerstatsbox, farmerbonusesbox, tileinfo, picture,
-        EXPbar, register, timerBox, leaderboard, coinsBox);
+        EXPbar, register, timerBox, leaderboard, coinsBox, mute);
 
     AnchorPane.setBottomAnchor(invlayout, 17.0);
     AnchorPane.setLeftAnchor(invlayout, 261.0);
@@ -1038,6 +1048,9 @@ public class View {
 
     AnchorPane.setTopAnchor(coinsBox, 120.0);
     AnchorPane.setLeftAnchor(coinsBox, 713.0);
+
+    AnchorPane.setBottomAnchor(mute, 20.0);
+    AnchorPane.setLeftAnchor(mute, 20.0);
 
     // Sets scene
     ingame = new Scene(overlap, 1400, 800);
@@ -1230,6 +1243,18 @@ public class View {
 
     alert.showAndWait();
 
+  }
+
+  public void unmute() {
+    mute.setImage(unmutedbuttonimg);
+    backgroundmusicmp.play();
+    mute.setOnMousePressed(e -> mute());
+  }
+
+  public void mute() {
+    mute.setImage(mutedbuttonimg);
+    backgroundmusicmp.stop();
+    mute.setOnMousePressed(e -> unmute());
   }
 
 }

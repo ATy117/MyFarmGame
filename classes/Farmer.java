@@ -429,7 +429,7 @@ public class Farmer {
 			canReg = "\n   Rank Up Requirements:\n   Level - " + ((rank + 1) * 5) + " / Coins - " + regPrice;
 			canReg = canReg + "\n   (INELIGBLE TO REGISTER YET)";
 		} else {
-			canReg = "\n   (MAX LEVEL REACHED)";
+			canReg = "\n   (MAX RANK REACHED)";
 		}
 
 		display = String.format("\n   Farmer Name: %s \n   Farmer Rank : %s \n   LEVEL %d: %d / %d   %s\n", name, rankName,

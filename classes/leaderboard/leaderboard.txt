@@ -1,0 +1,7 @@
+Username: Gab
+Rank: Honorable Farmer
+Level: 30(100/ 125)
+Money: 5083.25
+Successful Harvests: 91
+Score: 21970.0
+
