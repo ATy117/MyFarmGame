@@ -107,7 +107,7 @@ public class Farmer {
 		seedBag.add(stargazer);
 		Flower sunflower = new Flower("Sunflower", 3.5, 2, 3, 1, 2, 2, 20, 19);
 		seedBag.add(sunflower);
-		FruitTree mango = new FruitTree("Mango", 7, 7, 7, 4, 4, 3, 50, 4, 5, 10);
+		FruitTree mango = new FruitTree("Mango", 0.5, 7, 7, 4, 4, 3, 50, 4, 5, 10);
 		seedBag.add(mango);
 		FruitTree apple = new FruitTree("Apple", 7, 7, 7, 5, 5, 3, 55, 3.5, 7, 10);
 		seedBag.add(apple);
@@ -200,7 +200,7 @@ public class Farmer {
 	* @param  pos  an integer which represents the position of the tile
 	* @param  bool  a boolean value to set the tiles' availability to
 	*/
-	private void setRoots(int pos, boolean bool) {
+	public void setRoots(int pos, boolean bool) {
 		// If position is in a corner
 		if (pos == 0 || pos == 9 || pos == 40 || pos == 49) {
 			switch (pos) {

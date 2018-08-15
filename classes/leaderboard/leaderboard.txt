@@ -5,3 +5,10 @@ Money: 5083.25
 Successful Harvests: 91
 Score: 21970.0
 
+Username: TY
+Rank: Honorable Farmer
+Level: 41(45/ 125)
+Money: 5589.2125000000015
+Successful Harvests: 98
+Score: 28710.0
+

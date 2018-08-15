@@ -119,7 +119,12 @@ public class Controller {
             }
 
             view.setImageUnplowedTile(tilePos);
-            model.getFarm().get(tilePos).reset();
+            if (model.getFarm().get(tilePos).getOccupant() instanceof FruitTree){
+              model.getFarm().get(tilePos).reset();
+              model.setRoots(tilePos, true);
+            }else{
+              model.getFarm().get(tilePos).reset();
+            }
           } else {
 
             view.setImageToWithered(seedPos, tilePos);
@@ -140,7 +145,12 @@ public class Controller {
             }
 
             view.setImageUnplowedTile(tilePos);
-            model.getFarm().get(tilePos).reset();
+            if (model.getFarm().get(tilePos).getOccupant() instanceof FruitTree){
+              model.getFarm().get(tilePos).reset();
+              model.setRoots(tilePos, true);
+            }else{
+              model.getFarm().get(tilePos).reset();
+            }
 
           }
 

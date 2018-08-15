@@ -1236,7 +1236,7 @@ public class View {
     }
 
     else if (error == "cannotRegister") {
-      alert.setHeaderText("Cannot reigster!");
+      alert.setHeaderText("Cannot register!");
       alert.setContentText(
           "Possible reasons: \n 1. Not enough money\n 2. Level minimum not reached\n 3. Already max rank");
     }
