@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"<Unnamed>","l":"App"},{"p":"<Unnamed>","l":"Controller"},{"p":"<Unnamed>","l":"Farmer"},{"p":"<Unnamed>","l":"Flower"},{"p":"<Unnamed>","l":"FruitTree"},{"p":"<Unnamed>","l":"Seed"},{"p":"<Unnamed>","l":"Tile"},{"p":"<Unnamed>","l":"Vegetable"},{"p":"<Unnamed>","l":"View"}]
