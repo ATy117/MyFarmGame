@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae2cd68b-b2ba-43bf-aa1a-ed4ba3f8c5b6" name="Default Changelist" comment="added back files">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/gab.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mountvesuvius.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/Farmer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/Flower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/FruitTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/Seed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/Tile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/Vegetable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/App.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/Controller.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/Farmer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/Flower.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/FruitTree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/Seed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/Tile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/Vegetable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/View.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/allclasses-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/allclasses-noframe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/constant-values.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/deprecated-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/index-all.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/external/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-bg_flat_0_aaaaaa_40x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-bg_flat_75_ffffff_40x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-bg_glass_55_fbf9ee_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-bg_glass_65_ffffff_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-bg_glass_75_dadada_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-bg_glass_75_e6e6e6_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-bg_glass_95_fef1ec_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-icons_222222_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-icons_2e83ff_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-icons_454545_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-icons_888888_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/images/ui-icons_cd0a0a_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jquery-1.10.2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jquery-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jquery-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jquery-ui.structure.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jquery-ui.structure.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jszip-utils/dist/jszip-utils-ie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jszip-utils/dist/jszip-utils-ie.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jszip-utils/dist/jszip-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jszip-utils/dist/jszip-utils.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jszip/dist/jszip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/jquery/jszip/dist/jszip.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/resources/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/resources/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/api/type-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/4715284107624448.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/applenotile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/banananotile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/dancinggroot.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/dirtbackground.mdp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/dirtbackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/dwayne_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/fertilizer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/growing_flower_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/growing_tree_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/growing_veggie_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grown_carrot_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grown_potato_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grown_rose_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grown_stargazer_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grown_sunflower_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grown_tomato_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grown_tulip_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grown_turnip_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grownappletile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grownbananatile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grownmangotile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/grownorangetile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/mangonotile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/menubackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/mutedbutton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/orangenotile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/plowed_empty_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/plowedtile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/100_flower_sprites_by_neoriceisgood-d5rpq1t 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/100_flower_sprites_by_neoriceisgood-d5rpq1t 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/100_flower_sprites_by_neoriceisgood-d5rpq1t 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/100_flower_sprites_by_neoriceisgood-d5rpq1t.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/Apple_burned.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/Banana_burned.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/Mango_burned.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/Orange_burned.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/apple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/banana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/bottominfobox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/carrot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/mango.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/potato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/rose.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/stargazer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/sunflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/tomato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/tulip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/raw images/turnip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/rock_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedapple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedbanana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedbuy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedcancel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedcarrot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedfertilize.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedfertilizer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedgenerate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedharvest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedharvesttool.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedleaderboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedmango.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedmine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedorange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedpickaxe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedplant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedplow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedplowtool.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedpotato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedregister.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedrose.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedstargazer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedsunflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedtomato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedtulip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedturnip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedwater.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/selectedwateringcan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unmutedbutton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unplowed_empty_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unplowedtile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedapple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedbanana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedbuy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedcancel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedcarrot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedfertilize.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedfertilizer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedgenerate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedharvest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedharvesttool.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedleaderboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedmango.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedmine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedorange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedpickaxe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedplant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedplow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedplowtool.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedpotato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedregister.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedrose.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedstargazer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedsunflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedtomato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedtulip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedturnip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedwater.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/unselectedwateringcan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/withered_flower_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/withered_tree_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/images/withered_veggie_tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/leaderboard/leaderboard.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/sounds/backgroundmusic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/yoster.ttf" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/classes/FruitTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="832" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mountvesuvius" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mountvesuvius" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mountvesuvius" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mountvesuvius" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mountvesuvius" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mountvesuvius" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/classes" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="832" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Learn" order="3" weight="0.3297568" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.329235" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="right" id="Maven" order="3" visible="true" weight="0.3297568" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.3297568" />
+      <window_info anchor="right" x="657" y="98" width="644" height="227" id="Run" order="6" type="FLOATING" weight="0.32876712" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added back files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added back files" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/classes/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/FruitTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
